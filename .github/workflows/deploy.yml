@@ -1,14 +1,8 @@
 name: Deploy to GitHub Pages
 
 on:
-  # Vor dem Go-live deployt die Seite NICHT automatisch. Ein Push auf main
-  # ändert nichts an dem, was online steht — der Workflow wird von Hand
-  # gestartet (Actions → Deploy to GitHub Pages → Run workflow, oder
-  # `gh workflow run deploy.yml`).
-  #
-  # Beim Go-live diese drei Zeilen einkommentieren:
-  # push:
-  #   branches: [main]
+  push:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
