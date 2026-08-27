@@ -1,26 +1,26 @@
 [
   {
-    "datum": "2026-09-12",
-    "anzeige": "SA 12.09.",
-    "ort": "Schüürefescht Gretzenbach",
-    "zeit": "20:00",
-    "gast": "mit Sax",
-    "link": ""
-  },
-  {
-    "datum": "2026-10-09",
-    "anzeige": "FR 09.10.",
-    "ort": "Beizeobe Aarau",
-    "zeit": "21:00",
+    "datum": "2026-04-25",
+    "anzeige": "SA 25.04.2026",
+    "ort": "Hochzyt von M&M",
+    "zeit": "privat",
     "gast": "",
     "link": ""
   },
   {
-    "datum": "2026-11-21",
-    "anzeige": "SA 21.11.",
-    "ort": "Hochzig · privat",
-    "zeit": "auf Anfrage",
-    "gast": "mit Cello",
+    "datum": "2026-09-06",
+    "anzeige": "SO 06.09.2026",
+    "ort": "Jubiläumsfiir AVA, Aarau",
+    "zeit": "",
+    "gast": "",
+    "link": ""
+  },
+  {
+    "datum": "2026-12-11",
+    "anzeige": "FR 11.12.2026",
+    "ort": "live i de Bar AHA",
+    "zeit": "",
+    "gast": "mit Geige",
     "link": ""
   }
 ]

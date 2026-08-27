@@ -1,17 +1,20 @@
 [
   {
-    "name": "Name 1",
+    "name": "Sera Wild",
+    "instrument": "E-Piano & Vocals",
+    "text": "Sitzt am E-Piano und singt. Bi ihre i de Schüüre probed mir — det entstönd d'Songs und det tönd si zum erste Mal.",
+    "bild": ""
+  },
+  {
+    "name": "M.C. Ivory",
+    "instrument": "Gitarre / Ukulele & Vocals",
+    "text": "Singt und spielt Gitarre und Ukulele. Wächslet s'Instrument je nach Song — mängisch au mitte drin.",
+    "bild": ""
+  },
+  {
+    "name": "Paddy Laessig",
     "instrument": "Bassgitarre",
-    "bild": ""
-  },
-  {
-    "name": "Name 2",
-    "instrument": "Gitarre · Ukulele",
-    "bild": ""
-  },
-  {
-    "name": "Name 3",
-    "instrument": "E-Piano · Gesang",
+    "text": "Hebt vo unde alles zäme. Bringt sin eigene Verstärker mit — das staht sogar im Tech Rider.",
     "bild": ""
   }
 ]
