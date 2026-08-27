@@ -1,0 +1,124 @@
+---
+import Basis from '../layouts/Basis.astro';
+import Abschnitt from '../components/Abschnitt.astro';
+import Wortmarke from '../components/Wortmarke.astro';
+import Signet from '../components/Signet.astro';
+import Knopf from '../components/Knopf.astro';
+import Besetzung from '../components/Besetzung.astro';
+import TerminListe from '../components/TerminListe.astro';
+import musik from '../data/musik.json';
+---
+
+<Basis
+  titel="flexiBelle — Live Musik & eigeni Songs"
+  beschreibung="Trio für Live Musik und eigene Songs — und je nach Song eins mehr. Anfragen für Feste, Beizen und Hochzeiten.">
+
+  <!-- ================= Hero ================= -->
+  <section id="oben" class="bg-braun px-6 py-24 text-center text-beige sm:px-10 lg:py-32">
+    <div class="mx-auto max-w-inhalt">
+      <Signet groesse={72} class="mb-8 text-beige" />
+      <h1><Wortmarke /><span class="sr-only">flexiBelle</span></h1>
+      <p class="mt-5 text-subline uppercase text-taupe-hell">Live Musik · Eigeni Songs</p>
+      <p class="mx-auto mt-8 max-w-text font-zitat text-claim italic text-ocker">
+        Es Trio — und je nach Song eis meh
+      </p>
+      <Knopf href="#booking" class="mt-10">Anfrage senden</Knopf>
+    </div>
+  </section>
+
+  <!-- ================= Band ================= -->
+  <Abschnitt id="band" label="Die Band" titel="Zu dritt — und manchmal zu viert">
+    <div class="mt-6 max-w-text space-y-5">
+      <p>
+        Bassgitarre, akustische Gitarre und Ukulele, E-Piano und Gesang: das ist der Kern.
+        Für einzelne Songs holen wir jemanden dazu — eine Geige, ein Saxofon, eine zweite
+        Stimme. Wer das ist, entscheidet der Abend. Darum heissen wir, wie wir heissen.
+      </p>
+      <p>
+        Wir proben in einer Schüüre im Aargau: OSB-Boden, alte Balken, ein gestreiftes Sofa
+        und ein senfgelber Sessel. Dort entstehen die Songs, und dort klingen sie zuerst.
+      </p>
+    </div>
+
+    <Besetzung />
+  </Abschnitt>
+
+  <!-- ================= Zitat ================= -->
+  <section class="bg-khaki-hell px-6 py-20 text-center sm:px-10">
+    <blockquote class="mx-auto max-w-3xl font-zitat text-zitat italic text-khaki-tief">
+      «Als Jäger und Sammler vo schöne Melodie und Gschichte triibts euis immer wieder id
+      Schüüne, wo die rohe Songs zwäg gflext wärded. Mit Liideschaft und stets bemüeht, die
+      richtige Saite &amp; Taste z’träffe, gömmer druf los und luege was passiert.»
+    </blockquote>
+  </section>
+
+  <!-- ================= Musik ================= -->
+  <Abschnitt id="musik" label="Musik" titel="Wie mir tönd">
+    <p class="mt-6 max-w-text">
+      Eigene Songs, dazu Lieder, die wir uns unterwegs zusammengesammelt haben. Am besten
+      hörst du selber rein.
+    </p>
+
+    <div class="mt-10 grid gap-8 sm:grid-cols-2">
+      {musik.map((s) => (
+        <figure class="border border-sand bg-karte p-6">
+          <div class="aspect-video w-full bg-sand">
+            {s.id && (
+              <iframe
+                class="h-full w-full"
+                src={`https://www.youtube-nocookie.com/embed/${s.id}`}
+                title={s.titel}
+                loading="lazy"
+                allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+                allowfullscreen></iframe>
+            )}
+          </div>
+          <figcaption class="mt-4">
+            <p class="titel text-untertitel">{s.titel}</p>
+            <p class="mt-1 text-taupe">{s.notiz}</p>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </Abschnitt>
+
+  <!-- ================= Live ================= -->
+  <Abschnitt id="live" label="Live" titel="Wo mir als nächstes spiiled" class="bg-karte">
+    <TerminListe />
+    <p class="mt-6 text-taupe">
+      Steht bei einem Termin ein Name, spielt an dem Abend jemand mit uns. Steht nichts da,
+      sind wir zu dritt.
+    </p>
+  </Abschnitt>
+
+  <!-- ================= Booking ================= -->
+  <Abschnitt id="booking" label="Booking" titel="Was ihr für uns braucht" dunkel>
+    <div class="mt-8 grid gap-10 lg:grid-cols-2">
+      <div class="space-y-5">
+        <p class="text-taupe-hell">
+          Wir sind ein Trio mit sieben Kanälen — unkompliziert und schnell aufgebaut.
+          Barhocker und Bassverstärker bringen wir selber mit.
+        </p>
+        <ul class="space-y-2 text-taupe-hell">
+          <li class="border-b border-braun-weich pb-2">Mischpult mit mindestens 7 Kanälen</li>
+          <li class="border-b border-braun-weich pb-2">2× DI-Box für Gitarre und Ukulele</li>
+          <li class="border-b border-braun-weich pb-2">2× Mikrofon inklusive Ständer</li>
+          <li class="border-b border-braun-weich pb-2">2× Strom 230 V und 2 Monitore</li>
+        </ul>
+      </div>
+
+      <div class="space-y-6">
+        <p class="text-taupe-hell">
+          Alles Weitere — Kanalliste und Bühnenplan — steht im Tech Rider. Für eine Anfrage
+          genügt eine kurze Mail mit Datum, Ort und Anlass.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <Knopf href="mailto:info@serawild.com?subject=Anfrage%20flexiBelle">
+            Anfrage senden
+          </Knopf>
+          <Knopf href="/flexiBelle_TechRider.pdf" art="rand">Tech Rider als PDF</Knopf>
+        </div>
+      </div>
+    </div>
+  </Abschnitt>
+</Basis>

@@ -1,0 +1,22 @@
+---
+/**
+ * Das Signet: fB im Kreis. Der Kreis ist eine SVG-Form, das fB echter Text —
+ * damit übernimmt es automatisch die Schriftgrösse und die Farbe des Umfelds.
+ */
+interface Props {
+  groesse?: number;
+  class?: string;
+}
+const { groesse = 64, class: klasse = '' } = Astro.props;
+---
+
+<span
+  class:list={['relative inline-flex items-center justify-center', klasse]}
+  style={`width:${groesse}px;height:${groesse}px`}
+  aria-hidden="true">
+  <svg viewBox="0 0 64 64" class="absolute inset-0 h-full w-full">
+    <circle cx="32" cy="32" r="30.5" fill="none" stroke="currentColor" stroke-width="1.2"
+      class="text-ocker" />
+  </svg>
+  <span class="font-marke leading-none" style={`font-size:${groesse * 0.52}px`}>fB</span>
+</span>

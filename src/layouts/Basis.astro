@@ -1,0 +1,44 @@
+---
+import '../styles/global.css';
+import Kopf from '../components/Kopf.astro';
+import Fuss from '../components/Fuss.astro';
+
+interface Props {
+  titel: string;
+  beschreibung: string;
+}
+const { titel, beschreibung } = Astro.props;
+const kanonisch = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="gsw-CH">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{titel}</title>
+    <meta name="description" content={beschreibung} />
+    <link rel="canonical" href={kanonisch} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#231A12" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={titel} />
+    <meta property="og:description" content={beschreibung} />
+    <meta property="og:url" content={kanonisch} />
+    <meta property="og:locale" content="de_CH" />
+  </head>
+
+  <body>
+    <a href="#inhalt"
+      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50
+        focus:bg-ocker focus:px-4 focus:py-2 focus:text-label focus:uppercase focus:text-braun">
+      Zum Inhalt springen
+    </a>
+    <Kopf />
+    <main id="inhalt">
+      <slot />
+    </main>
+    <Fuss />
+  </body>
+</html>

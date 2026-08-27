@@ -1,0 +1,49 @@
+@import '@fontsource/grape-nuts/400.css';
+@import '@fontsource/archivo/400.css';
+@import '@fontsource/archivo/500.css';
+@import '@fontsource/archivo/600.css';
+@import '@fontsource/archivo/700.css';
+@import '@fontsource/bitter/400-italic.css';
+@import '@fontsource/bitter/500-italic.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Platz für die feste Kopfzeile beim Springen zu einem Abschnitt */
+    scroll-padding-top: 5rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    @apply bg-beige font-sans text-body text-braun antialiased;
+  }
+
+  ::selection {
+    @apply bg-ocker text-braun;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-ocker;
+  }
+}
+
+@layer components {
+  /* Beschriftung: gesperrte Grossbuchstaben, wie im Tech Rider */
+  .label {
+    @apply text-label font-semibold uppercase;
+  }
+
+  /* Abschnittstitel */
+  .titel {
+    @apply font-sans text-titel font-semibold uppercase;
+  }
+}

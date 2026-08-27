@@ -1,0 +1,32 @@
+---
+import Wortmarke from './Wortmarke.astro';
+
+const links = [
+  { href: '#band', text: 'Band' },
+  { href: '#musik', text: 'Musik' },
+  { href: '#live', text: 'Live' },
+  { href: '#booking', text: 'Booking' },
+];
+---
+
+<header class="sticky top-0 z-50 bg-braun/95 backdrop-blur">
+  <nav class="mx-auto flex max-w-inhalt flex-col items-center gap-3 px-6 py-4
+    sm:flex-row sm:justify-between sm:gap-0 sm:px-10"
+    aria-label="Hauptnavigation">
+    <a href="#oben" class="text-beige transition-opacity hover:opacity-80">
+      <Wortmarke klein />
+      <span class="sr-only">flexiBelle — zum Seitenanfang</span>
+    </a>
+
+    <ul class="flex flex-wrap justify-center gap-5 sm:gap-8">
+      {links.map((l) => (
+        <li>
+          <a href={l.href}
+            class="text-label font-medium uppercase text-taupe-hell transition-colors hover:text-ocker">
+            {l.text}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</header>

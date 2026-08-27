@@ -1,0 +1,20 @@
+---
+const jahr = new Date().getFullYear();
+---
+
+<footer class="bg-braun px-6 py-10 text-beige sm:px-10">
+  <div class="mx-auto flex max-w-inhalt flex-col gap-4 border-t border-braun-weich pt-8
+    text-label uppercase text-taupe-hell sm:flex-row sm:items-center sm:justify-between">
+    <p>
+      <a href="mailto:info@serawild.com" class="transition-colors hover:text-ocker">
+        info@serawild.com
+      </a>
+    </p>
+    <p>Live Musik · Eigeni Songs</p>
+    <p class="flex gap-5">
+      <a href="/impressum" class="transition-colors hover:text-ocker">Impressum</a>
+      <a href="/datenschutz" class="transition-colors hover:text-ocker">Datenschutz</a>
+      <span class="text-taupe-hell/60">© {jahr}</span>
+    </p>
+  </div>
+</footer>

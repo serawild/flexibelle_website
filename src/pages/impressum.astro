@@ -1,0 +1,21 @@
+---
+import Basis from '../layouts/Basis.astro';
+import Abschnitt from '../components/Abschnitt.astro';
+---
+
+<Basis titel="Impressum — flexiBelle" beschreibung="Impressum der Website flexibelle.live">
+  <Abschnitt label="Rechtliches" titel="Impressum">
+    <div class="mt-8 max-w-text space-y-5">
+      <p>
+        Verantwortlich für den Inhalt dieser Website:<br />
+        <!-- TODO: Name, Adresse und Ort ergänzen -->
+        flexiBelle<br />
+        <a href="mailto:info@serawild.com" class="text-ocker-text underline">info@serawild.com</a>
+      </p>
+      <p class="text-taupe">
+        Alle Texte, Bilder und Tonaufnahmen auf dieser Seite sind urheberrechtlich geschützt.
+        Eine Verwendung ausserhalb dieser Website braucht unsere Zustimmung.
+      </p>
+    </div>
+  </Abschnitt>
+</Basis>

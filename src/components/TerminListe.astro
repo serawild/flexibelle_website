@@ -1,0 +1,29 @@
+---
+import termine from '../data/termine.json';
+
+// Nur kommende Termine, aufsteigend nach Datum
+const heute = new Date().toISOString().slice(0, 10);
+const kommend = termine
+  .filter((t) => t.datum >= heute)
+  .sort((a, b) => a.datum.localeCompare(b.datum));
+---
+
+{kommend.length === 0 ? (
+  <p class="mt-8 max-w-text text-taupe">
+    Zurzeit ist kein Auftritt ausgeschrieben. Für eine Anfrage schreib uns —
+    wir spielen gern.
+  </p>
+) : (
+  <ul class="mt-10 border-t border-sand">
+    {kommend.map((t) => (
+      <li class="flex flex-wrap items-baseline gap-x-5 gap-y-1 border-b border-sand py-4">
+        <time datetime={t.datum} class="w-full text-label font-bold text-ocker-text sm:w-32 sm:shrink-0">
+          {t.anzeige}
+        </time>
+        <span class="font-semibold">{t.ort}</span>
+        {t.gast && <span class="font-zitat italic text-khaki-tief">{t.gast}</span>}
+        <span class="ml-auto whitespace-nowrap text-taupe">{t.zeit}</span>
+      </li>
+    ))}
+  </ul>
+)}

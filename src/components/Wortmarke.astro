@@ -1,0 +1,18 @@
+---
+/**
+ * Die Wortmarke als echter Text in Grape Nuts — nicht als Bild.
+ * So bleibt sie scharf, wählbar und barrierefrei.
+ */
+interface Props {
+  klein?: boolean;
+  class?: string;
+}
+const { klein = false, class: klasse = '' } = Astro.props;
+---
+
+<span
+  class:list={[
+    'font-marke leading-none',
+    klein ? 'text-marke-klein' : 'text-marke',
+    klasse,
+  ]}>flexiBelle</span>

@@ -1,0 +1,24 @@
+---
+interface Props {
+  id?: string;
+  label?: string;
+  titel?: string;
+  dunkel?: boolean;
+  class?: string;
+}
+const { id, label, titel, dunkel = false, class: klasse = '' } = Astro.props;
+---
+
+<section
+  id={id}
+  class:list={[
+    'px-6 py-20 sm:px-10 lg:py-28',
+    dunkel ? 'bg-braun text-beige' : 'bg-beige text-braun',
+    klasse,
+  ]}>
+  <div class="mx-auto max-w-inhalt">
+    {label && <p class:list={['label', dunkel ? 'text-ocker' : 'text-ocker-text']}>{label}</p>}
+    {titel && <h2 class="titel mt-3">{titel}</h2>}
+    <slot />
+  </div>
+</section>

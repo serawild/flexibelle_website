@@ -1,0 +1,24 @@
+---
+interface Props {
+  href: string;
+  art?: 'voll' | 'rand' | 'khaki';
+  class?: string;
+}
+const { href, art = 'voll', class: klasse = '' } = Astro.props;
+
+const stile = {
+  voll: 'bg-ocker text-braun hover:bg-[#E0AA3C]',
+  rand: 'border border-khaki text-khaki-hell hover:bg-khaki hover:text-beige',
+  khaki: 'bg-khaki text-beige hover:bg-khaki-tief',
+};
+---
+
+<a
+  href={href}
+  class:list={[
+    'inline-block px-8 py-3 text-label font-semibold uppercase transition-colors duration-200',
+    stile[art],
+    klasse,
+  ]}>
+  <slot />
+</a>
