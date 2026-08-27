@@ -60,7 +60,7 @@ Ein One-Pager mit Sprungmarken, dazu Impressum und Datenschutz als eigene Seiten
 
 | Abschnitt | Anker | Grund |
 |---|---|---|
-| Hero | `#oben` | dunkel |
+| Hero | `#oben` | dunkel, Video in Dauerschleife |
 | Band | `#band` | hell |
 | Zitat | — | Khaki hell |
 | Musik | `#musik` | hell |
@@ -80,12 +80,26 @@ an drei Stellen, statt es nur zu behaupten:
   mit der Beschriftung «wechselt»
 - **Termine**: Die Zeile «mit Sax» erscheint nur, wenn im Termin ein Gast steht
 
+## Der Kopf
+
+Der Hero füllt fast den ganzen ersten Bildschirm (`min-h-[88svh]`). Darin läuft
+ein Video in Dauerschleife, stumm und ohne Bedienelemente, darüber ein Verlauf
+von `braun/85` nach `braun/90`, damit die Schrift überall lesbar bleibt. Logo
+und Navigation stehen oben **im** Hero, nicht in einer eigenen Leiste.
+
+Sobald der Hero durchgescrollt ist, fährt eine schmale Leiste von oben herein
+(`Kopf.astro`, gesteuert über einen IntersectionObserver). Bei
+`prefers-reduced-motion` zeigt der Hero nur das Standbild.
+
 ## Tonalität
 
-Schweizerdeutsch, wo die Band spricht — wörtlich, ohne Glättung. Hochdeutsch,
-wo Veranstalter Angaben brauchen: Kanäle, Strom, Bühne, Kontakt. Kurze Sätze,
-keine Superlative, keine Ausrufezeichen. Die Band sagt «mir», die Anfrage geht
-an ein «du».
+**Die ganze Seite ist Mundart** — Fliesstext, Abschnittstitel, Knöpfe, Hinweise.
+Hochdeutsch bleiben nur `<title>` und `description` (damit Suchmaschinen die
+Seite einordnen) sowie Impressum und Datenschutz.
+
+Kurze Sätze, keine Superlative, keine Ausrufezeichen. Die Band sagt «mir», die
+Anfrage geht an ein «du». Der Dialekt wird von Seraina angepasst — beim
+Weiterschreiben ihre Schreibweise übernehmen, nicht die eigene.
 
 ## Bildsprache
 

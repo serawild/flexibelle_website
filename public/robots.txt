@@ -1,4 +1,9 @@
-User-agent: *
-Allow: /
+# Die Seite ist noch nicht öffentlich. Beim Go-live ersetzen durch:
+#
+#   User-agent: *
+#   Allow: /
+#
+#   Sitemap: https://flexibelle.live/sitemap.xml
 
-Sitemap: https://flexibelle.live/sitemap.xml
+User-agent: *
+Disallow: /

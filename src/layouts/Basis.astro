@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import Kopf from '../components/Kopf.astro';
 import Fuss from '../components/Fuss.astro';
+import { istLive } from '../config';
 
 interface Props {
   titel: string;
@@ -19,6 +20,7 @@ const kanonisch = new URL(Astro.url.pathname, Astro.site);
     <title>{titel}</title>
     <meta name="description" content={beschreibung} />
     <link rel="canonical" href={kanonisch} />
+    {!istLive && <meta name="robots" content="noindex, nofollow" />}
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta name="theme-color" content="#231A12" />
 

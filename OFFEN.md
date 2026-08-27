@@ -4,30 +4,35 @@ Was noch fehlt oder bewusst weggelassen wurde. Erledigtes wird gelöscht, nicht 
 
 ## Inhalte
 
-- **Bandfotos** — Die drei Portraits in `Besetzung.astro` sind graue Kreise. Sobald
-  Bilder da sind: nach `src/assets/` legen, über `astro:assets` einbinden.
-- **Namen der Bandmitglieder** — `src/data/besetzung.json` enthält Platzhalter.
-- **Hörproben** — `src/data/musik.json`: die YouTube-IDs fehlen. Solange `id` leer
-  ist, zeigt die Karte nur eine Fläche.
+- **Hero-Video** — `public/video/` ist leer. Gebraucht werden `hero.mp4`,
+  `hero.webm` und `hero-poster.jpg`; wie sie umgewandelt werden, steht in
+  `public/video/LIESMICH.md`. Danach `heroVideo` in `src/config.ts` auf `true`.
+- **Portraits der drei** — `src/data/besetzung.json`: Feld `bild` ist leer.
+  Bilder nach `src/assets/` legen und über `astro:assets` einbinden.
+- **Kurztexte gegenlesen** — die zwei Sätze je Person sind ein erster Wurf und
+  müssen im Dialekt noch angepasst werden.
+- **Hörproben** — `src/data/musik.json`: die YouTube-IDs fehlen.
 - **Termine** — `src/data/termine.json` enthält drei Beispieltermine. Vor dem
   Go-live durch echte ersetzen oder die Datei leeren (dann erscheint der Hinweis
-  «Zurzeit ist kein Auftritt ausgeschrieben»).
+  «Im Moment isch kein Uftritt usgschriebe»).
 - **Impressum** — Name und Adresse fehlen (`TODO` in `impressum.astro`).
 
 ## Bewusst weggelassen
 
 - **Kein Kontaktformular.** Die Anfrage läuft über einen `mailto:`-Link. Ein
-  Formular bräuchte einen Server oder einen Drittanbieter — beides erst, wenn es
-  wirklich gebraucht wird.
+  Formular bräuchte einen Server oder einen Drittanbieter.
 - **Keine Analyse-Werkzeuge, keine Cookies.** Darum ist die Datenschutzerklärung
   kurz und es gibt kein Cookie-Banner.
 - **Keine Social-Media-Einbindung.** Kommt dazu, sobald es Konten gibt.
-- **Kein Bandfoto im Hero.** Der Hero ist zurzeit reine Fläche. Sobald ein gutes
-  Querformat da ist, wird es als Hintergrund mit dunklem Verlauf eingesetzt.
+- **Tech Rider auf Hochdeutsch.** Die Website ist Mundart, der Rider nicht — er
+  geht auch an Veranstalter und Techniker ausserhalb der Schweiz. Falls das
+  anders gewünscht ist, lässt er sich umstellen.
+- **Kein Ton im Hero-Video.** Ein Video mit Ton startet in den meisten Browsern
+  gar nicht erst automatisch — und ungefragter Ton vergrault Besucher.
 
 ## Zu prüfen
 
-- **Tech Rider** — liegt als `public/flexiBelle_TechRider.pdf`. Beim Aktualisieren
-  die Datei ersetzen, der Link im Booking-Abschnitt bleibt gleich.
-- **Sprache** — `<html lang="gsw-CH">` ist gesetzt, weil der Kern Schweizerdeutsch
-  ist. Falls Vorleseprogramme damit Mühe haben, auf `de-CH` wechseln.
+- **Dialekt.** Alle Mundart-Texte sind ein erster Wurf und werden von Seraina
+  noch angepasst. Nicht selbstständig „korrigieren".
+- **Sprache im Code** — `<html lang="gsw-CH">` ist gesetzt, weil die Seite
+  Mundart ist. Falls Vorleseprogramme damit Mühe haben, auf `de-CH` wechseln.

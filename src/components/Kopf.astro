@@ -1,6 +1,9 @@
 ---
-import Wortmarke from './Wortmarke.astro';
-
+/**
+ * Die Navigation, die beim Scrollen mitkommt. Im Kopf selber steht die
+ * Navigation direkt im Hero (siehe Hero.astro) — diese hier blendet sich erst
+ * ein, sobald der Hero durchgescrollt ist.
+ */
 const links = [
   { href: '#band', text: 'Band' },
   { href: '#musik', text: 'Musik' },
@@ -9,16 +12,16 @@ const links = [
 ];
 ---
 
-<header class="sticky top-0 z-50 bg-braun/95 backdrop-blur">
-  <nav class="mx-auto flex max-w-inhalt flex-col items-center gap-3 px-6 py-4
-    sm:flex-row sm:justify-between sm:gap-0 sm:px-10"
-    aria-label="Hauptnavigation">
-    <a href="#oben" class="text-beige transition-opacity hover:opacity-80">
-      <Wortmarke klein />
-      <span class="sr-only">flexiBelle — zum Seitenanfang</span>
-    </a>
-
-    <ul class="flex flex-wrap justify-center gap-5 sm:gap-8">
+<header
+  id="mitlaufende-navigation"
+  class="fixed inset-x-0 top-0 z-50 -translate-y-full bg-braun/95 backdrop-blur
+    transition-transform duration-300"
+  data-sichtbar="false">
+  <nav class="mx-auto flex max-w-inhalt items-center justify-between gap-4 px-6 py-3 sm:px-10"
+    aria-label="Navigation beim Scrollen">
+    <a href="#oben" class="font-marke text-marke-klein leading-none text-beige
+      transition-opacity hover:opacity-80">flexiBelle</a>
+    <ul class="flex flex-wrap justify-end gap-4 sm:gap-8">
       {links.map((l) => (
         <li>
           <a href={l.href}
@@ -30,3 +33,19 @@ const links = [
     </ul>
   </nav>
 </header>
+
+<script>
+  const kopf = document.getElementById('mitlaufende-navigation');
+  const hero = document.getElementById('oben');
+
+  if (kopf && hero && 'IntersectionObserver' in window) {
+    const beobachter = new IntersectionObserver(
+      ([eintrag]) => {
+        // Sobald der Hero draussen ist, fährt die Leiste herunter.
+        kopf.classList.toggle('-translate-y-full', eintrag.isIntersecting);
+      },
+      { rootMargin: '-80px 0px 0px 0px' },
+    );
+    beobachter.observe(hero);
+  }
+</script>

@@ -2,21 +2,28 @@
 import besetzung from '../data/besetzung.json';
 ---
 
-<ul class="mt-12 flex flex-wrap items-start gap-x-6 gap-y-8 sm:gap-12">
+<ul class="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
   {besetzung.map((m) => (
-    <li class="w-24 text-center sm:w-28">
-      <div class="mx-auto h-20 w-20 rounded-full bg-sand sm:h-28 sm:w-28"></div>
-      <p class="mt-4 text-[0.6875rem] font-semibold uppercase leading-tight
-        tracking-[0.1em] text-taupe">{m.instrument}</p>
+    <li>
+      <div class="h-40 w-40 overflow-hidden rounded-full bg-sand">
+        {m.bild && <img src={m.bild} alt={m.name} class="h-full w-full object-cover" />}
+      </div>
+      <h3 class="titel mt-6 text-untertitel">{m.name}</h3>
+      {m.instrument && (
+        <p class="mt-1 text-label font-semibold uppercase text-ocker-text">{m.instrument}</p>
+      )}
+      {m.text && <p class="mt-3 max-w-sm">{m.text}</p>}
     </li>
   ))}
 
-  <li class="self-center pt-2 text-4xl font-semibold text-khaki" aria-hidden="true">+</li>
-
-  <li class="w-24 text-center sm:w-28">
-    <div class="mx-auto flex h-20 w-20 items-center justify-center rounded-full border
-      border-dashed border-khaki font-marke text-3xl text-khaki-tief sm:h-28 sm:w-28">?</div>
-    <p class="mt-4 text-[0.6875rem] font-semibold uppercase leading-tight
-      tracking-[0.1em] text-khaki-tief">wechselt</p>
+  <!-- Der offene vierte Platz: das Konzept der Band -->
+  <li>
+    <div class="flex h-40 w-40 items-center justify-center rounded-full border border-dashed
+      border-khaki font-marke text-5xl text-khaki-tief">?</div>
+    <h3 class="titel mt-6 text-untertitel text-khaki-tief">+ eis</h3>
+    <p class="mt-1 text-label font-semibold uppercase text-khaki-tief">wächslet</p>
+    <p class="mt-3 max-w-sm text-taupe">
+      Für einzelni Songs hole mir öpper dezue. Wer das isch, entscheidet de Abig.
+    </p>
   </li>
 </ul>

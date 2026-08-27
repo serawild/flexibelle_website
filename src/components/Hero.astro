@@ -1,0 +1,73 @@
+---
+import Wortmarke from './Wortmarke.astro';
+import Signet from './Signet.astro';
+import Knopf from './Knopf.astro';
+import { heroVideo } from '../config';
+
+const links = [
+  { href: '#band', text: 'Band' },
+  { href: '#musik', text: 'Musik' },
+  { href: '#live', text: 'Live' },
+  { href: '#booking', text: 'Booking' },
+];
+---
+
+<section id="oben" class="relative isolate flex min-h-[88svh] flex-col bg-braun text-beige">
+  {heroVideo && (
+    <video
+      class="absolute inset-0 -z-10 h-full w-full object-cover motion-reduce:hidden"
+      poster="/video/hero-poster.jpg"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      aria-hidden="true">
+      <source src="/video/hero.webm" type="video/webm" />
+      <source src="/video/hero.mp4" type="video/mp4" />
+    </video>
+  )}
+
+  {/* Bei prefers-reduced-motion bleibt nur das Standbild stehen */}
+  {heroVideo && (
+    <img
+      src="/video/hero-poster.jpg"
+      alt=""
+      class="absolute inset-0 -z-10 hidden h-full w-full object-cover motion-reduce:block" />
+  )}
+
+  {/* Verlauf: oben für die Navigation, unten für die Schrift */}
+  <div class="absolute inset-0 -z-10 bg-gradient-to-b from-braun/85 via-braun/55 to-braun/90"></div>
+
+  <!-- Navigation im Kopf -->
+  <nav
+    class="relative z-10 mx-auto flex w-full max-w-inhalt flex-col items-center gap-3 px-6 py-6
+      sm:flex-row sm:justify-between sm:gap-0 sm:px-10"
+    aria-label="Hauptnavigation">
+    <a href="#oben" class="transition-opacity hover:opacity-80">
+      <Wortmarke klein />
+      <span class="sr-only">flexiBelle — zum Seitenanfang</span>
+    </a>
+    <ul class="flex flex-wrap justify-center gap-5 sm:gap-8">
+      {links.map((l) => (
+        <li>
+          <a href={l.href}
+            class="text-label font-medium uppercase text-beige/75 transition-colors hover:text-ocker">
+            {l.text}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+
+  <!-- Die Marke -->
+  <div class="relative z-10 flex flex-1 flex-col items-center justify-center px-6 py-16 text-center">
+    <Signet groesse={72} class="mb-8" />
+    <h1><Wortmarke /><span class="sr-only">flexiBelle</span></h1>
+    <p class="mt-5 text-subline uppercase text-taupe-hell">Live Musik · Eigeni Songs</p>
+    <p class="mx-auto mt-8 max-w-text font-zitat text-claim italic text-ocker">
+      Es Trio — und je nach Song eis meh
+    </p>
+    <Knopf href="#booking" class="mt-10">Aafrag schicke</Knopf>
+  </div>
+</section>

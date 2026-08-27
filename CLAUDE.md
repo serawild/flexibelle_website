@@ -2,6 +2,10 @@
 
 Diese Datei wird bei jedem Start gelesen. Sie gilt immer, auch nach `/clear`.
 
+> **Die Seite ist noch nicht online** und geht erst live, wenn Bilder und
+> Videos da sind. Das automatische Deployment ist ausgeschaltet, Suchmaschinen
+> sind ausgesperrt. Was zum Go-live gehört, steht in `GO-LIVE.md`.
+
 ## Was hier gebaut wird
 
 Die Website der Band flexiBelle unter **flexibelle.live**. Astro mit Tailwind,
@@ -28,9 +32,14 @@ Es gibt **kein Figma**. Die verbindliche Vorlage ist `STYLEGUIDE.md` plus
 3. **Ocker und Khaki sind Flächenfarben.** Als Textfarbe auf hellem Grund nur
    `ocker-text` bzw. `khaki-tief` verwenden — sonst reicht der Kontrast nicht.
 
-4. **Texte nicht erfinden.** Der Bandbeschrieb ist Schweizerdeutsch und steht
-   wörtlich so in `Logo_Beschrieb.pdf`. Fehlt ein Text, kommt ein `TODO`-Kommentar
-   an die Stelle und ein Eintrag in `OFFEN.md` — kein Blindtext.
+4. **Alles auf der Seite ist Mundart.** Fliesstext, Abschnittstitel, Knöpfe,
+   Hinweise. Ausgenommen sind nur `<title>`, `description` und die Rechtstexte
+   auf Impressum und Datenschutz — die bleiben hochdeutsch, damit Suchmaschinen
+   und Behörden damit umgehen können. Der Dialekt wird von Seraina noch
+   angepasst; Formulierungen also nie stillschweigend „korrigieren".
+
+   Texte nicht erfinden: Fehlt einer, kommt ein `TODO` an die Stelle und ein
+   Eintrag in `OFFEN.md` — kein Blindtext.
 
 5. **Ein Abschnitt pro Arbeitsschritt.** Nicht die ganze Seite auf einmal
    umbauen. Nach jedem Abschnitt kurz melden, was gebaut wurde.
@@ -50,18 +59,42 @@ Es gibt **kein Figma**. Die verbindliche Vorlage ist `STYLEGUIDE.md` plus
 | `src/data/musik.json` | Hörproben: Titel, YouTube-ID, Notiz |
 | `src/components/Wortmarke.astro` | «flexiBelle» als Text in Grape Nuts |
 | `src/components/Signet.astro` | fB im Kreis, SVG plus Text |
+| `src/components/Hero.astro` | Der grosse Kopf: Video in Dauerschleife, Logo, Navigation |
+| `public/video/LIESMICH.md` | Welche Videodateien der Hero braucht und wie sie umgewandelt werden |
 | `marke/` | Style-Guide-PDFs und die Logodateien als SVG |
 | `OFFEN.md` | Offene Fragen und bewusst Weggelassenes |
+| `GO-LIVE.md` | Was vor dem Go-live fertig sein muss, und die vier Schritte dorthin |
+| `src/config.ts` | `istLive` und `heroVideo` — die zwei Schalter |
+
+## Die Band
+
+Der Kern ist ein Trio: **Sera Wild**, **M.C. Ivory**, **P. Laessig**. Live kommen
+je nach Song einzelne Musiker dazu — daher der Name und der offene vierte Platz
+im Abschnitt Band.
+
+**Wichtig fürs Booking — zwei Varianten:** Die Band hat eine eigene PA und ein
+eigenes Mischpult und bringt auf Wunsch alles mit; sie kann aber ebenso über
+eine vorhandene Anlage spielen. Beides steht gleichwertig nebeneinander im
+Booking-Abschnitt und im Tech Rider. Nie nur eine der beiden Varianten nennen —
+die Wahlmöglichkeit ist das Verkaufsargument.
+
+Besetzung: Sera Wild (E-Piano & Gsang), M.C. Ivory (Gsang, Gitarre & Ukulele),
+P. Laessig (Bassgitarre).
 
 ## Was noch fehlt
 
-- **Bandfotos.** Die drei Portraits in `Besetzung.astro` sind graue Kreise
-  (`bg-sand`). Sobald Bilder da sind: nach `src/assets/` legen und über
-  `astro:assets` einbinden, nicht als `<img src>` aus `public/`.
+- **Hero-Video.** `public/video/` ist leer. Sobald die drei Dateien da sind,
+  `heroVideo` in `src/config.ts` auf `true` setzen. Details in
+  `public/video/LIESMICH.md`.
+- **Portraits.** In `besetzung.json` ist `bild` leer. Instrument und Kurztext
+  stehen drin — die Kurztexte sind ein erster Wurf und werden von Seraina im
+  Dialekt angepasst.
 - **Hörproben.** In `musik.json` fehlen die YouTube-IDs. Solange `id` leer ist,
   zeigt die Karte nur die Fläche.
 - **Impressum.** Name und Adresse fehlen — `TODO` in `impressum.astro`.
-- **Namen der Bandmitglieder** in `besetzung.json`.
+- **Tech Rider.** Neu aufgebaut mit beiden Varianten (`public/flexiBelle_TechRider.pdf`,
+  Quelle in `marke/`). Er ist hochdeutsch, weil er auch an Veranstalter ausserhalb
+  der Schweiz geht — bewusst anders als die Website.
 
 ## Befehle
 

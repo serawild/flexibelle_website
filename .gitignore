@@ -13,3 +13,5 @@ node_modules/
 .DS_Store
 # editors
 .idea/
+# original video (zu gross für git)
+public/video/20251112_143433.mp4
