@@ -50,7 +50,7 @@ import musik from '../data/musik.json';
       {musik.map((s) => (
         <figure class="border border-sand bg-karte p-6">
           <div class="aspect-video w-full bg-sand">
-            {s.id && (
+            {s.id ? (
               <iframe
                 class="h-full w-full"
                 src={`https://www.youtube-nocookie.com/embed/${s.id}`}
@@ -58,7 +58,9 @@ import musik from '../data/musik.json';
                 loading="lazy"
                 allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
                 allowfullscreen></iframe>
-            )}
+            ) : s.bild ? (
+              <img src={s.bild} alt={s.titel} class="h-full w-full object-cover" />
+            ) : null}
           </div>
           <figcaption class="mt-4">
             <p class="titel text-untertitel">{s.titel}</p>

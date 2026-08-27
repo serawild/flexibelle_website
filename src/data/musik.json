@@ -3,12 +3,14 @@
     "titel": "Songtitel 1",
     "art": "youtube",
     "id": "",
+    "bild": "/video/Flexibelle.jpg",
     "notiz": "Live in der Schüüne"
   },
   {
-    "titel": "Songtitel 2",
+    "titel": "Der Tropfen endet im Ozean",
     "art": "youtube",
-    "id": "",
-    "notiz": "Eigener Song"
+    "id": "yYKHMlvWMsM",
+    "notiz": "Eigenkomposition Tina Meier"
   }
+  
 ]
