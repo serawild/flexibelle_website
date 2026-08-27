@@ -13,8 +13,8 @@ export default {
         'braun-weich': '#3A2C21', // dunkle Fläche, eine Stufe heller
         beige: '#F2EADA',        // heller Grund der Seite
         karte: '#F9F3E7',        // Karten und abgesetzte helle Flächen
-        ocker: '#D09A2C',        // Hauptakzent: Knöpfe, Marken-Details
-        'ocker-text': '#8A5E11', // Ocker als Textfarbe auf hellem Grund
+        ocker: '#C9A227',        // Hauptakzent: Knöpfe, Marken-Details (Gold-Probe)
+        'ocker-text': '#7A6000', // Ocker als Textfarbe auf hellem Grund (Gold-Probe)
         khaki: '#746A3E',        // zweiter Ton: Gastmusiker, Badges
         'khaki-hell': '#E5DEC6', // Fläche für Zitate
         'khaki-tief': '#5E5430', // Khaki als Textfarbe auf hellem Grund
