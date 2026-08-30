@@ -86,11 +86,10 @@ P. Lässig (Bassgitarre).
 - **Hero-Video.** `public/video/` ist leer. Sobald die drei Dateien da sind,
   `heroVideo` in `src/config.ts` auf `true` setzen. Details in
   `public/video/LIESMICH.md`.
-- **Portraits.** Sera Wild und P. Lässig haben ihr Bild in `public/image/`;
-  bei M.C. Ivory ist `bild` in `besetzung.json` noch leer. Das Feld
-  `bildFokus` bestimmt den Ausschnitt im runden Rahmen (CSS
-  `object-position`, leer = Mitte). Die Kurztexte sind ein erster Wurf und
-  werden von Seraina im Dialekt angepasst.
+- **Portraits.** Alle drei Bilder liegen in `public/image/` und sind in
+  `besetzung.json` verknüpft. Das Feld `bildFokus` bestimmt den Ausschnitt im
+  runden Rahmen (CSS `object-position`, leer = Mitte). Die Kurztexte sind ein
+  erster Wurf und werden von Seraina im Dialekt angepasst.
 - **Hörproben.** In `musik.json` fehlen die YouTube-IDs. Solange `id` leer ist,
   zeigt die Karte nur die Fläche.
 - **Impressum.** Name und Adresse fehlen — `TODO` in `impressum.astro`.
