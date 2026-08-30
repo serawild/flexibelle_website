@@ -6,7 +6,18 @@ import besetzung from '../data/besetzung.json';
   {besetzung.map((m) => (
     <li>
       <div class="h-40 w-40 overflow-hidden rounded-full bg-sand">
-        {m.bild && <img src={m.bild} alt={m.name} class="h-full w-full object-cover" />}
+        {m.bild && (
+          <img
+            src={m.bild}
+            alt={m.name}
+            width="1200"
+            height="1200"
+            loading="lazy"
+            decoding="async"
+            class="h-full w-full object-cover"
+            style={`object-position: ${m.bildFokus || "center"}`}
+          />
+        )}
       </div>
       <h3 class="titel mt-6 text-untertitel">{m.name}</h3>
       {m.instrument && (

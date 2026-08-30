@@ -3,18 +3,21 @@
     "name": "Sera Wild",
     "instrument": "E-Piano & Vocals",
     "text": "Sitzt am E-Piano und singt. Bei ihr in der Schüüre proben wir — dort entstehen die Songs und dort klingen sie zum ersten Mal.",
-    "bild": ""
+    "bild": "/image/sera-wild-profil.jpg",
+    "bildFokus": "58% 30%"
   },
   {
     "name": "M.C. Ivory",
     "instrument": "Gitarre / Ukulele & Vocals",
     "text": "Singt und spielt Gitarre und Ukulele. Wechselt das Instrument je nach Song — manchmal auch mitten drin.",
-    "bild": ""
+    "bild": "",
+    "bildFokus": ""
   },
   {
     "name": "Paddy Lässig",
     "instrument": "Bassgitarre",
     "text": "Hält von unten alles zusammen. Bringt seinen eigenen Verstärker mit — das steht sogar im Tech Rider.",
-    "bild": ""
+    "bild": "",
+    "bildFokus": ""
   }
 ]
