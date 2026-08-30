@@ -12,7 +12,9 @@ const links = [
 ];
 ---
 
-<section id="oben" class="relative isolate flex min-h-[88svh] flex-col bg-braun text-beige">
+<section id="oben"
+  class="relative isolate flex min-h-[88svh] flex-col bg-braun text-beige
+    sm:aspect-[3/2] sm:min-h-[32rem] sm:max-h-[94svh]">
   {heroBild && (
     <picture>
       {heroBildHoch && (
@@ -24,7 +26,7 @@ const links = [
         fetchpriority="high"
         decoding="async"
         class="absolute inset-0 -z-10 h-full w-full object-cover
-          object-[center_30%] max-sm:portrait:object-[center_45%]" />
+          object-[center_38%] max-sm:portrait:object-[center_45%]" />
     </picture>
   )}
 
