@@ -12,4 +12,4 @@
  */
 export const istLive = false;
 export const heroBild = '/image/flexibelle-hero.jpg';
-export const heroBildHoch = '';
+export const heroBildHoch = '/image/flexibelle-hero-hoch.jpg';

@@ -17,8 +17,6 @@ Bis dahin lässt sich lokal beliebig arbeiten: `pnpm dev`, so oft du willst.
 
 ## Vorher fertig machen
 
-- [ ] **Hero-Bild im Hochformat** fürs Handy nach `public/image/`, Pfad in
-      `heroBildHoch` (`src/config.ts`) eintragen
 - [ ] **Kurztexte** der drei im Dialekt gegenlesen (`besetzung.json`)
 - [ ] **YouTube-IDs** in `src/data/musik.json`
 - [ ] **Echte Termine** in `src/data/termine.json` (oder Datei leeren)

@@ -59,12 +59,12 @@ Es gibt **kein Figma**. Die verbindliche Vorlage ist `STYLEGUIDE.md` plus
 | `src/data/musik.json` | Hörproben: Titel, YouTube-ID, Notiz |
 | `src/components/Wortmarke.astro` | «flexiBelle» als Text in Grape Nuts |
 | `src/components/Signet.astro` | fB im Kreis, SVG plus Text |
-| `src/components/Hero.astro` | Der grosse Kopf: Video in Dauerschleife, Logo, Navigation |
-| `public/video/LIESMICH.md` | Welche Videodateien der Hero braucht und wie sie umgewandelt werden |
+| `src/components/Hero.astro` | Der grosse Kopf: Bild (quer/hoch), Logo, Navigation |
+| `public/video/LIESMICH.md` | Zum stillgelegten Hero-Video — zurzeit nicht im Einsatz |
 | `marke/` | Style-Guide-PDFs und die Logodateien als SVG |
 | `OFFEN.md` | Offene Fragen und bewusst Weggelassenes |
 | `GO-LIVE.md` | Was vor dem Go-live fertig sein muss, und die vier Schritte dorthin |
-| `src/config.ts` | `istLive`, `heroBild`, `heroBildHoch` — die Schalter |
+| `src/config.ts` | `istLive` und die zwei Hero-Bilder (quer / hoch) |
 
 ## Die Band
 
@@ -83,10 +83,6 @@ Paddy (Bassgitarre). Auf der Seite stehen bewusst nur die Vornamen.
 
 ## Was noch fehlt
 
-- **Hero-Bild fürs Handy.** Der Kopf zeigt `public/image/flexibelle-hero.jpg`
-  (Querformat). Sobald das Hochformat da ist, Datei nach `public/image/`
-  legen und `heroBildHoch` in `src/config.ts` auf den Pfad setzen — bis
-  dahin schneidet das Handy das Querformat mittig zu.
 - **Portraits.** Alle drei Bilder liegen in `public/image/` und sind in
   `besetzung.json` verknüpft. Das Feld `bildFokus` bestimmt den Ausschnitt im
   runden Rahmen (CSS `object-position`, leer = Mitte). Die Kurztexte sind ein

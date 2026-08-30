@@ -4,10 +4,6 @@ Was noch fehlt oder bewusst weggelassen wurde. Erledigtes wird gelöscht, nicht 
 
 ## Inhalte
 
-- **Hero-Bild im Hochformat** — der Kopf zeigt `flexibelle-hero.jpg` im
-  Querformat. Auf dem hochkant gehaltenen Handy wird es mittig zugeschnitten,
-  weil das Hochformat-Bild noch fehlt. Sobald es da ist: nach `public/image/`
-  legen und `heroBildHoch` in `src/config.ts` eintragen.
 - **Hero-Video stillgelegt** — `hero.mp4`, `hero.webm` und `hero-poster.jpg`
   liegen weiterhin in `public/video/`, werden aber nicht mehr eingebunden.
   Falls das Video definitiv nicht zurückkommt, können sie gelöscht werden.
