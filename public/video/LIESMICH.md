@@ -1,4 +1,10 @@
-# Hero-Video
+# Hero-Video — zurzeit nicht im Einsatz
+
+Der Kopf der Seite zeigt seit August 2026 ein Bild statt eines Videos:
+`public/image/flexibelle-hero.jpg`, eingetragen in `src/config.ts`.
+Die Dateien hier bleiben liegen, falls das Video zurückkommt.
+
+---
 
 Hier gehören drei Dateien hin:
 
@@ -8,7 +14,8 @@ Hier gehören drei Dateien hin:
 | `hero.webm` | dasselbe als VP9 — moderne Browser nehmen es und es ist kleiner |
 | `hero-poster.jpg` | Standbild aus dem Video, 1920×1080 |
 
-Danach in `src/config.ts` `heroVideo` auf `true` setzen.
+Zum Reaktivieren muss das `<picture>` in `src/components/Hero.astro` wieder
+durch ein `<video>` ersetzt werden.
 
 **Grösse**: unter 5 MB pro Datei bleiben, sonst dauert der Seitenaufbau auf dem
 Handy zu lang. Umwandeln mit ffmpeg:

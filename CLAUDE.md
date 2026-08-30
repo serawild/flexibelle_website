@@ -64,7 +64,7 @@ Es gibt **kein Figma**. Die verbindliche Vorlage ist `STYLEGUIDE.md` plus
 | `marke/` | Style-Guide-PDFs und die Logodateien als SVG |
 | `OFFEN.md` | Offene Fragen und bewusst Weggelassenes |
 | `GO-LIVE.md` | Was vor dem Go-live fertig sein muss, und die vier Schritte dorthin |
-| `src/config.ts` | `istLive` und `heroVideo` — die zwei Schalter |
+| `src/config.ts` | `istLive`, `heroBild`, `heroBildHoch` — die Schalter |
 
 ## Die Band
 
@@ -83,9 +83,10 @@ Paddy (Bassgitarre). Auf der Seite stehen bewusst nur die Vornamen.
 
 ## Was noch fehlt
 
-- **Hero-Video.** `public/video/` ist leer. Sobald die drei Dateien da sind,
-  `heroVideo` in `src/config.ts` auf `true` setzen. Details in
-  `public/video/LIESMICH.md`.
+- **Hero-Bild fürs Handy.** Der Kopf zeigt `public/image/flexibelle-hero.jpg`
+  (Querformat). Sobald das Hochformat da ist, Datei nach `public/image/`
+  legen und `heroBildHoch` in `src/config.ts` auf den Pfad setzen — bis
+  dahin schneidet das Handy das Querformat mittig zu.
 - **Portraits.** Alle drei Bilder liegen in `public/image/` und sind in
   `besetzung.json` verknüpft. Das Feld `bildFokus` bestimmt den Ausschnitt im
   runden Rahmen (CSS `object-position`, leer = Mitte). Die Kurztexte sind ein

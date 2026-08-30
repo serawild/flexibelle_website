@@ -1,12 +1,15 @@
 /**
- * Zwei Schalter.
+ * Drei Schalter.
  *
  * `istLive` — solange false, bittet die Seite Suchmaschinen, sie nicht
  * aufzunehmen. Beim Go-live auf true setzen (siehe GO-LIVE.md).
  *
- * `heroVideo` — solange false, zeigt der Kopf nur den dunklen Grund bzw. das
- * Standbild. Auf true setzen, sobald die Dateien in `public/video/` liegen:
- *   hero.mp4 · hero.webm · hero-poster.jpg
+ * `heroBild` — das grosse Bild im Kopf der Seite (Querformat).
+ *
+ * `heroBildHoch` — dasselbe Motiv im Hochformat, wird nur auf hochkant
+ * gehaltenen Handys genommen. Solange leer, nimmt auch das Handy `heroBild`
+ * und schneidet es mittig zu.
  */
 export const istLive = false;
-export const heroVideo = true;
+export const heroBild = '/image/flexibelle-hero.jpg';
+export const heroBildHoch = '';

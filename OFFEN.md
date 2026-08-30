@@ -4,11 +4,13 @@ Was noch fehlt oder bewusst weggelassen wurde. Erledigtes wird gelöscht, nicht 
 
 ## Inhalte
 
-- **Hero-Video** — `public/video/` ist leer. Gebraucht werden `hero.mp4`,
-  `hero.webm` und `hero-poster.jpg`; wie sie umgewandelt werden, steht in
-  `public/video/LIESMICH.md`. Danach `heroVideo` in `src/config.ts` auf `true`.
-- **Portraits der drei** — `src/data/besetzung.json`: Feld `bild` ist leer.
-  Bilder nach `src/assets/` legen und über `astro:assets` einbinden.
+- **Hero-Bild im Hochformat** — der Kopf zeigt `flexibelle-hero.jpg` im
+  Querformat. Auf dem hochkant gehaltenen Handy wird es mittig zugeschnitten,
+  weil das Hochformat-Bild noch fehlt. Sobald es da ist: nach `public/image/`
+  legen und `heroBildHoch` in `src/config.ts` eintragen.
+- **Hero-Video stillgelegt** — `hero.mp4`, `hero.webm` und `hero-poster.jpg`
+  liegen weiterhin in `public/video/`, werden aber nicht mehr eingebunden.
+  Falls das Video definitiv nicht zurückkommt, können sie gelöscht werden.
 - **Kurztexte gegenlesen** — die zwei Sätze je Person sind ein erster Wurf und
   müssen im Dialekt noch angepasst werden.
 - **Hörproben** — `src/data/musik.json`: die YouTube-IDs fehlen.

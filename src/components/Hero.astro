@@ -2,7 +2,7 @@
 import Wortmarke from './Wortmarke.astro';
 import Signet from './Signet.astro';
 import Knopf from './Knopf.astro';
-import { heroVideo } from '../config';
+import { heroBild, heroBildHoch } from '../config';
 
 const links = [
   { href: '#band', text: 'Band' },
@@ -13,27 +13,19 @@ const links = [
 ---
 
 <section id="oben" class="relative isolate flex min-h-[88svh] flex-col bg-braun text-beige">
-  {heroVideo && (
-    <video
-      class="absolute inset-0 -z-10 h-full w-full object-cover motion-reduce:hidden"
-      poster="/video/hero-poster.jpg"
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="metadata"
-      aria-hidden="true">
-      <source src="/video/hero.webm" type="video/webm" />
-      <source src="/video/hero.mp4" type="video/mp4" />
-    </video>
-  )}
-
-  {/* Bei prefers-reduced-motion bleibt nur das Standbild stehen */}
-  {heroVideo && (
-    <img
-      src="/video/hero-poster.jpg"
-      alt=""
-      class="absolute inset-0 -z-10 hidden h-full w-full object-cover motion-reduce:block" />
+  {heroBild && (
+    <picture>
+      {heroBildHoch && (
+        <source media="(orientation: portrait) and (max-width: 640px)" srcset={heroBildHoch} />
+      )}
+      <img
+        src={heroBild}
+        alt=""
+        fetchpriority="high"
+        decoding="async"
+        class="absolute inset-0 -z-10 h-full w-full object-cover"
+        style="object-position: center 30%" />
+    </picture>
   )}
 
   {/* Verlauf: oben für die Navigation, unten für die Schrift */}
