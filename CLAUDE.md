@@ -68,7 +68,7 @@ Es gibt **kein Figma**. Die verbindliche Vorlage ist `STYLEGUIDE.md` plus
 
 ## Die Band
 
-Der Kern ist ein Trio: **Sera Wild**, **M.C. Ivory**, **P. Laessig**. Live kommen
+Der Kern ist ein Trio: **Sera Wild**, **M.C. Ivory**, **P. Lässig**. Live kommen
 je nach Song einzelne Musiker dazu — daher der Name und der offene vierte Platz
 im Abschnitt Band.
 
@@ -79,7 +79,7 @@ Booking-Abschnitt und im Tech Rider. Nie nur eine der beiden Varianten nennen �
 die Wahlmöglichkeit ist das Verkaufsargument.
 
 Besetzung: Sera Wild (E-Piano & Gsang), M.C. Ivory (Gsang, Gitarre & Ukulele),
-P. Laessig (Bassgitarre).
+P. Lässig (Bassgitarre).
 
 ## Was noch fehlt
 
