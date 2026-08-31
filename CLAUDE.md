@@ -78,7 +78,8 @@ Booking-Abschnitt und im Tech Rider. Nie nur eine der beiden Varianten nennen â€
 die WahlmÃ¶glichkeit ist das Verkaufsargument.
 
 Besetzung: Ivor (Gsang, Gitarre & Ukulele), Sera (E-Piano & Gsang),
-Paddy (Bassgitarre). Die Reihenfolge auf der Seite kommt aus `besetzung.json`. Auf der Seite stehen bewusst nur die Vornamen.
+Paddy (Bassgitarre). Auf der Seite stehen bewusst nur die Vornamen; ihre
+Reihenfolge kommt aus `besetzung.json`.
 
 ## Was noch fehlt
 
