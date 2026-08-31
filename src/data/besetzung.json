@@ -1,17 +1,17 @@
 [
   {
-    "name": "Sera",
-    "instrument": "E-Piano & Vocals",
-    "text": "Sitzt am E-Piano und singt. Bei ihr in der Schüüre proben wir — dort entstehen die Songs und dort klingen sie zum ersten Mal.",
-    "bild": "/image/sera-wild-profil.jpg",
-    "bildFokus": "58% 30%"
-  },
-  {
     "name": "Ivor",
     "instrument": "Gitarre / Ukulele & Vocals",
     "text": "Singt und spielt Gitarre und Ukulele. Wechselt das Instrument je nach Song — manchmal auch mitten drin.",
     "bild": "/image/m-c-ivory-profil.jpg",
     "bildFokus": "58% 32%"
+  },
+  {
+    "name": "Sera",
+    "instrument": "E-Piano & Vocals",
+    "text": "Sitzt am E-Piano und singt. Bei ihr in der Schüüre proben wir — dort entstehen die Songs und dort klingen sie zum ersten Mal.",
+    "bild": "/image/sera-wild-profil.jpg",
+    "bildFokus": "58% 30%"
   },
   {
     "name": "Paddy",

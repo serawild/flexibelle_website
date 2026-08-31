@@ -67,7 +67,7 @@ Es gibt **kein Figma**. Die verbindliche Vorlage ist `STYLEGUIDE.md` plus
 
 ## Die Band
 
-Der Kern ist ein Trio: **Sera**, **Ivor**, **Paddy**. Live kommen
+Der Kern ist ein Trio: **Ivor**, **Sera**, **Paddy**. Live kommen
 je nach Song einzelne Musiker dazu — daher der Name und der offene vierte Platz
 im Abschnitt Band.
 
@@ -77,8 +77,8 @@ eine vorhandene Anlage spielen. Beides steht gleichwertig nebeneinander im
 Booking-Abschnitt und im Tech Rider. Nie nur eine der beiden Varianten nennen —
 die Wahlmöglichkeit ist das Verkaufsargument.
 
-Besetzung: Sera (E-Piano & Gsang), Ivor (Gsang, Gitarre & Ukulele),
-Paddy (Bassgitarre). Auf der Seite stehen bewusst nur die Vornamen.
+Besetzung: Ivor (Gsang, Gitarre & Ukulele), Sera (E-Piano & Gsang),
+Paddy (Bassgitarre). Die Reihenfolge auf der Seite kommt aus `besetzung.json`. Auf der Seite stehen bewusst nur die Vornamen.
 
 ## Was noch fehlt
 
