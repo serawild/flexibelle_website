@@ -1,59 +1,46 @@
-# Go-live
+# Go-live — erledigt am 31.08.2026
 
-Die Seite ist **noch nicht online**. Erst wenn Bilder und Videos da sind.
+Die Seite ist online: **https://flexibelle.live**
 
-## Was zurzeit verhindert, dass sie online geht
+Diese Datei ist ab jetzt Nachschlagewerk, keine Checkliste mehr. Was noch
+inhaltlich fehlt, steht in `OFFEN.md`.
 
-1. **Kein automatisches Deployment.** In `.github/workflows/deploy.yml` ist der
-   `push`-Auslöser auskommentiert. Ein Push auf `main` baut nichts und ändert
-   nichts an dem, was auf GitHub Pages liegt.
-2. **Kein DNS-Eintrag.** `flexibelle.live` zeigt bei Hostpoint noch nicht auf
-   GitHub. Solange das so ist, ist die Seite unter der Domain nicht erreichbar.
-3. **Suchmaschinen ausgesperrt.** `public/robots.txt` verbietet alles, und
-   solange `istLive` in `src/config.ts` auf `false` steht, trägt jede Seite
-   zusätzlich ein `noindex`.
+## Wie der Betrieb läuft
 
-Bis dahin lässt sich lokal beliebig arbeiten: `pnpm dev`, so oft du willst.
+Jeder Push auf `main` baut und deployt über `.github/workflows/deploy.yml` auf
+GitHub Pages. Die Domain kommt aus `public/CNAME`.
 
-## Vorher fertig machen
+`istLive` in `src/config.ts` steht auf `true`. Auf `false` gesetzt, trägt jede
+Seite wieder ein `noindex` — dann muss auch `public/robots.txt` zurückgestellt
+werden, die beiden gehören zusammen.
 
-- [ ] **Kurztexte** der drei im Dialekt gegenlesen (`besetzung.json`)
-- [ ] **YouTube-IDs** in `src/data/musik.json`
-- [ ] **Echte Termine** in `src/data/termine.json` (oder Datei leeren)
-- [ ] **Impressum**: Name und Adresse in `src/pages/impressum.astro`
-- [ ] **Dialekt durchlesen** — alle Mundart-Texte sind ein erster Wurf
+## DNS bei Hostpoint
 
-## Die vier Schritte zum Go-live
+| Typ | Name | Wert |
+|---|---|---|
+| A | @ | 185.199.108.153 · 185.199.109.153 · 185.199.110.153 · 185.199.111.153 |
+| AAAA | @ | 2606:50c0:8000::153 · 2606:50c0:8001::153 · 2606:50c0:8002::153 · 2606:50c0:8003::153 |
+| CNAME | www | serawild.github.io |
 
-1. **`src/config.ts`**: `istLive` auf `true` setzen.
-2. **`public/robots.txt`**: den auskommentierten Block oben aktivieren
-   (`Allow: /` statt `Disallow: /`).
-3. **`.github/workflows/deploy.yml`**: die drei `push`-Zeilen einkommentieren.
-4. **DNS bei Hostpoint** für `flexibelle.live` setzen:
+**Der AAAA-Eintrag ist der Knackpunkt.** Ursprünglich zeigte er noch auf
+Hostpoints Parkseite (`2a00:d70:0:a::166`), während die A-Einträge schon
+korrekt auf GitHub zeigten. Let's Encrypt prüft bevorzugt über IPv6, landete
+damit bei Hostpoint statt bei GitHub und stellte über einen ganzen Tag hinweg
+kein Zertifikat aus. Nach der Korrektur war es in Sekunden da.
 
-   | Typ | Name | Wert |
-   |---|---|---|
-   | A | @ | 185.199.108.153 |
-   | A | @ | 185.199.109.153 |
-   | A | @ | 185.199.110.153 |
-   | A | @ | 185.199.111.153 |
-   | CNAME | www | serawild.github.io |
+Falls das Zertifikat je wieder fehlt: zuerst `dig flexibelle.live AAAA` prüfen.
+Danach in den Pages-Einstellungen die Domain einmal entfernen und wieder
+setzen — das stösst die Ausstellung neu an.
 
-   Danach im Repo unter Settings → Pages die Domain `flexibelle.live` eintragen
-   und «Enforce HTTPS» anhaken, sobald das Zertifikat ausgestellt ist (kann
-   ein paar Minuten bis wenige Stunden dauern).
+## Zertifikat
 
-Dann `git push` — und der Workflow deployt.
+Ausgestellt von Let's Encrypt für `flexibelle.live` und `www.flexibelle.live`,
+erneuert sich automatisch. «Enforce HTTPS» ist aktiv, `http://` wird auf
+`https://` umgeleitet.
 
-## Vorher anschauen, ohne online zu gehen
-
-Der Workflow lässt sich jederzeit von Hand starten:
+## Stand von Hand prüfen
 
 ```
-gh workflow run deploy.yml
-gh run watch
+gh api repos/serawild/flexibelle_website/pages     # Domain, Zertifikat, HTTPS
+gh run watch                                        # laufendes Deployment
 ```
-
-Solange kein DNS-Eintrag existiert und die `CNAME`-Datei im Repo liegt, ist das
-Ergebnis unter keiner Adresse öffentlich erreichbar — GitHub leitet die
-`github.io`-Adresse auf die Domain um, die noch nicht auflöst.

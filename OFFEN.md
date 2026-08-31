@@ -10,10 +10,6 @@ Was noch fehlt oder bewusst weggelassen wurde. Erledigtes wird gelöscht, nicht 
 - **Kurztexte gegenlesen** — die zwei Sätze je Person sind ein erster Wurf und
   müssen im Dialekt noch angepasst werden.
 - **Hörproben** — `src/data/musik.json`: die YouTube-IDs fehlen.
-- **Termine** — `src/data/termine.json` enthält drei Beispieltermine. Vor dem
-  Go-live durch echte ersetzen oder die Datei leeren (dann erscheint der Hinweis
-  «Im Moment isch kein Uftritt usgschriebe»).
-- **Impressum** — Name und Adresse fehlen (`TODO` in `impressum.astro`).
 
 ## Bewusst weggelassen
 

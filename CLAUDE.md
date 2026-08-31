@@ -2,9 +2,8 @@
 
 Diese Datei wird bei jedem Start gelesen. Sie gilt immer, auch nach `/clear`.
 
-> **Die Seite ist noch nicht online** und geht erst live, wenn Bilder und
-> Videos da sind. Das automatische Deployment ist ausgeschaltet, Suchmaschinen
-> sind ausgesperrt. Was zum Go-live gehört, steht in `GO-LIVE.md`.
+> **Die Seite ist live** unter https://flexibelle.live (seit 31.08.2026).
+> Jeder Push auf `main` deployt automatisch, Suchmaschinen dürfen indexieren.
 
 ## Was hier gebaut wird
 
@@ -89,7 +88,6 @@ Paddy (Bassgitarre). Auf der Seite stehen bewusst nur die Vornamen.
   erster Wurf und werden von Seraina im Dialekt angepasst.
 - **Hörproben.** In `musik.json` fehlen die YouTube-IDs. Solange `id` leer ist,
   zeigt die Karte nur die Fläche.
-- **Impressum.** Name und Adresse fehlen — `TODO` in `impressum.astro`.
 - **Tech Rider.** Neu aufgebaut mit beiden Varianten (`public/flexiBelle_TechRider.pdf`,
   Quelle in `marke/`). Er ist hochdeutsch, weil er auch an Veranstalter ausserhalb
   der Schweiz geht — bewusst anders als die Website.
