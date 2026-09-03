@@ -33,6 +33,10 @@ Was noch fehlt oder bewusst weggelassen wurde. Erledigtes wird gelöscht, nicht 
 
 ## Zu prüfen
 
+- **Seras Portrait bleibt das ganze Bild.** Ein engerer Zuschnitt war
+  gebaut und wurde verworfen — Seraina will die weite Einstellung mit
+  Mikrofon und Kabel. Nicht ungefragt wieder zuschneiden.
+
 - **Dialekt.** Alle Mundart-Texte sind ein erster Wurf und werden von Seraina
   noch angepasst. Nicht selbstständig „korrigieren".
 - **Sprache im Code** — `<html lang="gsw-CH">` ist gesetzt, weil die Seite
