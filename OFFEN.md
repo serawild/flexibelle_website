@@ -35,6 +35,9 @@ Was noch fehlt oder bewusst weggelassen wurde. Erledigtes wird gelöscht, nicht 
 
 ## Zu prüfen
 
+- **Im Zitat heisst es «Schüüne».** Überall sonst auf der Seite steht
+  «Scheune» — das Zitat ist aber durchgehend Schweizerdeutsch und behält
+  seine Schreibweise. Nicht mit angleichen.
 - **Seras Portrait bleibt das ganze Bild.** Ein engerer Zuschnitt war
   gebaut und wurde verworfen — Seraina will die weite Einstellung mit
   Mikrofon und Kabel. Nicht ungefragt wieder zuschneiden.
