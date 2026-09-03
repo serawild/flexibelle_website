@@ -9,7 +9,12 @@ Was noch fehlt oder bewusst weggelassen wurde. Erledigtes wird gelöscht, nicht 
   Falls das Video definitiv nicht zurückkommt, können sie gelöscht werden.
 - **Kurztexte gegenlesen** — die zwei Sätze je Person sind ein erster Wurf und
   müssen im Dialekt noch angepasst werden.
-- **Hörproben** — `src/data/musik.json`: die YouTube-IDs fehlen.
+- **Charaktereigenschaft je Person?** Die Kurztexte beschreiben bisher nur,
+  wer was spielt. Ein Zug pro Person würde sie lebendiger machen. Vorschläge
+  liegen vor, sind aber noch nicht eingebaut — die drei sollen selbst sagen,
+  wie sie beschrieben werden wollen.
+- **Notiz zur Hörprobe «Gheimnis»** — «Eigene Song, live in der Scheune» ist
+  ein Vorschlag und muss im Dialekt noch angepasst werden.
 
 ## Bewusst weggelassen
 

@@ -55,11 +55,11 @@ Es gibt **kein Figma**. Die verbindliche Vorlage ist `STYLEGUIDE.md` plus
 | `tailwind.config.ts` | Die verbindlichen Design-Tokens |
 | `src/data/termine.json` | Auftritte: Datum, Anzeige, Ort, Zeit, Gastmusiker |
 | `src/data/besetzung.json` | Die drei Bandmitglieder |
-| `src/data/musik.json` | Hörproben: Titel, YouTube-ID, Notiz |
+| `src/data/musik.json` | Hörproben: Titel, YouTube-ID **oder** Videodatei, Standbild, Notiz |
 | `src/components/Wortmarke.astro` | «flexiBelle» als Text in Grape Nuts |
 | `src/components/Signet.astro` | fB im Kreis, SVG plus Text |
 | `src/components/Hero.astro` | Der grosse Kopf: Bild (quer/hoch), Logo, Navigation |
-| `public/video/LIESMICH.md` | Zum stillgelegten Hero-Video — zurzeit nicht im Einsatz |
+| `public/video/LIESMICH.md` | Wie eine Hörprobe aufbereitet wird; dazu das stillgelegte Hero-Video |
 | `marke/` | Style-Guide-PDFs und die Logodateien als SVG |
 | `OFFEN.md` | Offene Fragen und bewusst Weggelassenes |
 | `GO-LIVE.md` | Was vor dem Go-live fertig sein muss, und die vier Schritte dorthin |
@@ -84,11 +84,20 @@ Reihenfolge kommt aus `besetzung.json`.
 ## Was noch fehlt
 
 - **Portraits.** Alle drei Bilder liegen in `public/image/` und sind in
-  `besetzung.json` verknüpft. Das Feld `bildFokus` bestimmt den Ausschnitt im
-  runden Rahmen (CSS `object-position`, leer = Mitte). Die Kurztexte sind ein
-  erster Wurf und werden von Seraina im Dialekt angepasst.
-- **Hörproben.** In `musik.json` fehlen die YouTube-IDs. Solange `id` leer ist,
-  zeigt die Karte nur die Fläche.
+  `besetzung.json` verknüpft. Die Kurztexte sind ein erster Wurf und werden
+  von Seraina im Dialekt angepasst.
+
+  Das Feld `bildFokus` (CSS `object-position`) verschiebt den Ausschnitt im
+  runden Rahmen — aber **nur bei Bildern, die nicht quadratisch sind**. Ein
+  quadratisches Bild füllt den quadratischen Rahmen exakt aus, da gibt es
+  nichts zu verschieben. Näher heran kommt man deshalb nur, indem man die
+  Datei selbst enger zuschneidet — so entstanden bei Sera aus dem Original
+  `sera-wild-profil.jpg` die engeren `-nah.jpg`. Das Original bleibt liegen,
+  damit sich der Ausschnitt jederzeit neu wählen lässt.
+- **Hörproben.** Beide Karten sind gefüllt. Eine Karte kann auf zwei Arten
+  klingen: `datei` zeigt ein selbst gehostetes Video aus `public/video/`
+  mit Standbild, `id` bettet ein YouTube-Video ein. Ist beides leer, zeigt
+  die Karte nur die Fläche. Weitere Songs kommen dazu.
 - **Tech Rider.** Neu aufgebaut mit beiden Varianten (`public/flexiBelle_TechRider.pdf`,
   Quelle in `marke/`). Er ist hochdeutsch, weil er auch an Veranstalter ausserhalb
   der Schweiz geht — bewusst anders als die Website.

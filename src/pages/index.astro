@@ -35,7 +35,7 @@ import musik from '../data/musik.json';
   <section class="bg-khaki-hell px-6 py-20 text-center sm:px-10">
     <blockquote class="mx-auto max-w-3xl font-zitat text-zitat italic text-khaki-tief text-pretty">
       «Als Jäger und Sammler vo schöne Melodie und Gschichte triibts euis immer wieder id
-      Schüüne, wo die rohe Songs zwäg gflext wärded. Mit Liideschaft und stets bemüeht, die
+      Scheune, wo die rohe Songs zwäg gflext wärded. Mit Liideschaft und stets bemüeht, die
       richtige Saite &amp; Taste z'träffe, gömmer druf los und luege was passiert.»
     </blockquote>
   </section>
@@ -50,7 +50,15 @@ import musik from '../data/musik.json';
       {musik.map((s) => (
         <figure class="border border-sand bg-karte p-6">
           <div class="aspect-video w-full bg-sand">
-            {s.id ? (
+            {s.datei ? (
+              <video
+                class="h-full w-full object-cover"
+                src={s.datei}
+                poster={s.bild}
+                controls
+                playsinline
+                preload="none"></video>
+            ) : s.id ? (
               <iframe
                 class="h-full w-full"
                 src={`https://www.youtube-nocookie.com/embed/${s.id}`}

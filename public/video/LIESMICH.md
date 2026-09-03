@@ -1,4 +1,29 @@
-# Hero-Video — zurzeit nicht im Einsatz
+# Die Videos in diesem Ordner
+
+## Hörproben
+
+`gheimnis.mp4` mit `gheimnis-poster.jpg` hängt an der ersten Karte im Abschnitt
+Musik, eingetragen in `src/data/musik.json` unter `datei` und `bild`. Die Karte
+spielt erst auf Klick (`preload="none"`), mit Ton — anders als das Hero-Video.
+
+So wird eine neue Hörprobe aufbereitet. 720p reicht für die Karte, unter 10 MB
+bleiben, damit die Seite auf dem Handy schnell bleibt:
+
+```
+ffmpeg -i original.mp4 -map 0:v:0 -map 0:a:0 -vf "scale=1280:-2,fps=25" \
+  -c:v libx264 -crf 27 -preset slow -pix_fmt yuv420p -movflags +faststart \
+  -c:a aac -b:a 128k gheimnis.mp4
+ffmpeg -ss 30 -i original.mp4 -frames:v 1 -vf scale=1280:-2 -q:v 4 gheimnis-poster.jpg
+```
+
+`-movflags +faststart` schiebt die Sprungmarken an den Dateianfang, sonst muss
+der Browser erst die ganze Datei laden, bevor er abspielt. Das Standbild kommt
+aus dem Original, nicht aus der verkleinerten Datei — es wird sonst matschig.
+
+Die Originale liegen ausserhalb des Repos (`Pictures/Videos/flexiBelle/`), hier
+kommt nur die fertige, kleine Fassung hinein.
+
+## Hero-Video — zurzeit nicht im Einsatz
 
 Der Kopf der Seite zeigt seit August 2026 ein Bild statt eines Videos:
 `public/image/flexibelle-hero.jpg`, eingetragen in `src/config.ts`.

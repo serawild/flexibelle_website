@@ -13,8 +13,10 @@ node_modules/
 .DS_Store
 # editors
 .idea/
-# original video (zu gross für git)
+# Originalvideos (zu gross für git). Ins Repo gehört nur die fertige,
+# kleingerechnete Fassung — siehe public/video/LIESMICH.md.
 public/video/20251112_143433.mp4
+public/video/video-gheimnis-flexibelle.mp4
 
 # versehentlich in public/ abgelegte Aufnahmen und Kamera-/Rekorderdaten.
 # Diese Seite liefert public/ 1:1 aus — hier darf nichts landen, was nicht

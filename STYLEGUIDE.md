@@ -103,7 +103,7 @@ Weiterschreiben ihre Schreibweise übernehmen, nicht die eigene.
 
 ## Bildsprache
 
-Warmes, vorhandenes Licht — Schüüre, Probe, Bühne. Lieber ein unperfekter
+Warmes, vorhandenes Licht — Scheune, Probe, Bühne. Lieber ein unperfekter
 Moment als ein gestelltes Bandfoto. Wenig Nachbearbeitung, keine kalten Farben.
 Der Sessel und das gestreifte Sofa dürfen mit aufs Bild.
 
