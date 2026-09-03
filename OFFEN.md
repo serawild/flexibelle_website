@@ -9,10 +9,12 @@ Was noch fehlt oder bewusst weggelassen wurde. Erledigtes wird gelöscht, nicht 
   Falls das Video definitiv nicht zurückkommt, können sie gelöscht werden.
 - **Kurztexte gegenlesen** — die zwei Sätze je Person sind ein erster Wurf und
   müssen im Dialekt noch angepasst werden.
-- **Charaktereigenschaft je Person?** Die Kurztexte beschreiben bisher nur,
-  wer was spielt. Ein Zug pro Person würde sie lebendiger machen. Vorschläge
-  liegen vor, sind aber noch nicht eingebaut — die drei sollen selbst sagen,
-  wie sie beschrieben werden wollen.
+- **Charaktereigenschaft je Person** — je ein zweiter Satz ist eingebaut
+  («meistens barfuss», «lacht als Erste», «ruhig, bis der Bass einsetzt»).
+  Die drei sollen gegenlesen, ob sie sich darin wiedererkennen.
+- **Paddys Verstärker** — dass er den eigenen mitbringt, stand vorher in
+  seinem Kurztext und ist der Eigenschaft gewichen. Im Tech Rider steht es
+  weiterhin; falls es auf der Seite fehlt, wieder aufnehmen.
 - **Notiz zur Hörprobe «Gheimnis»** — «Eigene Song, live in der Scheune» ist
   ein Vorschlag und muss im Dialekt noch angepasst werden.
 

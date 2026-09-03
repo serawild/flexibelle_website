@@ -2,21 +2,21 @@
   {
     "name": "Ivor",
     "instrument": "Gitarre / Ukulele & Vocals",
-    "text": "Singt und spielt Gitarre und Ukulele. Wechselt das Instrument je nach Song.",
+    "text": "Singt und spielt Gitarre und Ukulele. Wechselt das Instrument je nach Song, meistens barfuss.",
     "bild": "/image/m-c-ivory-profil.jpg",
     "bildFokus": "58% 32%"
   },
   {
     "name": "Sera",
     "instrument": "E-Piano & Vocals",
-    "text": "Sitzt am E-Piano und singt. Bei ihr in der Scheune proben wir.",
+    "text": "Sitzt am E-Piano und singt. Bei ihr in der Scheune proben wir — und sie lacht als Erste.",
     "bild": "/image/sera-wild-profil-nah.jpg",
     "bildFokus": ""
   },
   {
     "name": "Paddy",
     "instrument": "Bassgitarre",
-    "text": "Hält von unten alles zusammen. Bringt seinen eigenen Verstärker mit — das steht sogar im Tech Rider.",
+    "text": "Hält von unten alles zusammen. Ruhig, bis der Bass einsetzt.",
     "bild": "/image/paddy-laessig-profil.jpg",
     "bildFokus": "44% 20%"
   }
