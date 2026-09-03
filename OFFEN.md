@@ -16,8 +16,9 @@ Was noch fehlt oder bewusst weggelassen wurde. Erledigtes wird gelöscht, nicht 
 - **Paddys Verstärker** — dass er den eigenen mitbringt, stand vorher in
   seinem Kurztext und ist der Eigenschaft gewichen. Im Tech Rider steht es
   weiterhin; falls es auf der Seite fehlt, wieder aufnehmen.
-- **Notiz zur Hörprobe «Gheimnis»** — «Eigene Song, live in der Scheune» ist
-  ein Vorschlag und muss im Dialekt noch angepasst werden.
+- **«Eigener Song» steht bewusst auf Hochdeutsch.** Der Untertitel der
+  Hörprobe «Gheimnis» ist von Seraina so gesetzt — nicht in Mundart
+  zurückschreiben, obwohl Regel 4 das sonst verlangt.
 
 ## Bewusst weggelassen
 
