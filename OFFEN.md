@@ -10,7 +10,8 @@ Was noch fehlt oder bewusst weggelassen wurde. Erledigtes wird gelöscht, nicht 
 - **Kurztexte gegenlesen** — die zwei Sätze je Person sind ein erster Wurf und
   müssen im Dialekt noch angepasst werden.
 - **Charaktereigenschaft je Person** — je ein zweiter Satz ist eingebaut
-  («meistens barfuss», «lacht als Erste», «ruhig, bis der Bass einsetzt»).
+  («meistens barfuss», «der Humor kommt nie zu kurz», «ruhig, bis der Bass
+  einsetzt»).
   Die drei sollen gegenlesen, ob sie sich darin wiedererkennen.
 - **Paddys Verstärker** — dass er den eigenen mitbringt, stand vorher in
   seinem Kurztext und ist der Eigenschaft gewichen. Im Tech Rider steht es
