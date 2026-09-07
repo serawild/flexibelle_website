@@ -7,38 +7,79 @@ const kommend = sorted.filter((t) => t.datum >= heute);
 const vergangen = sorted.filter((t) => t.datum < heute).reverse();
 ---
 
-{kommend.length === 0 ? (
-  <p class="mt-8 max-w-text text-taupe">
+<div data-termine>
+  <p data-termine-leer class="mt-8 max-w-text text-taupe" hidden={kommend.length > 0}>
     Im Moment ist kein Auftritt ausgeschrieben. Für eine Anfrage schreibt uns — wir spielen gern.
   </p>
-) : (
-  <ul class="mt-10 border-t border-sand">
+
+  <ul data-termine-kommend class="mt-10 border-t border-sand" hidden={kommend.length === 0}>
     {kommend.map((t) => (
-      <li class="flex flex-wrap items-baseline gap-x-5 gap-y-1 border-b border-sand py-4">
+      <li data-datum={t.datum} class="flex flex-wrap items-baseline gap-x-5 gap-y-1 border-b border-sand py-4">
         <time datetime={t.datum} class="w-full text-label font-bold text-ocker-text sm:w-32 sm:shrink-0">
           {t.anzeige}
         </time>
-        <span class="font-semibold">{t.ort}</span>
-        {t.gast && <span class="font-zitat italic text-khaki-tief">{t.gast}</span>}
-        {t.zeit && <span class="ml-auto whitespace-nowrap text-taupe">{t.zeit}</span>}
+        <span data-ort class="font-semibold">{t.ort}</span>
+        {t.gast && <span data-gast class="font-zitat italic text-khaki-tief">{t.gast}</span>}
+        {t.zeit && <span data-zeit class="ml-auto whitespace-nowrap text-taupe">{t.zeit}</span>}
       </li>
     ))}
   </ul>
-)}
 
-{vergangen.length > 0 && (
-  <div class="mt-12">
+  <div data-termine-alt class="mt-12" hidden={vergangen.length === 0}>
     <p class="text-label font-semibold uppercase text-taupe">Vergangene Gigs</p>
-    <ul class="mt-4 border-t border-sand/60">
+    <ul data-termine-vergangen class="mt-4 border-t border-sand/60">
       {vergangen.map((t) => (
-        <li class="flex flex-wrap items-baseline gap-x-5 gap-y-1 border-b border-sand/60 py-3 text-taupe">
+        <li data-datum={t.datum} class="flex flex-wrap items-baseline gap-x-5 gap-y-1 border-b border-sand/60 py-3 text-taupe">
           <time datetime={t.datum} class="w-full text-label sm:w-32 sm:shrink-0">
             {t.anzeige}
           </time>
-          <span>{t.ort}</span>
-          {t.gast && <span class="font-zitat italic">{t.gast}</span>}
+          <span data-ort>{t.ort}</span>
+          {t.gast && <span data-gast class="font-zitat italic">{t.gast}</span>}
         </li>
       ))}
     </ul>
   </div>
-)}
+</div>
+
+{/*
+  Die Aufteilung oben friert beim Build ein. Ohne diesen Nachtrag bliebe ein Gig
+  bis zum nächsten Deploy als «kommend» stehen — darum wird sie im Browser mit
+  dem echten heutigen Datum korrigiert. `is:inline`, damit es vor dem ersten
+  Zeichnen läuft und nichts springt.
+*/}
+<script is:inline>
+  (() => {
+    const wurzel = document.querySelector('[data-termine]');
+    if (!wurzel) return;
+
+    const kommend = wurzel.querySelector('[data-termine-kommend]');
+    const vergangen = wurzel.querySelector('[data-termine-vergangen]');
+    const alt = wurzel.querySelector('[data-termine-alt]');
+    const leer = wurzel.querySelector('[data-termine-leer]');
+    if (!kommend || !vergangen || !alt || !leer) return;
+
+    const jetzt = new Date();
+    const heute = [
+      jetzt.getFullYear(),
+      String(jetzt.getMonth() + 1).padStart(2, '0'),
+      String(jetzt.getDate()).padStart(2, '0'),
+    ].join('-');
+
+    for (const eintrag of [...kommend.children]) {
+      if (eintrag.dataset.datum >= heute) continue;
+
+      eintrag.className =
+        'flex flex-wrap items-baseline gap-x-5 gap-y-1 border-b border-sand/60 py-3 text-taupe';
+      eintrag.querySelector('time').className = 'w-full text-label sm:w-32 sm:shrink-0';
+      eintrag.querySelector('[data-ort]').removeAttribute('class');
+      eintrag.querySelector('[data-gast]')?.setAttribute('class', 'font-zitat italic');
+      eintrag.querySelector('[data-zeit]')?.remove();
+
+      vergangen.prepend(eintrag);
+    }
+
+    kommend.hidden = kommend.children.length === 0;
+    leer.hidden = !kommend.hidden;
+    alt.hidden = vergangen.children.length === 0;
+  })();
+</script>
