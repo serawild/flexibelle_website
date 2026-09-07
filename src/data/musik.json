@@ -5,7 +5,17 @@
     "id": "",
     "datei": "/video/gheimnis.mp4",
     "bild": "/video/gheimnis-poster.jpg",
-    "notiz": "Eigener Song, live in der Scheune"
+    "notiz": "flexiBelle",
+    "ort": "Live in der Scheune"
+  },
+  {
+    "titel": "Kompass",
+    "art": "datei",
+    "id": "",
+    "datei": "/video/kompass.mp4",
+    "bild": "/video/kompass-poster.jpg",
+    "notiz": "flexiBelle",
+    "ort": "Live in der Scheune"
   },
   {
     "titel": "Der Tropfen endet im Ozean",
@@ -13,6 +23,34 @@
     "id": "yYKHMlvWMsM",
     "datei": "",
     "bild": "",
-    "notiz": "Eigenkomposition Tina Meier"
+    "notiz": "Eigenkomposition Tina Meier",
+    "ort": "Live in der Scheune"
+  },
+  {
+    "titel": "Frächi Fründin",
+    "art": "datei",
+    "id": "",
+    "datei": "/video/fraechi-fruendin.mp4",
+    "bild": "/video/fraechi-fruendin-poster.jpg",
+    "notiz": "flexiBelle",
+    "ort": "Live am WSB Fest"
+  },
+  {
+    "titel": "Uf u drvo",
+    "art": "datei",
+    "id": "",
+    "datei": "/video/uf-u-drvo.mp4",
+    "bild": "/video/uf-u-drvo-poster.jpg",
+    "notiz": "Gölä",
+    "ort": "Live am WSB Fest"
+  },
+  {
+    "titel": "In case I fall for you",
+    "art": "datei",
+    "id": "",
+    "datei": "/video/in-case-i-fall-for-you.mp4",
+    "bild": "/video/in-case-i-fall-for-you-poster.jpg",
+    "notiz": "Black Sea Dahu",
+    "ort": "Live am WSB Fest"
   }
 ]

@@ -6,6 +6,13 @@ import Knopf from '../components/Knopf.astro';
 import Besetzung from '../components/Besetzung.astro';
 import TerminListe from '../components/TerminListe.astro';
 import musik from '../data/musik.json';
+
+// Musik-Abschnitt: alle Hörproben sind gleich grosse Kacheln, drei pro Zeile.
+// Gruppiert nach `ort` aus musik.json — eine Zeile je Auftrittsort, in der
+// Reihenfolge, in der die Orte dort zum ersten Mal vorkommen.
+const orte: string[] = [];
+for (const s of musik) if (!orte.includes(s.ort)) orte.push(s.ort);
+const reihen = orte.map((ort) => ({ ort, proben: musik.filter((s) => s.ort === ort) }));
 ---
 
 <Basis
@@ -46,37 +53,44 @@ import musik from '../data/musik.json';
       Eigene Songs, dazu Lieder, die wir unterwegs gesammelt haben. Am besten hörst du selbst rein.
     </p>
 
-    <div class="mt-10 grid gap-8 sm:grid-cols-2">
-      {musik.map((s) => (
-        <figure class="border border-sand bg-karte p-6">
-          <div class="aspect-video w-full bg-sand">
-            {s.datei ? (
-              <video
-                class="h-full w-full object-cover"
-                src={s.datei}
-                poster={s.bild}
-                controls
-                playsinline
-                preload="none"></video>
-            ) : s.id ? (
-              <iframe
-                class="h-full w-full"
-                src={`https://www.youtube-nocookie.com/embed/${s.id}`}
-                title={s.titel}
-                loading="lazy"
-                allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
-                allowfullscreen></iframe>
-            ) : s.bild ? (
-              <img src={s.bild} alt={s.titel} class="h-full w-full object-cover" />
-            ) : null}
-          </div>
-          <figcaption class="mt-4">
-            <p class="titel text-untertitel">{s.titel}</p>
-            <p class="mt-1 text-taupe">{s.notiz}</p>
-          </figcaption>
-        </figure>
-      ))}
-    </div>
+    {reihen.map((reihe) => (
+      <div class="mt-10">
+        <p class="label text-ocker-text">{reihe.ort}</p>
+
+        <div class="mt-4 grid items-stretch gap-6 grid-cols-1 sm:grid-cols-3">
+          {reihe.proben.map((s) => (
+            <figure class="flex h-full flex-col border border-sand bg-karte p-4">
+              <div class="aspect-video w-full bg-sand">
+                {s.datei ? (
+                  <video
+                    class="h-full w-full object-cover"
+                    src={s.datei}
+                    poster={s.bild}
+                    controls
+                    playsinline
+                    preload="none"></video>
+                ) : s.id ? (
+                  <iframe
+                    class="h-full w-full"
+                    src={`https://www.youtube-nocookie.com/embed/${s.id}`}
+                    title={s.titel}
+                    loading="lazy"
+                    allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+                    allowfullscreen></iframe>
+                ) : s.bild ? (
+                  <img src={s.bild} alt={s.titel} class="h-full w-full object-cover" />
+                ) : null}
+              </div>
+              <figcaption class="mt-3">
+                <p class="titel text-untertitel">{s.titel}</p>
+                {s.notiz && <p class="mt-1 text-sm text-taupe">{s.notiz}</p>}
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    ))}
+
   </Abschnitt>
 
   <!-- ================= Live ================= -->
