@@ -1,0 +1,78 @@
+---
+/**
+ * Vorlage für `public/flexiBelle_Pressetext.pdf` — keine Seite für Besucher.
+ *
+ * Diese Seite existiert nur, damit das PDF aus der Website selbst gedruckt werden
+ * kann: So stimmen Schriften, Farben und Tonalität ohne zweite Pflegestelle. Der
+ * Inhalt kommt aus `src/data/presse.json`, genau wie der Presse-Block auf der
+ * Startseite — beides kann also nie auseinanderlaufen.
+ *
+ * Neu erzeugen:
+ *   pnpm build && pnpm preview --port 4323
+ *   dann die Seite /presse-pdf im Browser öffnen und als A4 drucken
+ *   (Hintergrundgrafiken einschalten, Ränder auf null, Kopf- und Fusszeile aus).
+ *
+ * Sie steht auf noindex und ist nirgends verlinkt.
+ */
+import '../styles/global.css';
+import presse from '../data/presse.json';
+---
+
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <title>flexiBelle — Pressetext</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <style>
+      @page { size: A4; margin: 0; }
+      html, body { background: #F2EADA; }
+      .blatt { width: 210mm; height: 297mm; overflow: hidden; }
+    </style>
+  </head>
+
+  <body class="font-sans text-braun">
+    <div class="blatt mx-auto flex flex-col px-[20mm] py-[15mm]">
+
+      <!-- Kopf -->
+      <div class="flex items-baseline justify-between border-b border-sand pb-4">
+        <p class="text-label font-semibold uppercase tracking-[0.24em] text-ocker-text">Pressetext</p>
+        <p class="text-label uppercase tracking-[0.24em] text-taupe">{presse.website}</p>
+      </div>
+
+      <!-- Marke -->
+      <div class="mt-8 text-center">
+        <p class="font-marke text-[3.5rem] leading-none text-braun">flexiBelle</p>
+        <p class="mt-2 text-label uppercase tracking-[0.3em] text-ocker-text">Live Musik · Eigeni Songs</p>
+      </div>
+
+      <!-- Bild -->
+      <img
+        src="/presse/flexibelle-live-quer-web.jpg"
+        alt="flexiBelle — Ivor, Sera und Paddy in der Scheune"
+        class="mt-8 max-h-[95mm] w-full border border-sand object-cover"
+      />
+      <p class="mt-2 text-right text-sm text-taupe">Foto: {presse.fotograf}</p>
+
+      <!-- Text -->
+      <p class="mt-6 text-body leading-relaxed">{presse.text}</p>
+
+      <!-- Zitat -->
+      <blockquote class="mt-6 border-l-2 border-ocker pl-6 font-zitat italic leading-relaxed text-khaki-tief">
+        «{presse.zitat}»
+      </blockquote>
+
+      <!-- Fuss -->
+      <div class="mt-auto border-t border-sand pt-6">
+        <div class="flex items-end justify-between">
+          <div>
+            <p class="text-label font-semibold uppercase tracking-[0.24em] text-ocker-text">Kontakt</p>
+            <p class="mt-2 text-body">{presse.kontakt}</p>
+            <p class="text-body">{presse.website}</p>
+          </div>
+          <p class="max-w-[80mm] text-right text-sm leading-relaxed text-taupe">{presse.nutzung}</p>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>

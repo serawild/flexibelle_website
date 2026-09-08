@@ -3,8 +3,10 @@ interface Props {
   href: string;
   art?: 'voll' | 'rand' | 'khaki';
   class?: string;
+  /** Alles Weitere (download, target, rel, aria-*) wird an das <a> durchgereicht. */
+  [key: string]: unknown;
 }
-const { href, art = 'voll', class: klasse = '' } = Astro.props;
+const { href, art = 'voll', class: klasse = '', ...rest } = Astro.props;
 
 const stile = {
   voll: 'bg-ocker text-braun hover:bg-[#E0AA3C]',
@@ -15,6 +17,7 @@ const stile = {
 
 <a
   href={href}
+  {...rest}
   class:list={[
     'inline-block px-8 py-3 text-label font-semibold uppercase transition-colors duration-200',
     stile[art],
