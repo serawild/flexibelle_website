@@ -1,5 +1,6 @@
 ---
 import Wortmarke from './Wortmarke.astro';
+import TonSchalter from './TonSchalter.astro';
 import Signet from './Signet.astro';
 import Knopf from './Knopf.astro';
 import { heroBild, heroBildHoch } from '../config';
@@ -40,16 +41,19 @@ const links = [
       <Wortmarke klein />
       <span class="sr-only">flexiBelle — zum Seitenanfang</span>
     </a>
-    <ul class="flex flex-wrap justify-center gap-5 sm:gap-8">
-      {links.map((l) => (
-        <li>
-          <a href={l.href}
-            class="text-label font-medium uppercase text-beige/75 transition-colors hover:text-ocker">
-            {l.text}
-          </a>
-        </li>
-      ))}
-    </ul>
+    <div class="flex flex-wrap items-center justify-center gap-5 sm:gap-8">
+      <ul class="flex flex-wrap justify-center gap-5 sm:gap-8">
+        {links.map((l) => (
+          <li>
+            <a href={l.href}
+              class="text-label font-medium uppercase text-beige/75 transition-colors hover:text-ocker">
+              {l.text}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <TonSchalter ton="hell" />
+    </div>
   </nav>
 
   <!-- Die Marke: sitzt im unteren Drittel, damit sie die Köpfe im Bild nicht verdeckt -->

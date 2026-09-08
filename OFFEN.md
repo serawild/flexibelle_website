@@ -77,3 +77,20 @@ Was noch fehlt oder bewusst weggelassen wurde. Erledigtes wird gelöscht, nicht 
 - **Kacheln unter 640 px einspaltig.** Seraina wünschte «immer 3 pro Zeile». Ab `sm`
   sind es drei, darunter eine — drei Kacheln nebeneinander sind auf einem 390-px-Handy
   zu klein zum Antippen. Falls doch drei gewünscht sind, ist es eine Klasse.
+
+- **Die Musik startet nicht von selbst — sie kann es nicht.** Seraina wollte
+  ursprünglich Ton beim Betreten der Seite. Chrome, Safari und Firefox lassen
+  Audio erst zu, nachdem jemand geklickt hat; ein Autostart bliebe stumm.
+  Deshalb der Ton-Schalter in der Kopfzeile (`src/components/TonSchalter.astro`).
+  Nicht «reparieren» wollen — es ist keine Einstellung, sondern eine feste
+  Browserregel.
+
+  Der Knopf steht zweimal auf der Seite (Hero und mitlaufende Leiste) und
+  steuert dasselbe `<audio>` in `Basis.astro`. Der Zustand wird im
+  `sessionStorage` gemerkt, damit die Musik über Impressum und Datenschutz
+  hinweg weiterläuft. Startet eine Hörprobe, hält die Hintergrundmusik an.
+
+  Die Tonspur ist vorerst aus `gheimnis.mp4` gezogen. Seraina hat eine WAV
+  angekündigt — sobald sie unter `public/audio/gheimnis.wav` liegt, wird sie
+  nach AAC gerechnet und die WAV wieder aus `public/` entfernt (sonst lädt sie
+  jeder Besucher mit).

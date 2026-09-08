@@ -48,5 +48,63 @@ const kanonisch = new URL(Astro.url.pathname, Astro.site);
       <slot />
     </main>
     <Fuss />
+
+    <!-- Hintergrundmusik: ein Element für die ganze Seite, gesteuert von den
+         Ton-Schaltern in Hero und mitlaufender Leiste. preload="none", damit
+         die 1.7 MB erst geladen werden, wenn jemand sie hören will. -->
+    <audio id="hintergrundmusik" src="/audio/gheimnis.m4a" preload="none" loop></audio>
+
+    <script>
+      const klang = document.getElementById('hintergrundmusik') as HTMLAudioElement | null;
+      const schalter = document.querySelectorAll<HTMLButtonElement>('[data-ton-schalter]');
+
+      if (klang && schalter.length) {
+        const SCHLUESSEL = 'flexibelle-ton';
+
+        function zeigen(laeuft: boolean) {
+          for (const knopf of schalter) {
+            knopf.setAttribute('aria-pressed', String(laeuft));
+            knopf.setAttribute('aria-label', laeuft ? 'Musik anhalten' : 'Musik abspielen');
+            knopf.querySelector('[data-ton-aus]')?.classList.toggle('hidden', laeuft);
+            knopf.querySelector('[data-ton-an]')?.classList.toggle('hidden', !laeuft);
+          }
+        }
+
+        for (const knopf of schalter) {
+          knopf.addEventListener('click', () => {
+            if (klang.paused) {
+              klang.play().catch(() => zeigen(false));
+            } else {
+              klang.pause();
+            }
+          });
+        }
+
+        klang.addEventListener('play', () => {
+          zeigen(true);
+          sessionStorage.setItem(SCHLUESSEL, 'an');
+        });
+        klang.addEventListener('pause', () => {
+          zeigen(false);
+          sessionStorage.setItem(SCHLUESSEL, 'aus');
+        });
+        // Stand über Impressum und Datenschutz hinweg merken.
+        klang.addEventListener('timeupdate', () => {
+          sessionStorage.setItem(SCHLUESSEL + '-stelle', String(klang.currentTime));
+        });
+
+        if (sessionStorage.getItem(SCHLUESSEL) === 'an') {
+          const stelle = Number(sessionStorage.getItem(SCHLUESSEL + '-stelle') ?? 0);
+          if (stelle > 0) klang.currentTime = stelle;
+          // Kann der Browser ablehnen — dann bleibt der Knopf einfach auf «aus».
+          klang.play().catch(() => zeigen(false));
+        }
+
+        // Ton anhalten, wenn eine Hörprobe gestartet wird — sonst spielt beides.
+        for (const spieler of document.querySelectorAll('video')) {
+          spieler.addEventListener('play', () => klang.pause());
+        }
+      }
+    </script>
   </body>
 </html>

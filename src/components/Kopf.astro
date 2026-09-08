@@ -1,4 +1,5 @@
 ---
+import TonSchalter from './TonSchalter.astro';
 /**
  * Die Navigation, die beim Scrollen mitkommt. Im Kopf selber steht die
  * Navigation direkt im Hero (siehe Hero.astro) — diese hier blendet sich erst
@@ -21,16 +22,19 @@ const links = [
     aria-label="Navigation beim Scrollen">
     <a href="#oben" class="font-marke text-marke-klein leading-none text-beige
       transition-opacity hover:opacity-80">flexiBelle</a>
-    <ul class="flex flex-wrap justify-end gap-4 sm:gap-8">
-      {links.map((l) => (
-        <li>
-          <a href={l.href}
-            class="text-label font-medium uppercase text-taupe-hell transition-colors hover:text-ocker">
-            {l.text}
-          </a>
-        </li>
-      ))}
-    </ul>
+    <div class="flex flex-wrap items-center justify-end gap-4 sm:gap-8">
+      <ul class="flex flex-wrap justify-end gap-4 sm:gap-8">
+        {links.map((l) => (
+          <li>
+            <a href={l.href}
+              class="text-label font-medium uppercase text-taupe-hell transition-colors hover:text-ocker">
+              {l.text}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <TonSchalter ton="gedaempft" />
+    </div>
   </nav>
 </header>
 

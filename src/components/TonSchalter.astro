@@ -1,0 +1,48 @@
+---
+/**
+ * Ton-Schalter — startet und stoppt die Hintergrundmusik.
+ *
+ * Der Knopf darf mehrfach auf der Seite stehen (Hero-Navigation und die
+ * mitlaufende Leiste). Alle Knöpfe steuern dasselbe <audio>-Element, das
+ * einmal in Basis.astro liegt.
+ *
+ * Warum nicht von selbst? Browser lassen Ton erst zu, nachdem jemand geklickt
+ * hat — Chrome, Safari und Firefox gleichermassen. Ein Autostart mit Ton
+ * bliebe stumm. Deshalb dieser Knopf.
+ */
+interface Props {
+  /** Farbton: im Hero heller, in der mitlaufenden Leiste gedämpfter. */
+  ton?: 'hell' | 'gedaempft';
+  class?: string;
+}
+const { ton = 'hell', class: klasse = '' } = Astro.props;
+
+const farben = {
+  hell: 'text-beige/75 hover:text-ocker',
+  gedaempft: 'text-taupe-hell hover:text-ocker',
+};
+---
+
+<button
+  type="button"
+  data-ton-schalter
+  aria-pressed="false"
+  aria-label="Musik abspielen"
+  class:list={[
+    'inline-flex items-center justify-center transition-colors',
+    farben[ton],
+    klasse,
+  ]}>
+  <!-- Lautsprecher, stumm: Grundzustand -->
+  <svg data-ton-aus viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+    class="h-6 w-6" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round"
+      d="M17.25 9.75 19.5 12m0 0 2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25M6.75 8.25l4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.7-.507-1.943-1.352a9.06 9.06 0 0 1 0-4.996C2.81 8.757 3.63 8.25 4.51 8.25H6.75Z" />
+  </svg>
+  <!-- Lautsprecher mit Wellen: läuft -->
+  <svg data-ton-an viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+    class="hidden h-6 w-6" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round"
+      d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M6.75 8.25l4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.7-.507-1.943-1.352a9.06 9.06 0 0 1 0-4.996C2.81 8.757 3.63 8.25 4.51 8.25H6.75Z" />
+  </svg>
+</button>
