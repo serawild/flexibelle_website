@@ -8,7 +8,7 @@ Was noch fehlt oder bewusst weggelassen wurde. Erledigtes wird gelöscht, nicht 
   liegen weiterhin in `public/video/`, werden aber nicht mehr eingebunden.
   Falls das Video definitiv nicht zurückkommt, können sie gelöscht werden.
 - **Kurztexte gegenlesen** — die zwei Sätze je Person sind ein erster Wurf und
-  müssen im Dialekt noch angepasst werden.
+  müssen von Seraina noch angepasst werden.
 - **Charaktereigenschaft je Person** — je ein zweiter Satz ist eingebaut
   («meistens barfuss», «der Humor kommt nie zu kurz», «ruhig, bis der Bass
   einsetzt»).
@@ -16,10 +16,6 @@ Was noch fehlt oder bewusst weggelassen wurde. Erledigtes wird gelöscht, nicht 
 - **Paddys Verstärker** — dass er den eigenen mitbringt, stand vorher in
   seinem Kurztext und ist der Eigenschaft gewichen. Im Tech Rider steht es
   weiterhin; falls es auf der Seite fehlt, wieder aufnehmen.
-- **«Eigener Song, live in der Scheune» steht bewusst auf Hochdeutsch.**
-  Der Untertitel der Hörprobe «Gheimnis» ist von Seraina so gesetzt — nicht
-  in Mundart zurückschreiben, obwohl Regel 4 das sonst verlangt.
-
 ## Bewusst weggelassen
 
 - **Kein Kontaktformular.** Die Anfrage läuft über einen `mailto:`-Link. Ein
@@ -27,25 +23,28 @@ Was noch fehlt oder bewusst weggelassen wurde. Erledigtes wird gelöscht, nicht 
 - **Keine Analyse-Werkzeuge, keine Cookies.** Darum ist die Datenschutzerklärung
   kurz und es gibt kein Cookie-Banner.
 - **Keine Social-Media-Einbindung.** Kommt dazu, sobald es Konten gibt.
-- **Tech Rider auf Hochdeutsch.** Die Website ist Mundart, der Rider nicht — er
-  geht auch an Veranstalter und Techniker ausserhalb der Schweiz. Falls das
-  anders gewünscht ist, lässt er sich umstellen.
+- **Tech Rider auf Hochdeutsch** — wie die Website. Er geht auch an
+  Veranstalter und Techniker ausserhalb der Schweiz.
 - **Kein Ton im Hero-Video.** Ein Video mit Ton startet in den meisten Browsern
   gar nicht erst automatisch — und ungefragter Ton vergrault Besucher.
 
 ## Zu prüfen
 
 - **Im Zitat heisst es «Schüüne».** Überall sonst auf der Seite steht
-  «Scheune» — das Zitat ist aber durchgehend Schweizerdeutsch und behält
-  seine Schreibweise. Nicht mit angleichen.
-- **Seras Portrait bleibt das ganze Bild.** Ein engerer Zuschnitt war
-  gebaut und wurde verworfen — Seraina will die weite Einstellung mit
-  Mikrofon und Kabel. Nicht ungefragt wieder zuschneiden.
+  «Scheune» — das Zitat ist eine der drei Mundart-Stellen und behält seine
+  Schreibweise. Nicht angleichen.
+- **Seras Portrait** wurde am 08.09.2026 auf `sera-wild-profil-2.jpg`
+  gewechselt (von Seraina so gewünscht). Das Bild ist quadratisch, füllt den
+  runden Rahmen also exakt aus — `bildFokus` bleibt leer und hätte hier auch
+  keine Wirkung. Die alte Datei `sera-wild-profil.jpg` bleibt liegen.
+  Weiterhin gilt: nicht ungefragt enger zuschneiden, die weite Einstellung mit
+  Mikrofon und Kabel ist Absicht.
 
-- **Dialekt.** Alle Mundart-Texte sind ein erster Wurf und werden von Seraina
-  noch angepasst. Nicht selbstständig „korrigieren".
-- **Sprache im Code** — `<html lang="gsw-CH">` ist gesetzt, weil die Seite
-  Mundart ist. Falls Vorleseprogramme damit Mühe haben, auf `de-CH` wechseln.
+- **Die drei Mundart-Stellen** (Claim, Satz in der `description`, Bandzitat)
+  sind gesetzt. Weder übersetzen noch in der Schreibweise angleichen — und
+  nichts Weiteres in Mundart dazuschreiben. Ausführlich im Style Guide unter
+  «Tonalität».
+- **Sprache im Code** — `<html lang="de-CH">` passt zur hochdeutschen Seite.
 
 - **Dateinamen immer klein schreiben.** Am 07.09.2026 lag `Fraechi-fruendin.mp4`
   mit grossem F in `public/video/`, während `musik.json` auf

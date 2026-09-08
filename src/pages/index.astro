@@ -225,8 +225,9 @@ const presseBilder = presse.bilder
         «{presse.zitat}»
       </blockquote>
 
-      <div class="mt-6">
+      <div class="mt-6 flex flex-wrap gap-4">
         <Knopf href={presse.pdf} art="rand" download>Pressetext als PDF</Knopf>
+        <Knopf href={presse.logos} art="rand" download>Logos als ZIP</Knopf>
       </div>
 
       {presseBilder.length > 0 && (
