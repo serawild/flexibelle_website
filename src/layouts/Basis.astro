@@ -52,7 +52,7 @@ const kanonisch = new URL(Astro.url.pathname, Astro.site);
     <!-- Hintergrundmusik: ein Element für die ganze Seite, gesteuert von den
          Ton-Schaltern in Hero und mitlaufender Leiste. preload="none", damit
          die 1.7 MB erst geladen werden, wenn jemand sie hören will. -->
-    <audio id="hintergrundmusik" src="/audio/gheimnis.m4a" preload="none" loop></audio>
+    <audio id="hintergrundmusik" src="/audio/gheimnis.m4a" preload="none"></audio>
 
     <script>
       const klang = document.getElementById('hintergrundmusik') as HTMLAudioElement | null;
@@ -60,6 +60,59 @@ const kanonisch = new URL(Astro.url.pathname, Astro.site);
 
       if (klang && schalter.length) {
         const SCHLUESSEL = 'flexibelle-ton';
+
+        /** Lautstärke der Hintergrundmusik: 0 = stumm, 1 = volle Lautstärke.
+         *  Bewusst gedämpft — sie soll unter der Seite liegen, nicht davor.
+         *  Hinweis: iPhone und iPad ignorieren diesen Wert, dort regelt das
+         *  Gerät die Lautstärke. */
+        const LAUTSTAERKE = 0.4;
+
+        /** Der Song beginnt mit Vorlauf; wir setzen bei Sekunde 10 ein.
+         *  Gilt auch für die Schlaufe — deshalb kein loop-Attribut, sondern
+         *  der ended-Fall weiter unten. */
+        const START = 10;
+
+        /** Ein- und Ausblenden in Millisekunden. Ein harter Einsatz erschrickt,
+         *  ein hartes Ende reisst ab. */
+        const EINBLENDEN = 2500;
+        const AUSBLENDEN = 700;
+
+        klang.volume = 0;
+
+        // Läuft gerade eine Blende? Dann die alte abbrechen, sonst kämpfen zwei
+        // Blenden um dieselbe Lautstärke.
+        let blende: ReturnType<typeof setInterval> | null = null;
+
+        /**
+         * Bewusst mit setInterval statt requestAnimationFrame: rAF steht still,
+         * sobald der Tab in den Hintergrund geht — die Musik liefe dann stumm
+         * weiter, weil die Blende nie fertig würde. Timer laufen weiter.
+         */
+        function blenden(ziel: number, dauer: number, danach?: () => void) {
+          if (blende) clearInterval(blende);
+          const von = klang!.volume;
+          const t0 = Date.now();
+          blende = setInterval(() => {
+            const anteil = Math.min(1, (Date.now() - t0) / dauer);
+            klang!.volume = Math.max(0, Math.min(1, von + (ziel - von) * anteil));
+            if (anteil >= 1) {
+              clearInterval(blende!);
+              blende = null;
+              danach?.();
+            }
+          }, 40);
+        }
+
+        function starten() {
+          if (klang!.currentTime < START) klang!.currentTime = START;
+          klang!.volume = 0;
+          klang!.play().then(() => blenden(LAUTSTAERKE, EINBLENDEN)).catch(() => zeigen(false));
+        }
+
+        function stoppen() {
+          zeigen(false);
+          blenden(0, AUSBLENDEN, () => klang!.pause());
+        }
 
         function zeigen(laeuft: boolean) {
           for (const knopf of schalter) {
@@ -71,14 +124,14 @@ const kanonisch = new URL(Astro.url.pathname, Astro.site);
         }
 
         for (const knopf of schalter) {
-          knopf.addEventListener('click', () => {
-            if (klang.paused) {
-              klang.play().catch(() => zeigen(false));
-            } else {
-              klang.pause();
-            }
-          });
+          knopf.addEventListener('click', () => (klang.paused ? starten() : stoppen()));
         }
+
+        // Schlaufe von Hand: wieder ab Sekunde 10, nicht ab null.
+        klang.addEventListener('ended', () => {
+          klang.currentTime = START;
+          klang.play().catch(() => zeigen(false));
+        });
 
         klang.addEventListener('play', () => {
           zeigen(true);
@@ -95,14 +148,14 @@ const kanonisch = new URL(Astro.url.pathname, Astro.site);
 
         if (sessionStorage.getItem(SCHLUESSEL) === 'an') {
           const stelle = Number(sessionStorage.getItem(SCHLUESSEL + '-stelle') ?? 0);
-          if (stelle > 0) klang.currentTime = stelle;
+          klang.currentTime = stelle > START ? stelle : START;
           // Kann der Browser ablehnen — dann bleibt der Knopf einfach auf «aus».
-          klang.play().catch(() => zeigen(false));
+          klang.play().then(() => blenden(LAUTSTAERKE, EINBLENDEN)).catch(() => zeigen(false));
         }
 
         // Ton anhalten, wenn eine Hörprobe gestartet wird — sonst spielt beides.
         for (const spieler of document.querySelectorAll('video')) {
-          spieler.addEventListener('play', () => klang.pause());
+          spieler.addEventListener('play', () => { if (!klang.paused) stoppen(); });
         }
       }
     </script>

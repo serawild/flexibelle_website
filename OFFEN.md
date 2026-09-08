@@ -86,7 +86,12 @@ Was noch fehlt oder bewusst weggelassen wurde. Erledigtes wird gelöscht, nicht 
   Browserregel.
 
   Der Knopf steht zweimal auf der Seite (Hero und mitlaufende Leiste) und
-  steuert dasselbe `<audio>` in `Basis.astro`. Der Zustand wird im
+  steuert dasselbe `<audio>` in `Basis.astro`. Drei Werte stehen dort oben im
+  Skript und lassen sich leicht ändern: `LAUTSTAERKE` (0.4), `START` (Sekunde 10,
+  gilt auch für die Schlaufe) und die Blenden `EINBLENDEN` / `AUSBLENDEN`.
+  Die Blende läuft über `setInterval`, nicht über `requestAnimationFrame` —
+  rAF steht still, sobald der Tab in den Hintergrund geht, und die Musik liefe
+  dann stumm weiter. Nicht «modernisieren». Der Zustand wird im
   `sessionStorage` gemerkt, damit die Musik über Impressum und Datenschutz
   hinweg weiterläuft. Startet eine Hörprobe, hält die Hintergrundmusik an.
 
