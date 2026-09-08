@@ -94,3 +94,18 @@ Was noch fehlt oder bewusst weggelassen wurde. Erledigtes wird gelöscht, nicht 
   angekündigt — sobald sie unter `public/audio/gheimnis.wav` liegt, wird sie
   nach AAC gerechnet und die WAV wieder aus `public/` entfernt (sonst lädt sie
   jeder Besucher mit).
+
+- **Die Ukulele bleibt eine Überraschung** (Entscheid 08.09.2026). Aus dem
+  Seitentext, aus `besetzung.json` und aus dem Pressetext entfernt; das
+  Pressetext-PDF wurde neu gedruckt. Bei Ivor steht jetzt «Gitarre & Vocals»
+  und «Wechselt das Instrument je nach Song» — der Hinweis bleibt, das
+  Instrument nicht. In der Booking-Liste heisst es neu nur noch «1× DI-Box».
+
+  **Zwei Stellen verraten sie trotzdem:**
+  - Der **Tech Rider** nennt sie dreimal: Kanal 03 der Kanalliste, die Zeile
+    «1× DI-Box für die Ukulele (Gitarre hat eingebaute DI)» und den Bühnenplan
+    «AK. GITARRE · UKULELE · BARHOCKER». Das PDF wird von Seraina ausserhalb des
+    Projekts erstellt und kann hier nicht geändert werden. Technisch ist die
+    Angabe nötig — ein Tontechniker braucht den Kanal. Bewusst so gelassen.
+  - Auf **allen Bandfotos** steht die Ukulele sichtbar vorne am Klavier — im
+    Hero, in den vier Pressebildern und im Pressetext-PDF.

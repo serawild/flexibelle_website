@@ -31,11 +31,12 @@ Es gibt **kein Figma**. Die verbindliche Vorlage ist `STYLEGUIDE.md` plus
 3. **Ocker und Khaki sind Flächenfarben.** Als Textfarbe auf hellem Grund nur
    `ocker-text` bzw. `khaki-tief` verwenden — sonst reicht der Kontrast nicht.
 
-4. **Alles auf der Seite ist Mundart.** Fliesstext, Abschnittstitel, Knöpfe,
-   Hinweise. Ausgenommen sind nur `<title>`, `description` und die Rechtstexte
-   auf Impressum und Datenschutz — die bleiben hochdeutsch, damit Suchmaschinen
-   und Behörden damit umgehen können. Der Dialekt wird von Seraina noch
-   angepasst; Formulierungen also nie stillschweigend „korrigieren".
+4. **Die Seite ist auf Hochdeutsch.** Fliesstext, Abschnittstitel, Knöpfe,
+   Hinweise, Rechtstexte. Mundart bleiben nur drei gesetzte Stellen: der Claim
+   «Live Musik · Eigeni Songs», der Satz «Es Trio — und je nach Song eis meh»
+   in der `description` und das Bandzitat. Diese drei weder übersetzen noch in
+   der Schreibweise angleichen — und nichts Weiteres in Mundart dazuschreiben.
+   Formulierungen von Seraina nie stillschweigend „korrigieren".
 
    Texte nicht erfinden: Fehlt einer, kommt ein `TODO` an die Stelle und ein
    Eintrag in `OFFEN.md` — kein Blindtext.
@@ -81,11 +82,17 @@ Besetzung: Ivor (Gsang, Gitarre & Ukulele), Sera (E-Piano & Gsang),
 Paddy (Bassgitarre). Auf der Seite stehen bewusst nur die Vornamen; ihre
 Reihenfolge kommt aus `besetzung.json`.
 
+**Die Ukulele wird auf der Website nirgends genannt** (Entscheid von Seraina,
+08.09.2026) — sie soll im Konzert eine Überraschung bleiben. Sie gehört zur
+Besetzung und steht deshalb hier, aber nicht im Seitentext, nicht in
+`besetzung.json`, nicht im Pressetext und nicht in der Kanalliste auf der Seite.
+Beim Schreiben neuer Texte also weglassen, auch wenn es inhaltlich naheläge.
+
 ## Was noch fehlt
 
 - **Portraits.** Alle drei Bilder liegen in `public/image/` und sind in
   `besetzung.json` verknüpft. Die Kurztexte sind ein erster Wurf und werden
-  von Seraina im Dialekt angepasst.
+  von Seraina noch angepasst.
 
   Das Feld `bildFokus` (CSS `object-position`) verschiebt den Ausschnitt im
   runden Rahmen — aber **nur bei Bildern, die nicht quadratisch sind**. Ein
@@ -98,9 +105,12 @@ Reihenfolge kommt aus `besetzung.json`.
   klingen: `datei` zeigt ein selbst gehostetes Video aus `public/video/`
   mit Standbild, `id` bettet ein YouTube-Video ein. Ist beides leer, zeigt
   die Karte nur die Fläche. Weitere Songs kommen dazu.
-- **Tech Rider.** Neu aufgebaut mit beiden Varianten (`public/flexiBelle_TechRider.pdf`,
-  Quelle in `marke/`). Er ist hochdeutsch, weil er auch an Veranstalter ausserhalb
-  der Schweiz geht — bewusst anders als die Website.
+- **Tech Rider.** Zwei Seiten, eine je Booking-Variante: Seite 1 «Mit unserer
+  Anlage», Seite 2 «Über eure Anlage» mit Kanalliste. Quelle ist
+  `marke/techrider/flexiBelle_TechRider.html` (Anleitung zum Rendern liegt
+  daneben); das PDF liegt identisch in `marke/` und `public/` — `public/` ist
+  das verlinkte. Hochdeutsch wie die Website, er geht auch an Techniker
+  ausserhalb der Schweiz.
 
 ## Befehle
 
