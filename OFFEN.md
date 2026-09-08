@@ -101,11 +101,13 @@ Was noch fehlt oder bewusst weggelassen wurde. Erledigtes wird gelöscht, nicht 
   und «Wechselt das Instrument je nach Song» — der Hinweis bleibt, das
   Instrument nicht. In der Booking-Liste heisst es neu nur noch «1× DI-Box».
 
-  **Zwei Stellen verraten sie trotzdem:**
-  - Der **Tech Rider** nennt sie dreimal: Kanal 03 der Kanalliste, die Zeile
-    «1× DI-Box für die Ukulele (Gitarre hat eingebaute DI)» und den Bühnenplan
-    «AK. GITARRE · UKULELE · BARHOCKER». Das PDF wird von Seraina ausserhalb des
-    Projekts erstellt und kann hier nicht geändert werden. Technisch ist die
-    Angabe nötig — ein Tontechniker braucht den Kanal. Bewusst so gelassen.
-  - Auf **allen Bandfotos** steht die Ukulele sichtbar vorne am Klavier — im
-    Hero, in den vier Pressebildern und im Pressetext-PDF.
+  **Sehen darf man sie, nur benannt wird sie nicht** (Präzisierung von Seraina).
+  Auf den Bandfotos steht sie sichtbar vorne am Klavier — im Hero, in den vier
+  Pressebildern und im Pressetext-PDF. Das ist so gewollt und bleibt.
+
+  Der **Tech Rider** nennt sie dagegen im Wortlaut: Kanal 03 der Kanalliste, die
+  Zeile «1× DI-Box für die Ukulele (Gitarre hat eingebaute DI)» und den
+  Bühnenplan «AK. GITARRE · UKULELE · BARHOCKER». Dort ist die Angabe technisch
+  nötig — ein Tontechniker braucht den Kanal — und das PDF entsteht ausserhalb
+  des Projekts. Bewusst so gelassen; wer den Rider liest, plant ohnehin den
+  Abend mit.
