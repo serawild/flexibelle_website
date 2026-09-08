@@ -47,14 +47,6 @@ Was noch fehlt oder bewusst weggelassen wurde. Erledigtes wird gelöscht, nicht 
 - **Sprache im Code** — `<html lang="gsw-CH">` ist gesetzt, weil die Seite
   Mundart ist. Falls Vorleseprogramme damit Mühe haben, auf `de-CH` wechseln.
 
-- **Untertitel der zwei neuen Hörproben.** Von Seraina am 07.09.2026 so angesagt,
-  von mir nur minimal gesetzt — bitte gegenlesen:
-  - Kompass → «flexiBelle – live in der Scheune». Sie schrieb «flexibelle»; ich habe
-    nur die Marken-Schreibweise angewendet (kleines f, grosses B, Regel 2).
-  - Frächi Fründin → «Live 125 Jahre Jubiläum WSB». Ihre Formulierung wörtlich, nur
-    der erste Buchstabe gross wie bei den anderen Karten. Ob es «Live am
-    125-Jahre-Jubiläum der WSB» heissen soll, entscheidet Seraina — nicht selber ändern.
-
 - **Dateinamen immer klein schreiben.** Am 07.09.2026 lag `Fraechi-fruendin.mp4`
   mit grossem F in `public/video/`, während `musik.json` auf
   `/video/fraechi-fruendin.mp4` zeigte. Auf dem Mac fällt das nicht auf — der
@@ -76,14 +68,12 @@ Was noch fehlt oder bewusst weggelassen wurde. Erledigtes wird gelöscht, nicht 
   Die Zuordnung steht als Feld `ort` in `src/data/musik.json` (Regel 6). Eine neue
   Zeile entsteht automatisch, sobald dort ein neuer Ort auftaucht.
 
-  **Zwei Punkte müssen von Seraina bestätigt werden:**
-  - *Der Tropfen endet im Ozean* steht in der Zeile «Live in der Scheune». Wo das
-    YouTube-Video aufgenommen wurde, weiss ich nicht — ich habe es dort eingeordnet,
-    damit die Zeile zu dritt aufgeht. Falls es nicht aus der Scheune stammt, gehört
-    es in eine eigene Zeile oder braucht einen anderen Ort.
-  - *Frächi Fründin* hat bewusst **keinen** Untertitel. Bei den anderen steht dort,
-    von wem der Song ist (Gölä, Black Sea Dahu, Tina Meier, «Eigener Song»). Zu
-    diesem Titel wurde nichts gesagt, und ich erfinde nichts (Regel 4).
+  Am 08.09.2026 von Seraina bestätigt: *Der Tropfen endet im Ozean* wurde
+  tatsächlich in der Scheune aufgenommen und steht richtig in dieser Zeile.
+
+  Auf der Karte steht, von wem der Song ist: «flexiBelle» bei den eigenen
+  (Gheimnis, Kompass, Frächi Fründin), sonst der Urheber (Gölä, Black Sea Dahu,
+  Eigenkomposition Tina Meier).
 
 - **Kacheln unter 640 px einspaltig.** Seraina wünschte «immer 3 pro Zeile». Ab `sm`
   sind es drei, darunter eine — drei Kacheln nebeneinander sind auf einem 390-px-Handy
