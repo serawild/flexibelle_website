@@ -7,6 +7,7 @@ import Besetzung from '../components/Besetzung.astro';
 import TerminListe from '../components/TerminListe.astro';
 import musik from '../data/musik.json';
 import presse from '../data/presse.json';
+import booking from '../data/booking.json';
 import { existsSync, statSync, readFileSync } from 'node:fs';
 
 // Musik-Abschnitt: alle Hörproben sind gleich grosse Kacheln, drei pro Zeile.
@@ -62,7 +63,7 @@ const presseBilder = presse.bilder
     <div class="mt-6 max-w-text space-y-5">
       <p>
         Bassgitarre, akustische Gitarre und Ukulele, E-Piano und Gesang: das ist der Kern.
-        Für einzelne Songs holen wir jemanden dazu — eine Geige, ein Saxofon, oder etwas ganz neues.
+        Für einzelne Songs holen wir jemanden dazu — eine Geige, ein Saxofon oder etwas ganz Neues.
         Wer das ist, entscheidet der Abend. Deshalb heissen wir, wie wir heissen.
       </p>
       <p>
@@ -183,6 +184,28 @@ const presseBilder = presse.bilder
             Monitore optional — sonst hängen wir unser In-Ear-Monitoring an
           </li>
           <li class="border-b border-braun-weich pb-2">2× Strom 230 V an der Bühne</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Preis und Ablauf — die zwei Fragen, die Veranstalter zuerst stellen -->
+    <div class="mt-10 grid gap-6 lg:grid-cols-2">
+      <div class="border border-ocker/40 bg-braun-weich/40 p-8">
+        <h3 class="titel text-untertitel">{booking.preis.titel}</h3>
+        <div class="mt-4 space-y-3 text-taupe-hell">
+          {booking.preis.zeilen.map((z) => <p>{z}</p>)}
+        </div>
+      </div>
+
+      <div class="border border-khaki/50 bg-braun-weich/40 p-8">
+        <h3 class="titel text-untertitel">{booking.ablauf.titel}</h3>
+        <ul class="mt-4 space-y-2 text-taupe-hell">
+          {booking.ablauf.punkte.map((p) => (
+            <li class="flex flex-col gap-x-4 border-b border-braun-weich pb-2 sm:flex-row">
+              <span class="label shrink-0 pt-1 text-khaki-hell sm:w-28">{p.was}</span>
+              <span class="flex-1">{p.wie}</span>
+            </li>
+          ))}
         </ul>
       </div>
     </div>

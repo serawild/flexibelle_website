@@ -1,0 +1,20 @@
+{
+  "hinweis": "Preis und Ablauf im Booking-Abschnitt. Formulierungen von Seraina am 08.09.2026 vorgegeben — nicht stillschweigend ändern (Regel 4).",
+  "preis": {
+    "titel": "Was es kostet",
+    "zeilen": [
+      "Bestimmen wir die Setliste, freuen wir uns über eine monetäre Wertschätzung.",
+      "Studieren wir Songs für euren Anlass ein, beginnt es bei CHF 500 — je nach Anfahrt, Dauer und Anzahl Songs.",
+      "Am einfachsten fragt ihr eine Offerte per Mail an."
+    ]
+  },
+  "ablauf": {
+    "titel": "Wie ein Abend abläuft",
+    "punkte": [
+      { "was": "Aufbau", "wie": "eine Stunde mit unserer Anlage, 30 Minuten über eure" },
+      { "was": "Soundcheck", "wie": "20 Minuten" },
+      { "was": "Sets", "wie": "nach Absprache, üblich 2 × 45 Minuten" },
+      { "was": "Abbau", "wie": "rund 40 Minuten" }
+    ]
+  }
+}
