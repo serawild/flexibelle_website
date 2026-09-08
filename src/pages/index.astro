@@ -202,12 +202,25 @@ const presseBilder = presse.bilder
       Für eine Anfrage reicht eine kurze Mail oder ein Anruf mit Datum, Ort und Anlass.
     </p>
 
-    <!-- Presse: Text zum Kopieren und Bilder zum Herunterladen -->
-    <div class="mt-12 border-t border-braun-weich pt-8">
-      <p class="label text-ocker">Presse</p>
-      <h3 class="titel mt-3 text-untertitel">Text und Bilder zum Übernehmen</h3>
+    <!-- Presse: eingeklappt, weil es nur Veranstalter und Medien betrifft.
+         <details> kommt ohne JavaScript aus und ist mit Tastatur bedienbar. -->
+    <details class="group mt-12 border-t border-braun-weich pt-8">
+      <summary
+        class="flex cursor-pointer list-none items-center justify-between gap-4 [&::-webkit-details-marker]:hidden">
+        <span>
+          <span class="label text-ocker">Presse</span>
+          <span class="titel mt-3 block text-untertitel">Text und Bilder zum Übernehmen</span>
+          <span class="mt-2 block text-taupe-hell">Für Veranstalter und Medien</span>
+        </span>
+        <svg
+          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+          aria-hidden="true"
+          class="h-6 w-6 shrink-0 text-ocker transition-transform duration-200 group-open:rotate-180">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+        </svg>
+      </summary>
 
-      <p class="mt-4 max-w-text text-taupe-hell">{presse.text}</p>
+      <p class="mt-8 max-w-text text-taupe-hell">{presse.text}</p>
       <blockquote class="mt-4 max-w-text border-l-2 border-ocker/50 pl-4 font-zitat italic text-taupe-hell">
         «{presse.zitat}»
       </blockquote>
@@ -244,6 +257,6 @@ const presseBilder = presse.bilder
       <p class="mt-4 text-taupe-hell">
         Foto: <a href={presse.fotografLink} class="underline underline-offset-4 hover:text-ocker" target="_blank" rel="noopener noreferrer">{presse.fotograf}</a>. {presse.nutzung}
       </p>
-    </div>
+    </details>
   </Abschnitt>
 </Basis>
