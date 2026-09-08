@@ -95,10 +95,20 @@ Was noch fehlt oder bewusst weggelassen wurde. Erledigtes wird gelöscht, nicht 
   `sessionStorage` gemerkt, damit die Musik über Impressum und Datenschutz
   hinweg weiterläuft. Startet eine Hörprobe, hält die Hintergrundmusik an.
 
-  Die Tonspur ist vorerst aus `gheimnis.mp4` gezogen. Seraina hat eine WAV
-  angekündigt — sobald sie unter `public/audio/gheimnis.wav` liegt, wird sie
-  nach AAC gerechnet und die WAV wieder aus `public/` entfernt (sonst lädt sie
-  jeder Besucher mit).
+  Die Tonspur kommt seit dem 08.09.2026 aus Serainas WAV (24 Bit, 44.1 kHz,
+  3:53) statt aus `gheimnis.mp4` (1:47). Gerechnet nach AAC 128 kbit/s = 3.6 MB;
+  eine Fassung mit 192 kbit/s wäre 5.4 MB gewesen — von Seraina bewusst
+  zugunsten der Ladezeit abgelehnt, der Unterschied ist bei 40 % Lautstärke über
+  Handylautsprecher nicht hörbar.
+
+  **Die WAV liegt in `_quellen/`, nicht in `public/`.** Alles unter `public/`
+  wird 1:1 ausgeliefert — die 61 MB hätte sonst jeder Besucher geladen. `*.wav`
+  ist in `.gitignore`, die Datei kommt also auch nicht ins Repo.
+
+  Der Einsatzpunkt `START = 10` stammt noch von der kürzeren Fassung aus dem
+  Video. Bei der längeren Aufnahme liegt bei Sekunde 10 ebenfalls Musik
+  (Pegel −23.4 dB gegenüber −30.6 dB am Anfang), musikalisch geprüft ist er
+  aber nicht.
 
 - **Die Ukulele bleibt eine Überraschung** (Entscheid 08.09.2026). Aus dem
   Seitentext, aus `besetzung.json` und aus dem Pressetext entfernt; das
