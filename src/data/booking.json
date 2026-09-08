@@ -11,10 +11,26 @@
   "ablauf": {
     "titel": "Wie ein Abend abläuft",
     "punkte": [
-      { "was": "Aufbau", "wie": "eine Stunde mit unserer Anlage, 30 Minuten über eure" },
-      { "was": "Soundcheck", "wie": "20 Minuten" },
-      { "was": "Sets", "wie": "nach Absprache, üblich 2 × 45 Minuten" },
-      { "was": "Abbau", "wie": "rund 40 Minuten" }
+      {
+        "was": "Aufbau",
+        "wie": "eine Stunde mit unserer Anlage, 30 Minuten über eure"
+      },
+      {
+        "was": "Soundcheck",
+        "wie": "20 Minuten"
+      },
+      {
+        "was": "Sets",
+        "wie": "nach Absprache, üblich 2 × 45 Minuten"
+      },
+      {
+        "was": "Abbau",
+        "wie": "rund 40 Minuten"
+      }
     ]
+  },
+  "einzugsgebiet": {
+    "kurz": "Zuhause im Aareland & Fricktal",
+    "satz": "Wir sind Weltenbummler und kommen überall hin, wo es sich irgendwie einrichten lässt."
   }
 }
