@@ -18,7 +18,7 @@ und Abstände.
 
 | Token | Wert | Wofür |
 |---|---|---|
-| `braun` | `#231A12` | Grundfarbe dunkel: Hero, Booking, Fusszeile, Kopfzeile |
+| `braun` | `#19120D` | Grundfarbe dunkel: Hero, Booking, Fusszeile, Kopfzeile |
 | `braun-weich` | `#3A2C21` | Trennlinien auf dunklem Grund |
 | `beige` | `#F2EADA` | heller Grund der Seite; auf dunklem Grund die Textfarbe |
 | `karte` | `#F9F3E7` | abgesetzte helle Flächen (Abschnitt Live, Musik-Karten) |

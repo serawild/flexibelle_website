@@ -9,7 +9,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        braun: '#231A12',        // Grundfarbe dunkel: Hero, Booking, Fuss
+        braun: '#19120D',        // Grundfarbe dunkel: Hero, Booking, Fuss
         'braun-weich': '#3A2C21', // dunkle Fläche, eine Stufe heller
         beige: '#F2EADA',        // heller Grund der Seite
         karte: '#F9F3E7',        // Karten und abgesetzte helle Flächen
