@@ -15,6 +15,7 @@ export default {
         karte: '#F9F3E7',        // Karten und abgesetzte helle Flächen
         ocker: '#C9A227',        // Hauptakzent: Knöpfe, Marken-Details (Gold-Probe)
         'ocker-text': '#7A6000', // Ocker als Textfarbe auf hellem Grund (Gold-Probe)
+        'ocker-hell': '#D9B237', // Ocker eine Stufe heller: Knopf unter dem Zeiger
         khaki: '#746A3E',        // zweiter Ton: Gastmusiker, Badges
         'khaki-hell': '#E5DEC6', // Fläche für Zitate
         'khaki-tief': '#5E5430', // Khaki als Textfarbe auf hellem Grund

@@ -3,6 +3,14 @@ import '../styles/global.css';
 import Kopf from '../components/Kopf.astro';
 import Fuss from '../components/Fuss.astro';
 import { istLive } from '../config';
+import tailwind from '../../tailwind.config';
+
+/**
+ * `theme-color` färbt die Browserleiste auf dem Handy. Ein Meta-Tag nimmt
+ * keine Tailwind-Klasse, deshalb holen wir den Wert direkt aus den Tokens —
+ * so steht der Hex-Wert weiterhin nur in `tailwind.config.ts` (Regel 1).
+ */
+const braun = tailwind.theme!.extend!.colors!.braun as string;
 
 interface Props {
   titel: string;
@@ -22,7 +30,7 @@ const kanonisch = new URL(Astro.url.pathname, Astro.site);
     <link rel="canonical" href={kanonisch} />
     {!istLive && <meta name="robots" content="noindex, nofollow" />}
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <meta name="theme-color" content="#231A12" />
+    <meta name="theme-color" content={braun} />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content={titel} />

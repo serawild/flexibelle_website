@@ -1,0 +1,66 @@
+---
+/**
+ * Die Links auf Instagram und YouTube.
+ *
+ * Die Kanäle stehen in `src/data/kanaele.json` (Regel 6) — kommt einer dazu,
+ * reicht dort ein Eintrag, sofern es unten ein Zeichen dafür gibt.
+ *
+ * Die Zeichen sind als Strich gezeichnet, nicht als gefülltes Markenlogo:
+ * So passen sie zum Pfeil im Presse-Aufklapper und nehmen die Textfarbe an,
+ * statt Instagram-Pink und YouTube-Rot neben Ocker zu stellen.
+ */
+import daten from '../data/kanaele.json';
+
+interface Props {
+  /** `dunkel` für braunen Grund (Fusszeile), `hell` für beigen. */
+  grund?: 'dunkel' | 'hell';
+  /** Nur diesen Kanal zeigen, z. B. `YouTube` im Abschnitt Musik. */
+  nur?: string;
+  class?: string;
+}
+const { grund = 'dunkel', nur, class: klasse = '' } = Astro.props;
+
+const kanaele = nur ? daten.kanaele.filter((k) => k.name === nur) : daten.kanaele;
+
+const farben =
+  grund === 'dunkel'
+    ? 'text-taupe-hell hover:text-ocker'
+    : 'text-taupe hover:text-ocker-text';
+---
+
+<ul class:list={['flex flex-wrap items-center gap-6', klasse]}>
+  {kanaele.map((kanal) => (
+    <li>
+      <a
+        href={kanal.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class:list={['flex items-center gap-2 transition-colors', farben]}>
+        <svg
+          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+          aria-hidden="true" class="h-5 w-5 shrink-0">
+          {kanal.name === 'Instagram' && (
+            <>
+              <rect x="3" y="3" width="18" height="18" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" />
+            </>
+          )}
+          {kanal.name === 'YouTube' && (
+            <>
+              <rect x="2" y="5" width="20" height="14" rx="4" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10.2 9.3l5 2.7-5 2.7V9.3z" />
+            </>
+          )}
+          {kanal.name !== 'Instagram' && kanal.name !== 'YouTube' && (
+            /* Kanal ohne eigenes Zeichen: leerer Kreis, damit die Zeile
+               nicht das falsche Symbol trägt. Zeichen hier ergänzen. */
+            <circle cx="12" cy="12" r="9" />
+          )}
+        </svg>
+        <span>{kanal.handle}</span>
+        <span class="sr-only">— {kanal.name}, öffnet in einem neuen Tab</span>
+      </a>
+    </li>
+  ))}
+</ul>

@@ -57,8 +57,10 @@ Es gibt **kein Figma**. Die verbindliche Vorlage ist `STYLEGUIDE.md` plus
 | `src/data/termine.json` | Auftritte: Datum, Anzeige, Ort, Zeit, Gastmusiker |
 | `src/data/besetzung.json` | Die drei Bandmitglieder |
 | `src/data/musik.json` | Hörproben: Titel, YouTube-ID **oder** Videodatei, Standbild, Notiz |
+| `src/data/kanaele.json` | Instagram und YouTube: Name, Handle, Adresse |
 | `src/components/Wortmarke.astro` | «flexiBelle» als Text in Grape Nuts |
 | `src/components/Signet.astro` | fB im Kreis, SVG plus Text |
+| `src/components/Kanaele.astro` | Die Kanal-Links mit Zeichen, hell oder dunkel |
 | `src/components/Hero.astro` | Der grosse Kopf: Bild (quer/hoch), Logo, Navigation |
 | `public/video/LIESMICH.md` | Wie eine Hörprobe aufbereitet wird; dazu das stillgelegte Hero-Video |
 | `marke/` | Style-Guide-PDFs und die Logodateien als SVG |

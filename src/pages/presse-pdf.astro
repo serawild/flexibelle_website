@@ -25,12 +25,14 @@ import presse from '../data/presse.json';
     <meta name="robots" content="noindex, nofollow" />
     <style>
       @page { size: A4; margin: 0; }
-      html, body { background: #F2EADA; }
+      /* Der Grund kommt als Klasse `bg-beige` vom <body>, damit hier kein
+         Hex-Wert steht (Regel 1). <html> erbt ihn. */
+      html { background: inherit; }
       .blatt { width: 210mm; height: 297mm; overflow: hidden; }
     </style>
   </head>
 
-  <body class="font-sans text-braun">
+  <body class="bg-beige font-sans text-braun">
     <div class="blatt mx-auto flex flex-col px-[20mm] py-[15mm]">
 
       <!-- Kopf -->

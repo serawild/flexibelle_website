@@ -22,7 +22,6 @@ Was noch fehlt oder bewusst weggelassen wurde. Erledigtes wird gelöscht, nicht 
   Formular bräuchte einen Server oder einen Drittanbieter.
 - **Keine Analyse-Werkzeuge, keine Cookies.** Darum ist die Datenschutzerklärung
   kurz und es gibt kein Cookie-Banner.
-- **Keine Social-Media-Einbindung.** Kommt dazu, sobald es Konten gibt.
 - **Tech Rider auf Hochdeutsch** — wie die Website. Er geht auch an
   Veranstalter und Techniker ausserhalb der Schweiz.
 - **Kein Ton im Hero-Video.** Ein Video mit Ton startet in den meisten Browsern
@@ -45,6 +44,19 @@ Was noch fehlt oder bewusst weggelassen wurde. Erledigtes wird gelöscht, nicht 
   nichts Weiteres in Mundart dazuschreiben. Ausführlich im Style Guide unter
   «Tonalität».
 - **Sprache im Code** — `<html lang="de-CH">` passt zur hochdeutschen Seite.
+
+- **YouTube heisst `@flexibelle_live`, nicht `@flexiBelle`** (geprüft 09.09.2026).
+  `youtube.com/@flexiBelle` gibt es zwar, gehört aber einem fremden Kanal
+  («Amarah Presley»). Der richtige Kanal ist `@flexibelle_live`, intern
+  `UCUThGCZp3awYhs0P77Axq5A`. Beim Weiterschreiben nicht «vereinheitlichen».
+
+  Die Kanaltexte in `marke/social/flexiBelle_Kanaltexte.md` sind darauf
+  korrigiert. Instagram und TikTok bleiben bei `@flexibelle.live`.
+
+- **Kein TikTok auf der Seite.** Die Kanaltexte sehen einen TikTok-Kanal vor,
+  einen gibt es aber noch nicht. Sobald er da ist, reicht ein Eintrag in
+  `src/data/kanaele.json` — plus ein Zeichen dafür in `Kanaele.astro`, sonst
+  trägt der Link nur einen leeren Kreis.
 
 - **Dateinamen immer klein schreiben.** Am 07.09.2026 lag `Fraechi-fruendin.mp4`
   mit grossem F in `public/video/`, während `musik.json` auf

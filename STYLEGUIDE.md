@@ -10,7 +10,7 @@ Im Code steht **nirgends ein Hex-Wert**. Jede Farbe kommt aus einem Token in
 änderst du dort eine Zeile, und die ganze Seite zieht nach:
 
 ```ts
-ocker: '#D09A2C',   // <- diesen Wert ändern
+ocker: '#C9A227',   // <- diesen Wert ändern
 ```
 
 Danach `pnpm dev` neu laden, fertig. Dasselbe gilt für Schriftgrössen (`fontSize`)
@@ -22,8 +22,9 @@ und Abstände.
 | `braun-weich` | `#3A2C21` | Trennlinien auf dunklem Grund |
 | `beige` | `#F2EADA` | heller Grund der Seite; auf dunklem Grund die Textfarbe |
 | `karte` | `#F9F3E7` | abgesetzte helle Flächen (Abschnitt Live, Musik-Karten) |
-| `ocker` | `#D09A2C` | Hauptakzent: Knöpfe, Marken-Details, aktiver Navigationspunkt |
-| `ocker-text` | `#8A5E11` | Ocker **als Textfarbe** auf hellem Grund |
+| `ocker` | `#C9A227` | Hauptakzent: Knöpfe, Marken-Details, aktiver Navigationspunkt |
+| `ocker-text` | `#7A6000` | Ocker **als Textfarbe** auf hellem Grund |
+| `ocker-hell` | `#D9B237` | Ocker eine Stufe heller — nur der volle Knopf unter dem Zeiger |
 | `khaki` | `#746A3E` | zweiter Ton: Gastmusiker-Platz, Badges, Rahmen |
 | `khaki-hell` | `#E5DEC6` | Fläche hinter Zitaten |
 | `khaki-tief` | `#5E5430` | Khaki als Textfarbe auf hellem Grund |
@@ -93,13 +94,25 @@ Sobald der Hero durchgescrollt ist, fährt eine schmale Leiste von oben herein
 
 ## Tonalität
 
-**Die ganze Seite ist Mundart** — Fliesstext, Abschnittstitel, Knöpfe, Hinweise.
-Hochdeutsch bleiben nur `<title>` und `description` (damit Suchmaschinen die
-Seite einordnen) sowie Impressum und Datenschutz.
+**Die Seite ist auf Hochdeutsch** — Fliesstext, Abschnittstitel, Knöpfe,
+Hinweise, Rechtstexte.
 
-Kurze Sätze, keine Superlative, keine Ausrufezeichen. Die Band sagt «mir», die
-Anfrage geht an ein «du». Der Dialekt wird von Seraina angepasst — beim
-Weiterschreiben ihre Schreibweise übernehmen, nicht die eigene.
+Mundart bleiben genau drei Stellen. Sie sind gesetzt und werden weder übersetzt
+noch in der Schreibweise angeglichen:
+
+1. der Claim unter dem Schriftzug: «Live Musik · Eigeni Songs» (steht so auch
+   im `<title>`)
+2. der Satz in der `description`: «Es Trio — und je nach Song eis meh»
+3. das Bandzitat («Als Jäger und Sammler vo schöne Melodie …»)
+
+Umgekehrt gilt genauso: nichts Weiteres in Mundart dazuschreiben.
+
+Kurze Sätze, keine Superlative, keine Ausrufezeichen. Die Band sagt «wir», die
+Anfrage geht an ein «ihr». Formulierungen von Seraina nicht stillschweigend
+umschreiben.
+
+Für Instagram, TikTok und YouTube gilt dieselbe Regel. Die fertigen Texte
+liegen in `marke/social/flexiBelle_Kanaltexte.md`.
 
 ## Bildsprache
 

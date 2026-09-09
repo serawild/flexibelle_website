@@ -1,23 +1,29 @@
 ---
+import Kanaele from './Kanaele.astro';
+
 const jahr = new Date().getFullYear();
 ---
 
 <footer class="bg-braun px-6 py-10 text-beige sm:px-10">
-  <div class="mx-auto flex max-w-inhalt flex-col gap-4 border-t border-braun-weich pt-8
-    text-label uppercase text-taupe-hell sm:flex-row sm:items-center sm:justify-between">
-    <p class="flex flex-col gap-1 sm:flex-row sm:gap-4">
-      <a href="mailto:flexibelle.live@gmail.com" class="transition-colors hover:text-ocker">
-        flexibelle.live@gmail.com
-      </a>
-      <a href="tel:+41797905701" class="transition-colors hover:text-ocker">
-        +41 79 790 57 01
-      </a>
-    </p>
-    <p>Live Musik · Eigeni Songs</p>
-    <p class="flex gap-5">
-      <a href="/impressum" class="transition-colors hover:text-ocker">Impressum</a>
-      <a href="/datenschutz" class="transition-colors hover:text-ocker">Datenschutz</a>
-      <span class="text-taupe-hell/60">© {jahr}</span>
-    </p>
+  <div class="mx-auto max-w-inhalt">
+    <Kanaele class="pb-8 text-label uppercase" />
+
+    <div class="flex flex-col gap-4 border-t border-braun-weich pt-8
+      text-label uppercase text-taupe-hell sm:flex-row sm:items-center sm:justify-between">
+      <p class="flex flex-col gap-1 sm:flex-row sm:gap-4">
+        <a href="mailto:flexibelle.live@gmail.com" class="transition-colors hover:text-ocker">
+          flexibelle.live@gmail.com
+        </a>
+        <a href="tel:+41797905701" class="transition-colors hover:text-ocker">
+          +41 79 790 57 01
+        </a>
+      </p>
+      <p>Live Musik · Eigeni Songs</p>
+      <p class="flex gap-5">
+        <a href="/impressum" class="transition-colors hover:text-ocker">Impressum</a>
+        <a href="/datenschutz" class="transition-colors hover:text-ocker">Datenschutz</a>
+        <span class="text-taupe-hell/60">© {jahr}</span>
+      </p>
+    </div>
   </div>
 </footer>

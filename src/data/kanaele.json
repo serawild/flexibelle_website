@@ -1,0 +1,15 @@
+{
+  "hinweis": "Die Kanäle der Band. Anzeigename überall 'flexiBelle', siehe marke/social/flexiBelle_Kanaltexte.md.",
+  "kanaele": [
+    {
+      "name": "Instagram",
+      "handle": "@flexibelle.live",
+      "url": "https://www.instagram.com/flexibelle.live/"
+    },
+    {
+      "name": "YouTube",
+      "handle": "@flexibelle_live",
+      "url": "https://www.youtube.com/@flexibelle_live"
+    }
+  ]
+}
