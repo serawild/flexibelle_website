@@ -5,6 +5,8 @@
     "ort": "Hochzyt von M&M",
     "zeit": "privat",
     "gast": "",
+    "gastBild": "",
+    "gastLink": "",
     "link": ""
   },
   {
@@ -13,6 +15,8 @@
     "ort": "WSB Fest, Aarau",
     "zeit": "",
     "gast": "",
+    "gastBild": "",
+    "gastLink": "",
     "link": ""
   },
   {
@@ -21,6 +25,8 @@
     "ort": "Weihnachtsmarkt Gretzenbach",
     "zeit": "18:00",
     "gast": "",
+    "gastBild": "",
+    "gastLink": "",
     "link": ""
   },
   {
@@ -28,8 +34,10 @@
     "anzeige": "FR 11.12.2026",
     "ort": "live i de Bar, AHA",
     "zeit": "",
-    "gast": "mit Geige",
-    "link": ""
+    "gast": "mit Tina",
+    "gastBild": "/image/tina-gast.jpg",
+    "gastLink": "https://www.youtube.com/@tinamariameier",
+    "link": "https://www.aha.ag/events/gGTzf2i4/liveidebar-11-12-26"
   },
   {
     "datum": "2026-12-18",
@@ -37,6 +45,8 @@
     "ort": "Weihnachtliches Miteinander, Classic Center Schweiz, Safenwil",
     "zeit": "ab 17:00",
     "gast": "",
+    "gastBild": "",
+    "gastLink": "",
     "link": "https://emilfreyclassics.eyevip.ch/events/WeihnachtlichesMiteinander2026/index.php?page=information"
   }
 ]

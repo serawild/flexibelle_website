@@ -1,5 +1,9 @@
 ---
+import { existsSync } from 'node:fs';
 import termine from '../data/termine.json';
+
+/** Ein Gastbild erscheint erst, wenn die Datei in public/ liegt — sonst nur der Name. */
+const hatBild = (pfad: string) => pfad !== '' && existsSync(`public${pfad}`);
 
 const heute = new Date().toISOString().slice(0, 10);
 const sorted = [...termine].sort((a, b) => a.datum.localeCompare(b.datum));
@@ -23,7 +27,16 @@ const vergangen = sorted.filter((t) => t.datum < heute).reverse();
             <a href={t.link} class="underline decoration-sand underline-offset-4 transition-colors hover:text-ocker-text" target="_blank" rel="noopener noreferrer">{t.ort}</a>
           ) : t.ort}
         </span>
-        {t.gast && <span data-gast class="font-zitat italic text-khaki-tief">{t.gast}</span>}
+        {t.gast && (
+          <span data-gast class="inline-flex items-center gap-2 self-center font-zitat italic text-khaki-tief">
+            {hatBild(t.gastBild) && (
+              <img src={t.gastBild} alt="" width="32" height="32" loading="lazy" class="h-8 w-8 rounded-full object-cover" />
+            )}
+            {t.gastLink ? (
+              <a href={t.gastLink} class="underline decoration-sand underline-offset-4 transition-colors hover:text-ocker-text" target="_blank" rel="noopener noreferrer">{t.gast}</a>
+            ) : t.gast}
+          </span>
+        )}
         {t.zeit && <span data-zeit class="ml-auto whitespace-nowrap text-taupe">{t.zeit}</span>}
       </li>
     ))}
@@ -78,7 +91,12 @@ const vergangen = sorted.filter((t) => t.datum < heute).reverse();
       const ort = eintrag.querySelector('[data-ort]');
       ort.removeAttribute('class');
       ort.textContent = ort.textContent.trim();
-      eintrag.querySelector('[data-gast]')?.setAttribute('class', 'font-zitat italic');
+      const gast = eintrag.querySelector('[data-gast]');
+      if (gast) {
+        gast.querySelector('img')?.remove();
+        gast.textContent = gast.textContent.trim();
+        gast.className = 'font-zitat italic';
+      }
       eintrag.querySelector('[data-zeit]')?.remove();
 
       vergangen.prepend(eintrag);

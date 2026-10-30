@@ -54,7 +54,7 @@ Es gibt **kein Figma**. Die verbindliche Vorlage ist `STYLEGUIDE.md` plus
 |---|---|
 | `STYLEGUIDE.md` | Farben, Schriften, Aufbau, Tonalität, Logo-Regeln |
 | `tailwind.config.ts` | Die verbindlichen Design-Tokens |
-| `src/data/termine.json` | Auftritte: Datum, Anzeige, Ort, Zeit, Gastmusiker |
+| `src/data/termine.json` | Auftritte: Datum, Anzeige, Ort, Zeit, Gast (Name, Bild, Link), Link zum Event |
 | `src/data/besetzung.json` | Die drei Bandmitglieder |
 | `src/data/musik.json` | Hörproben: Titel, YouTube-ID **oder** Videodatei, Standbild, Notiz |
 | `src/data/kanaele.json` | Instagram und YouTube: Name, Handle, Adresse |
