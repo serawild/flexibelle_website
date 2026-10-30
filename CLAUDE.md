@@ -70,7 +70,7 @@ Es gibt **kein Figma**. Die verbindliche Vorlage ist `STYLEGUIDE.md` plus
 
 ## Die Band
 
-Der Kern ist ein Trio: **Ivor**, **Sera**, **Paddy**. Live kommen
+Der Kern ist ein Trio: **Ivor**, **Seraina**, **Patrick**. Live kommen
 je nach Song einzelne Musiker dazu — daher der Name und der offene vierte Platz
 im Abschnitt Band.
 
@@ -80,8 +80,8 @@ eine vorhandene Anlage spielen. Beides steht gleichwertig nebeneinander im
 Booking-Abschnitt und im Tech Rider. Nie nur eine der beiden Varianten nennen —
 die Wahlmöglichkeit ist das Verkaufsargument.
 
-Besetzung: Ivor (Gsang, Gitarre & Ukulele), Sera (E-Piano & Gsang),
-Paddy (Bassgitarre). Auf der Seite stehen bewusst nur die Vornamen; ihre
+Besetzung: Ivor (Gsang, Gitarre & Ukulele), Seraina (E-Piano & Gsang),
+Patrick (Bassgitarre). Auf der Seite stehen bewusst nur die Vornamen; ihre
 Reihenfolge kommt aus `besetzung.json`.
 
 **Die Ukulele wird auf der Website nirgends genannt** (Entscheid von Seraina,
@@ -100,7 +100,7 @@ Beim Schreiben neuer Texte also weglassen, auch wenn es inhaltlich naheläge.
   runden Rahmen — aber **nur bei Bildern, die nicht quadratisch sind**. Ein
   quadratisches Bild füllt den quadratischen Rahmen exakt aus, da gibt es
   nichts zu verschieben. Näher heran kommt man deshalb nur, indem man die
-  Datei selbst enger zuschneidet — so entstanden bei Sera aus dem Original
+  Datei selbst enger zuschneidet — so entstanden bei Seraina aus dem Original
   `sera-wild-profil.jpg` die engeren `-nah.jpg`. Das Original bleibt liegen,
   damit sich der Ausschnitt jederzeit neu wählen lässt.
 - **Hörproben.** Beide Karten sind gefüllt. Eine Karte kann auf zwei Arten
