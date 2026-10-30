@@ -4,9 +4,7 @@
     "anzeige": "SA 25.04.2026",
     "ort": "Hochzyt von M&M",
     "zeit": "privat",
-    "gast": "",
-    "gastBild": "",
-    "gastLink": "",
+    "gaeste": [],
     "link": ""
   },
   {
@@ -14,9 +12,7 @@
     "anzeige": "SO 06.09.2026",
     "ort": "WSB Fest, Aarau",
     "zeit": "",
-    "gast": "",
-    "gastBild": "",
-    "gastLink": "",
+    "gaeste": [],
     "link": ""
   },
   {
@@ -24,9 +20,13 @@
     "anzeige": "SA 21.11.2026",
     "ort": "Weihnachtsmarkt Gretzenbach",
     "zeit": "18:00",
-    "gast": "",
-    "gastBild": "",
-    "gastLink": "",
+    "gaeste": [
+      {
+        "name": "Tina",
+        "bild": "/image/tina-gast.jpg",
+        "link": "https://www.youtube.com/@tinamariameier"
+      }
+    ],
     "link": ""
   },
   {
@@ -34,9 +34,18 @@
     "anzeige": "FR 11.12.2026",
     "ort": "live i de Bar, AHA",
     "zeit": "",
-    "gast": "mit Tina",
-    "gastBild": "/image/tina-gast.jpg",
-    "gastLink": "https://www.youtube.com/@tinamariameier",
+    "gaeste": [
+      {
+        "name": "Tina",
+        "bild": "/image/tina-gast.jpg",
+        "link": "https://www.youtube.com/@tinamariameier"
+      },
+      {
+        "name": "Yara",
+        "bild": "/image/yara-gast.jpg",
+        "link": ""
+      }
+    ],
     "link": "https://www.aha.ag/events/gGTzf2i4/liveidebar-11-12-26"
   },
   {
@@ -44,9 +53,13 @@
     "anzeige": "FR 18.12.2026",
     "ort": "Weihnachtliches Miteinander, Classic Center Schweiz, Safenwil",
     "zeit": "ab 17:00",
-    "gast": "",
-    "gastBild": "",
-    "gastLink": "",
+    "gaeste": [
+      {
+        "name": "Tina",
+        "bild": "/image/tina-gast.jpg",
+        "link": "https://www.youtube.com/@tinamariameier"
+      }
+    ],
     "link": "https://emilfreyclassics.eyevip.ch/events/WeihnachtlichesMiteinander2026/index.php?page=information"
   }
 ]
