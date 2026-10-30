@@ -18,7 +18,11 @@ const vergangen = sorted.filter((t) => t.datum < heute).reverse();
         <time datetime={t.datum} class="w-full text-label font-bold text-ocker-text sm:w-32 sm:shrink-0">
           {t.anzeige}
         </time>
-        <span data-ort class="font-semibold">{t.ort}</span>
+        <span data-ort class="font-semibold">
+          {t.link ? (
+            <a href={t.link} class="underline decoration-sand underline-offset-4 transition-colors hover:text-ocker-text" target="_blank" rel="noopener noreferrer">{t.ort}</a>
+          ) : t.ort}
+        </span>
         {t.gast && <span data-gast class="font-zitat italic text-khaki-tief">{t.gast}</span>}
         {t.zeit && <span data-zeit class="ml-auto whitespace-nowrap text-taupe">{t.zeit}</span>}
       </li>
@@ -71,7 +75,9 @@ const vergangen = sorted.filter((t) => t.datum < heute).reverse();
       eintrag.className =
         'flex flex-wrap items-baseline gap-x-5 gap-y-1 border-b border-sand/60 py-3 text-taupe';
       eintrag.querySelector('time').className = 'w-full text-label sm:w-32 sm:shrink-0';
-      eintrag.querySelector('[data-ort]').removeAttribute('class');
+      const ort = eintrag.querySelector('[data-ort]');
+      ort.removeAttribute('class');
+      ort.textContent = ort.textContent.trim();
       eintrag.querySelector('[data-gast]')?.setAttribute('class', 'font-zitat italic');
       eintrag.querySelector('[data-zeit]')?.remove();
 

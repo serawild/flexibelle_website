@@ -10,8 +10,16 @@
   {
     "datum": "2026-09-06",
     "anzeige": "SO 06.09.2026",
-    "ort": "Jubiläumsfeier AVA, Aarau",
+    "ort": "WSB Fest, Aarau",
     "zeit": "",
+    "gast": "",
+    "link": ""
+  },
+  {
+    "datum": "2026-11-21",
+    "anzeige": "SA 21.11.2026",
+    "ort": "Weihnachtsmarkt Gretzenbach",
+    "zeit": "18:00",
     "gast": "",
     "link": ""
   },
@@ -22,5 +30,13 @@
     "zeit": "",
     "gast": "mit Geige",
     "link": ""
+  },
+  {
+    "datum": "2026-12-18",
+    "anzeige": "FR 18.12.2026",
+    "ort": "Weihnachtliches Miteinander, Classic Center Schweiz, Safenwil",
+    "zeit": "ab 17:00",
+    "gast": "",
+    "link": "https://emilfreyclassics.eyevip.ch/events/WeihnachtlichesMiteinander2026/index.php?page=information"
   }
 ]
