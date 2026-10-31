@@ -28,6 +28,12 @@ Es gibt **kein Figma**. Die verbindliche Vorlage ist `STYLEGUIDE.md` plus
    sonst nichts. Überschriften und Fliesstext stehen in Archivo, Zitate und der
    Bandbeschrieb in Bitter kursiv.
 
+   **Einzige Ausnahme: der Scrapbook-Look im Abschnitt Band und im
+   Songbooklet** (Entscheid von Seraina, 31.10.2026). Dort stehen die Namen
+   auf den Polaroids, die Handnotizen und die Songtitel in Grape Nuts, das
+   Instrument und die Liedzeilen auf den Zetteln in Special Elite
+   (`font-typo`). Ausserhalb des Scrapbooks gilt die Regel unverändert.
+
 3. **Ocker und Khaki sind Flächenfarben.** Als Textfarbe auf hellem Grund nur
    `ocker-text` bzw. `khaki-tief` verwenden — sonst reicht der Kontrast nicht.
 
@@ -37,6 +43,11 @@ Es gibt **kein Figma**. Die verbindliche Vorlage ist `STYLEGUIDE.md` plus
    in der `description` und das Bandzitat. Diese drei weder übersetzen noch in
    der Schreibweise angleichen — und nichts Weiteres in Mundart dazuschreiben.
    Formulierungen von Seraina nie stillschweigend „korrigieren".
+
+   Die Liedzeilen im Songbooklet sind Songtexte, keine Seitentexte: Sie stehen
+   in Mundart, Englisch oder Französisch genau so, wie sie in den Lyrics-PDFs
+   unter `Songbooklet/lyric/` stehen. Lange Zeilen dürfen umbrochen werden,
+   sonst wird nichts angepasst, auch keine Tippfehler.
 
    Texte nicht erfinden: Fehlt einer, kommt ein `TODO` an die Stelle und ein
    Eintrag in `OFFEN.md` — kein Blindtext.
@@ -58,10 +69,13 @@ Es gibt **kein Figma**. Die verbindliche Vorlage ist `STYLEGUIDE.md` plus
 | `src/data/besetzung.json` | Die drei Bandmitglieder |
 | `src/data/musik.json` | Hörproben: Titel, YouTube-ID **oder** Videodatei, Standbild, Notiz |
 | `src/data/kanaele.json` | Instagram und YouTube: Name, Handle, Adresse |
+| `src/data/booklet.json` | Songbooklet: je Song Nummer, Titel und die Ausschnitte (Strophe, Refrain, Handnotizen, Fotozitat) plus zwei Fotos aus `public/booklet/fotos/` |
 | `src/components/Wortmarke.astro` | «flexiBelle» als Text in Grape Nuts |
 | `src/components/Signet.astro` | fB im Kreis, SVG plus Text |
 | `src/components/Kanaele.astro` | Die Kanal-Links mit Zeichen, hell oder dunkel |
 | `src/components/Hero.astro` | Der grosse Kopf: Bild (quer/hoch), Logo, Navigation |
+| `src/components/Songbooklet.astro` | Das Buch zum Blättern, Doppelseite oder auf dem Handy Einzelseiten |
+| `src/components/BookletSeite.astro` | Eine Buchseite als echter Text: Textseite oder Fotoseite, abwechselnd gespiegelt |
 | `public/video/LIESMICH.md` | Wie eine Hörprobe aufbereitet wird; dazu das stillgelegte Hero-Video |
 | `marke/` | Style-Guide-PDFs und die Logodateien als SVG |
 | `OFFEN.md` | Offene Fragen und bewusst Weggelassenes |
@@ -71,8 +85,8 @@ Es gibt **kein Figma**. Die verbindliche Vorlage ist `STYLEGUIDE.md` plus
 ## Die Band
 
 Der Kern ist ein Trio: **Ivor**, **Seraina**, **Patrick**. Live kommen
-je nach Song einzelne Musiker dazu — daher der Name und der offene vierte Platz
-im Abschnitt Band.
+je nach Song einzelne Musiker dazu — daher der Name und die Handnotiz
+«Wer dazukommt, entscheidet der Event.» im Abschnitt Band.
 
 **Wichtig fürs Booking — zwei Varianten:** Die Band hat eine eigene PA und ein
 eigenes Mischpult und bringt auf Wunsch alles mit; sie kann aber ebenso über

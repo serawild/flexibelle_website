@@ -48,7 +48,8 @@ liegen im Projekt.
 
 | Token | Schrift | Aufgabe |
 |---|---|---|
-| `font-marke` | Grape Nuts | **Nur** der Schriftzug «flexiBelle» und das Signet. Sonst nirgends. |
+| `font-marke` | Grape Nuts | **Nur** der Schriftzug «flexiBelle» und das Signet. Einzige Ausnahme: Namen, Handnotizen und Songtitel im Scrapbook (Band und Songbooklet). |
+| `font-typo` | Special Elite | Nur im Scrapbook: das Instrument auf den Polaroids und die Liedzeilen auf den Zetteln im Songbooklet. |
 | `font-sans` | Archivo | Alles Übrige: Überschriften, Fliesstext, Beschriftungen. Standard im `body`. |
 | `font-zitat` | Bitter kursiv | Bandbeschrieb, Zitate, der Claim, die «mit …»-Zeile bei Terminen. |
 

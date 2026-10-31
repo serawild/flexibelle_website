@@ -1,0 +1,150 @@
+---
+import booklet from '../data/booklet.json';
+import BookletSeite, { type Song } from './BookletSeite.astro';
+
+/**
+ * Songbooklet zum Blättern. Jeder Song aus booklet.json ergibt eine
+ * Doppelseite aus Text- und Fotoseite, abwechselnd gespiegelt. Die Seiten
+ * liegen unsichtbar im Lager und werden beim Blättern in die Buchseiten
+ * kopiert; so bleibt der Liedtext echter, auffindbarer Text.
+ */
+const songs = booklet as Song[];
+const seiten = songs.flatMap((song, index) => {
+  const [links, rechts] = index % 2 === 1 ? (['foto', 'text'] as const) : (['text', 'foto'] as const);
+  return [
+    { song, index, art: links, seite: 'links' as const },
+    { song, index, art: rechts, seite: 'rechts' as const },
+  ];
+});
+
+const knopf =
+  'border border-ocker/50 px-[18px] py-2.5 font-typo text-xs uppercase tracking-[0.2em] text-ocker-hell ' +
+  'transition-colors enabled:hover:bg-ocker/[.14] enabled:hover:text-beige disabled:cursor-default disabled:opacity-35';
+---
+
+<section id="songbooklet" class="riss-booklet bg-braun-tief bg-booklet-schein px-6 py-20 text-beige sm:px-10 lg:py-28">
+  <div class="mx-auto max-w-inhalt">
+    <p class="label text-ocker">Songbooklet</p>
+    <h2 class="titel mt-3">Stöbere in unseren Songs</h2>
+    <p class="mt-6 max-w-text text-taupe-hell">
+      Jeder eigene Song hat eine Doppelseite: Text, Fotos aus der Scheune, ein paar Notizen am Rand.
+    </p>
+
+    <div data-booklet class="mt-11 flex flex-col items-center gap-[22px]">
+      <!-- Breit: Doppelseite mit Umschlag -->
+      <div class="relative aspect-[1600/1000] w-full max-w-[940px] [perspective-origin:50%_46%] [perspective:2400px] max-[700px]:hidden">
+        <div class="absolute -inset-x-[2.4%] -inset-y-[1.6%] bg-buchruecken shadow-buch"></div>
+        <div data-links class="buchseite left-0"></div>
+        <div data-rechts class="buchseite left-1/2"></div>
+        <div data-blatt class="blatt" hidden>
+          <div data-vorn class="blattseite"></div>
+          <div data-hinten class="blattseite hinten"></div>
+        </div>
+        <div class="pointer-events-none absolute left-[47.5%] top-0 z-[6] h-full w-[5%] bg-buch-bund"></div>
+      </div>
+
+      <!-- Schmal: eine Seite nach der anderen -->
+      <div data-einzel class="relative hidden aspect-[620/775] w-full max-w-[460px] bg-buchseite shadow-einzelseite max-[700px]:block"></div>
+
+      <div class="flex items-center gap-[18px]">
+        <button type="button" data-zurueck class={knopf} disabled>Zurück<span class="sr-only"> blättern</span></button>
+        <span data-stand class="font-typo text-xs tracking-[0.2em] text-taupe-hell" aria-live="polite"></span>
+        <button type="button" data-weiter class={knopf}>Weiter<span class="sr-only"> blättern</span></button>
+      </div>
+    </div>
+
+    <div data-lager hidden>
+      {seiten.map((s) => (
+        <div data-seite>
+          <BookletSeite song={s.song} art={s.art} seite={s.seite} index={s.index} />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  const wurzel = document.querySelector<HTMLElement>('[data-booklet]');
+  const lager = [...document.querySelectorAll<HTMLElement>('[data-lager] [data-seite]')];
+
+  if (wurzel && lager.length > 0) {
+    const teil = (name: string) => wurzel.querySelector<HTMLElement>(`[data-${name}]`)!;
+    const [links, rechts, blatt, vorn, hinten, einzel] = ['links', 'rechts', 'blatt', 'vorn', 'hinten', 'einzel'].map(teil);
+    const zurueck = teil('zurueck') as HTMLButtonElement;
+    const weiter = teil('weiter') as HTMLButtonElement;
+    const stand = teil('stand');
+
+    const doppelseiten = Math.ceil(lager.length / 2);
+    const schmal = () => window.matchMedia('(max-width: 700px)').matches;
+    const ruhig = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    let doppel = 0; // aktuelle Doppelseite, ab 0
+    let einzelNr = 0; // aktuelle Einzelseite, ab 0
+    let laeuft = false;
+
+    // Seite n aus dem Lager in ein Feld kopieren; ausserhalb des Buchs bleibt es leer
+    const lege = (feld: HTMLElement, n: number) => {
+      feld.replaceChildren(...(lager[n] ? [...lager[n].cloneNode(true).childNodes] : []));
+    };
+
+    const zeichne = () => {
+      lege(links, doppel * 2);
+      lege(rechts, doppel * 2 + 1);
+      lege(einzel, einzelNr);
+      const s = schmal();
+      stand.textContent = s ? `${einzelNr + 1} / ${lager.length}` : `${doppel + 1} / ${doppelseiten}`;
+      zurueck.disabled = s ? einzelNr === 0 : doppel === 0;
+      weiter.disabled = s ? einzelNr === lager.length - 1 : doppel === doppelseiten - 1;
+    };
+
+    // Startlage setzen, ohne Übergang, dann im nächsten Bild zur Endlage drehen
+    const drehe = (von: number, nach: number) => {
+      blatt.style.transition = 'none';
+      blatt.style.transform = `rotateY(${von}deg)`;
+      blatt.hidden = false;
+      requestAnimationFrame(() =>
+        requestAnimationFrame(() => {
+          blatt.style.transition = '';
+          blatt.style.transform = `rotateY(${nach}deg)`;
+        }),
+      );
+    };
+
+    const blaettern = (richtung: 1 | -1) => {
+      if (laeuft) return;
+      if (schmal()) {
+        einzelNr = Math.min(lager.length - 1, Math.max(0, einzelNr + richtung));
+        zeichne();
+        return;
+      }
+      const neu = doppel + richtung;
+      if (neu < 0 || neu >= doppelseiten) return;
+      laeuft = true;
+
+      if (richtung > 0) {
+        lege(vorn, doppel * 2 + 1); // die aktuelle rechte Seite schlägt um
+        lege(hinten, neu * 2); // und wird zur neuen linken
+        lege(rechts, neu * 2 + 1); // darunter kommt die neue rechte zum Vorschein
+        drehe(0, -180);
+      } else {
+        lege(vorn, neu * 2 + 1);
+        lege(hinten, doppel * 2);
+        lege(links, neu * 2);
+        drehe(-180, 0);
+      }
+
+      window.setTimeout(() => {
+        doppel = neu;
+        einzelNr = doppel * 2;
+        blatt.hidden = true;
+        laeuft = false;
+        zeichne();
+      }, ruhig() ? 0 : 1000);
+    };
+
+    weiter.addEventListener('click', () => blaettern(1));
+    zurueck.addEventListener('click', () => blaettern(-1));
+    window.matchMedia('(max-width: 700px)').addEventListener('change', zeichne);
+    zeichne();
+  }
+</script>

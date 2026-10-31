@@ -1,0 +1,102 @@
+---
+/**
+ * Eine Seite im Songbooklet, als echter Text statt als Bild.
+ * Die Textseite trägt Titel, Strophe und eine Handnotiz neben einem kleinen
+ * Polaroid; die Fotoseite ein grosses Foto, eine Notiz und den Refrain.
+ * Alle Masse in cqw (siehe .b-papier in global.css).
+ */
+export interface Song {
+  nr: string;
+  song: string;
+  strophe: string[];
+  hand: string[];
+  zitat: string[];
+  notiz: string[];
+  refrain: string[];
+  fotos: { gross: string; klein: string; notiz: string };
+}
+
+interface Props {
+  song: Song;
+  art: 'text' | 'foto';
+  seite: 'links' | 'rechts';
+  /** Wechselt Bandton und Drehungen von Song zu Song */
+  index: number;
+}
+const { song, art, seite, index } = Astro.props;
+
+// Klebeband aus der Vorlage, dieselben drei Töne wie im Abschnitt Band
+const baender = [
+  { ton: 'bg-tape-ocker', form: 'polygon(3.35% 0%,3.32% 25%,0.20% 50%,0.30% 75%,2.92% 100%,97.42% 100%,97.66% 75%,98.92% 50%,97.88% 25%,97.88% 0%)' },
+  { ton: 'bg-tape-hell', form: 'polygon(0.47% 0%,2.97% 25%,2.67% 50%,0.89% 75%,1.73% 100%,98.43% 100%,97.72% 75%,97.24% 50%,99.67% 25%,99.90% 0%)' },
+  { ton: 'bg-tape-khaki', form: 'polygon(0.83% 0%,1.90% 25%,1.29% 50%,2.11% 75%,2.19% 100%,99.77% 100%,99.95% 75%,97.07% 50%,99.09% 25%,99.18% 0%)' },
+];
+const band = (n: number, drehung: number) => {
+  const b = baender[(index + n) % baender.length];
+  return { klasse: b.ton, stil: `transform:rotate(${drehung}deg);clip-path:${b.form}` };
+};
+const kipp = index % 2 === 0 ? 1 : -1;
+
+const kopf = seite === 'links' ? `Songbooklet · Nr. ${song.nr}` : 'Text & Musig · flexiBelle';
+---
+
+<div class="b-rahmen">
+  <div class="b-papier">
+    <p class="b-kopf">{kopf}</p>
+
+    {art === 'text' ? (
+      <>
+        <h3 class="b-titel">{song.song}</h3>
+
+        <div class="b-zettel relative" style={`margin-top:3cqw;transform:rotate(${-0.6 * kipp}deg)`}>
+          <span class:list={['b-tape', band(0, 4 * kipp).klasse]} style={`left:82%;${band(0, 4 * kipp).stil}`}></span>
+          <p>{song.strophe.map((z) => <span class="block">{z}</span>)}</p>
+        </div>
+
+        <div class="flex items-start" style="gap:4cqw;margin-top:4.5cqw">
+          {song.hand.length > 0 && (
+            <p class="b-hand flex-1" style={`transform:rotate(${-1.4 * kipp}deg)`}>{song.hand.map((z) => <span class="block">{z}</span>)}</p>
+          )}
+          <figure class="b-foto relative shrink-0" style={`width:27cqw;transform:rotate(${3 * kipp}deg)`}>
+            <span class:list={['b-tape', band(1, -5).klasse]} style={band(1, -5).stil}></span>
+            <img src={song.fotos.klein} alt="" loading="lazy" decoding="async" style="aspect-ratio:1/1" />
+            {song.fotos.notiz && <figcaption class="b-foto-notiz">{song.fotos.notiz}</figcaption>}
+          </figure>
+        </div>
+      </>
+    ) : (
+      <>
+        <figure class="b-foto relative" style={`margin-top:4cqw;transform:rotate(${-1 * kipp}deg)`}>
+          <span class:list={['b-tape', band(2, -3 * kipp).klasse]} style={`left:20%;${band(2, -3 * kipp).stil}`}></span>
+          <div class="relative" style="aspect-ratio:16/10">
+            <img src={song.fotos.gross} alt="" loading="lazy" decoding="async" />
+            {song.zitat.length > 0 && <p class="b-zitat">{song.zitat.map((z) => <span class="block">{z}</span>)}</p>}
+          </div>
+        </figure>
+
+        <div class="flex items-start" style="gap:3cqw;margin-top:5cqw">
+          {song.notiz.length > 0 && (
+            <p class="b-hand flex-1" style={`transform:rotate(${1.2 * kipp}deg)`}>{song.notiz.map((z) => <span class="block">{z}</span>)}</p>
+          )}
+          {song.refrain.length > 0 && (
+            <div class="b-zettel relative shrink-0" style={`width:${song.notiz.length > 0 ? 58 : 86}cqw;transform:rotate(${1.2 * kipp}deg)`}>
+              <span class:list={['b-tape', band(0, 3).klasse]} style={band(0, 3).stil}></span>
+              <p class="b-zettel-label">Refrain</p>
+              <p>{song.refrain.map((z) => <span class="block">{z}</span>)}</p>
+            </div>
+          )}
+        </div>
+      </>
+    )}
+
+    {seite === 'rechts' ? (
+      <p class="b-fuss">
+        <span class="relative inline-flex shrink-0 items-center justify-center rounded-full border border-ocker font-marke normal-case tracking-normal text-braun"
+          style="width:5.6cqw;height:5.6cqw;font-size:2.8cqw" aria-hidden="true">fB</span>
+        flexibelle.live
+      </p>
+    ) : (
+      <p class="b-fuss" aria-hidden="true"></p>
+    )}
+  </div>
+</div>

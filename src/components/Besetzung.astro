@@ -1,40 +1,60 @@
 ---
 import besetzung from '../data/besetzung.json';
+
+/**
+ * Scrapbook: jede Karte ein Polaroid mit einem Streifen Klebeband.
+ * Drehung, Bandton und ausgefranste Enden aus der Vorlage
+ * Songbooklet/vorschau/flexibelle-vorschau.html, der Reihe nach je Karte.
+ */
+const karten = [
+  {
+    drehung: 'min-[860px]:-rotate-[1.6deg]',
+    band: 'bg-tape-ocker',
+    bandStil: 'transform:rotate(5deg);clip-path:polygon(3.35% 0%,3.32% 25%,0.20% 50%,0.30% 75%,2.92% 100%,97.42% 100%,97.66% 75%,98.92% 50%,97.88% 25%,97.88% 0%)',
+  },
+  {
+    drehung: 'min-[860px]:rotate-[1.1deg]',
+    band: 'bg-tape-hell',
+    bandStil: 'transform:rotate(-6deg);clip-path:polygon(0.47% 0%,2.97% 25%,2.67% 50%,0.89% 75%,1.73% 100%,98.43% 100%,97.72% 75%,97.24% 50%,99.67% 25%,99.90% 0%)',
+  },
+  {
+    drehung: 'min-[860px]:-rotate-[0.7deg]',
+    band: 'bg-tape-khaki',
+    bandStil: 'transform:rotate(-3deg);clip-path:polygon(0.83% 0%,1.90% 25%,1.29% 50%,2.11% 75%,2.19% 100%,99.77% 100%,99.95% 75%,97.07% 50%,99.09% 25%,99.18% 0%)',
+  },
+];
 ---
 
-<ul class="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-  {besetzung.map((m) => (
-    <li>
-      <div class="h-40 w-40 overflow-hidden rounded-full bg-sand">
-        {m.bild && (
-          <img
-            src={m.bild}
-            alt={m.name}
-            width="1200"
-            height="1200"
-            loading="lazy"
-            decoding="async"
-            class="h-full w-full object-cover"
-            style={`object-position: ${m.bildFokus || "center"}`}
-          />
-        )}
-      </div>
-      <h3 class="titel mt-6 text-untertitel">{m.name}</h3>
-      {m.instrument && (
-        <p class="mt-1 text-label font-semibold uppercase text-ocker-text">{m.instrument}</p>
-      )}
-      {m.text && <p class="mt-3 max-w-sm">{m.text}</p>}
-    </li>
-  ))}
-
-  <!-- Der offene vierte Platz: das Konzept der Band -->
-  <li>
-    <div class="flex h-40 w-40 items-center justify-center rounded-full border border-dashed
-      border-khaki font-marke text-5xl text-khaki-tief">?</div>
-    <h3 class="titel mt-6 text-untertitel text-khaki-tief">+1</h3>
-    <p class="mt-1 text-label font-semibold uppercase text-khaki-tief">wechselnd</p>
-    <p class="mt-3 max-w-sm text-taupe">
-      Für einzelne Songs holen wir jemanden dazu. Wer das ist, entscheidet der Event.
-    </p>
-  </li>
+<ul class="mx-auto mt-14 grid max-w-[400px] gap-11 min-[860px]:max-w-none min-[860px]:grid-cols-3 min-[860px]:gap-[34px]">
+  {besetzung.map((m, i) => {
+    const karte = karten[i % karten.length];
+    return (
+      <li class={karte.drehung}>
+        <div class="polaroid">
+          <span class:list={['tape', karte.band]} style={karte.bandStil} aria-hidden="true"></span>
+          {m.bild ? (
+            <img
+              src={m.bild}
+              alt={m.name}
+              width="1200"
+              height="1200"
+              loading="lazy"
+              decoding="async"
+              class="aspect-square w-full object-cover"
+              style={`object-position: ${m.bildFokus || 'center'}`}
+            />
+          ) : (
+            <div class="aspect-square w-full bg-sand"></div>
+          )}
+          <div class="mx-0.5 mt-[11px] text-center">
+            <h3 class="font-marke text-[32px] leading-none text-khaki-tief">{m.name}</h3>
+            {m.instrument && (
+              <p class="mt-1.5 font-typo text-[11px] uppercase tracking-[0.2em] text-taupe">{m.instrument}</p>
+            )}
+          </div>
+        </div>
+        {m.text && <p class="mt-3 text-[15px] leading-[1.55]">{m.text}</p>}
+      </li>
+    );
+  })}
 </ul>

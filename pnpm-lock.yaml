@@ -33,6 +33,9 @@ importers:
       '@fontsource/grape-nuts':
         specifier: ^5.0.0
         version: 5.3.0
+      '@fontsource/special-elite':
+        specifier: ^5.3.0
+        version: 5.3.0
       prettier:
         specifier: ^3.3.0
         version: 3.9.6
@@ -353,6 +356,9 @@ packages:
 
   '@fontsource/grape-nuts@5.3.0':
     resolution: {integrity: sha512-nhn/UsX4cj/QT8pWSb1uwA19JrsKWXfGgic68B+691RjORF2rKpIFVj7RgYcTAbZBAEkAg07qNmXs2TZt7x8mg==}
+
+  '@fontsource/special-elite@5.3.0':
+    resolution: {integrity: sha512-fOQ9XU8m4KnqzcLibAXCxTsKzbxePNDjPqVss5GSMcPVCY1TuCv+Wq8gm1ebqIR6XS1rhMbQ7ECP9ocKVEEpTA==}
 
   '@img/colour@1.1.0':
     resolution: {integrity: sha512-Td76q7j57o/tLVdgS746cYARfSyxk8iEfRxewL9h4OMzYhbW4TAcppl0mT4eyqXddh6L/jwoM75mo7ixa/pCeQ==}
@@ -2713,6 +2719,8 @@ snapshots:
   '@fontsource/bitter@5.3.0': {}
 
   '@fontsource/grape-nuts@5.3.0': {}
+
+  '@fontsource/special-elite@5.3.0': {}
 
   '@img/colour@1.1.0': {}
 
