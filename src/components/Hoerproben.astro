@@ -1,0 +1,103 @@
+---
+/**
+ * Hörproben: je 20 Sekunden pro Song, abwechselnd vom Anfang und aus der
+ * Mitte (siehe hoerproben.json). Darunter das ZIP mit den eigenen Songs.
+ * Ein eigener Knopf statt der Browser-Steuerung, damit die Liste ruhig
+ * bleibt; es spielt immer nur eine Probe.
+ */
+import hoerproben from '../data/hoerproben.json';
+import Knopf from './Knopf.astro';
+
+const { songs, zip, zipMB } = hoerproben;
+const eigene = songs.filter((s) => !s.von).length;
+---
+
+<div data-hoerproben class="mt-14">
+  <p class="label text-ocker-text">Hörproben</p>
+  <p class="mt-3 max-w-text text-taupe">
+    Je 20 Sekunden aus unserer Aufnahmesession «{hoerproben.session}».
+  </p>
+
+  <ol class="mt-6 max-w-3xl border-t border-sand">
+    {songs.map((s) => (
+      <li class="flex items-center gap-4 border-b border-sand py-3">
+        <button
+          type="button"
+          data-probe={s.datei}
+          class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-ocker-text text-ocker-text transition-colors hover:bg-ocker hover:text-braun"
+          aria-label={`Hörprobe ${s.titel} abspielen`}>
+          <svg data-symbol="spielen" viewBox="0 0 16 16" class="h-4 w-4" aria-hidden="true"><path d="M5 3l8 5-8 5z" fill="currentColor" /></svg>
+          <svg data-symbol="pause" viewBox="0 0 16 16" class="hidden h-4 w-4" aria-hidden="true"><path d="M4 3h3v10H4zM9 3h3v10H9z" fill="currentColor" /></svg>
+        </button>
+        <span class="w-7 shrink-0 font-typo text-sm text-taupe">{s.nr}</span>
+        <span class="flex-1">
+          <span class="font-semibold">{s.titel}</span>
+          {s.von && <span class="ml-2 font-zitat italic text-khaki-tief">von {s.von}</span>}
+        </span>
+        <span class="hidden h-1 w-24 shrink-0 bg-sand sm:block" aria-hidden="true">
+          <span data-fortschritt class="block h-full w-0 bg-ocker"></span>
+        </span>
+      </li>
+    ))}
+  </ol>
+
+  <audio data-hoerprobe preload="none"></audio>
+
+  <div class="mt-8 flex flex-wrap items-center gap-4">
+    <Knopf href={zip} art="khaki" download>Alle eigenen Songs als ZIP</Knopf>
+    <span class="text-sm text-taupe">{eigene} Songs, MP3, {zipMB} MB</span>
+  </div>
+</div>
+
+<script>
+  const wurzel = document.querySelector<HTMLElement>('[data-hoerproben]');
+  const spieler = wurzel?.querySelector<HTMLAudioElement>('[data-hoerprobe]');
+
+  if (wurzel && spieler) {
+    let aktiv: HTMLButtonElement | null = null;
+
+    const zeige = (knopf: HTMLButtonElement, spielt: boolean) => {
+      knopf.querySelector('[data-symbol="spielen"]')!.classList.toggle('hidden', spielt);
+      knopf.querySelector('[data-symbol="pause"]')!.classList.toggle('hidden', !spielt);
+      const titel = knopf.getAttribute('aria-label')!.replace(/ (abspielen|anhalten)$/, '');
+      knopf.setAttribute('aria-label', `${titel} ${spielt ? 'anhalten' : 'abspielen'}`);
+    };
+    const balken = (knopf: HTMLButtonElement | null) =>
+      knopf?.closest('li')?.querySelector<HTMLElement>('[data-fortschritt]');
+
+    for (const knopf of wurzel.querySelectorAll<HTMLButtonElement>('[data-probe]')) {
+      knopf.addEventListener('click', () => {
+        if (aktiv === knopf && !spieler.paused) {
+          spieler.pause();
+          return;
+        }
+        if (aktiv && aktiv !== knopf) {
+          zeige(aktiv, false);
+          const b = balken(aktiv);
+          if (b) b.style.width = '0';
+        }
+        aktiv = knopf;
+        if (spieler.getAttribute('src') !== knopf.dataset.probe) spieler.src = knopf.dataset.probe!;
+        spieler.play();
+      });
+    }
+
+    // Video und Hörprobe halten sich gegenseitig an
+    const videos = [...document.querySelectorAll('video')];
+    for (const v of videos) v.addEventListener('play', () => spieler.pause());
+    spieler.addEventListener('play', () => videos.forEach((v) => v.pause()));
+
+    spieler.addEventListener('play', () => aktiv && zeige(aktiv, true));
+    spieler.addEventListener('pause', () => aktiv && zeige(aktiv, false));
+    spieler.addEventListener('ended', () => {
+      if (!aktiv) return;
+      zeige(aktiv, false);
+      const b = balken(aktiv);
+      if (b) b.style.width = '0';
+    });
+    spieler.addEventListener('timeupdate', () => {
+      const b = balken(aktiv);
+      if (b && spieler.duration) b.style.width = `${(spieler.currentTime / spieler.duration) * 100}%`;
+    });
+  }
+</script>

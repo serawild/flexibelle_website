@@ -1,0 +1,92 @@
+{
+  "session": "The 2nd Take Sessions",
+  "aufnahme": "30.08.2026",
+  "zip": "/audio/flexibelle-2nd-take-sessions.zip",
+  "zipMB": 32,
+  "songs": [
+    {
+      "nr": "01",
+      "titel": "Gheimnis",
+      "von": "",
+      "datei": "/audio/hoerproben/01-gheimnis.mp3",
+      "teil": "Anfang"
+    },
+    {
+      "nr": "02",
+      "titel": "Kompass",
+      "von": "",
+      "datei": "/audio/hoerproben/02-kompass.mp3",
+      "teil": "Mitte"
+    },
+    {
+      "nr": "03",
+      "titel": "Champs Élysées",
+      "von": "Joe Dassin",
+      "datei": "/audio/hoerproben/03-champs-elysees.mp3",
+      "teil": "Anfang"
+    },
+    {
+      "nr": "04",
+      "titel": "Dehei",
+      "von": "",
+      "datei": "/audio/hoerproben/04-dehei.mp3",
+      "teil": "Mitte"
+    },
+    {
+      "nr": "05",
+      "titel": "Frächi Fröndin",
+      "von": "",
+      "datei": "/audio/hoerproben/05-fraechi-froendin.mp3",
+      "teil": "Anfang"
+    },
+    {
+      "nr": "06",
+      "titel": "Uf u Drvo",
+      "von": "Gölä",
+      "datei": "/audio/hoerproben/06-uf-u-drvo.mp3",
+      "teil": "Mitte"
+    },
+    {
+      "nr": "07",
+      "titel": "A little lost",
+      "von": "",
+      "datei": "/audio/hoerproben/07-a-little-lost.mp3",
+      "teil": "nach dem Intro"
+    },
+    {
+      "nr": "08",
+      "titel": "Hätti wäri wördi",
+      "von": "",
+      "datei": "/audio/hoerproben/08-haetti-waeri-woerdi.mp3",
+      "teil": "Mitte"
+    },
+    {
+      "nr": "09",
+      "titel": "Magie",
+      "von": "",
+      "datei": "/audio/hoerproben/09-magie.mp3",
+      "teil": "nach dem Intro"
+    },
+    {
+      "nr": "10",
+      "titel": "In case I fall for you",
+      "von": "Black Sea Dahu",
+      "datei": "/audio/hoerproben/10-in-case-i-fall-for-you.mp3",
+      "teil": "Mitte"
+    },
+    {
+      "nr": "11",
+      "titel": "Come on, come on",
+      "von": "",
+      "datei": "/audio/hoerproben/11-come-on-come-on.mp3",
+      "teil": "nach dem Intro"
+    },
+    {
+      "nr": "12",
+      "titel": "Stuck",
+      "von": "",
+      "datei": "/audio/hoerproben/12-stuck.mp3",
+      "teil": "Mitte"
+    }
+  ]
+}

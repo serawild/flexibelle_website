@@ -162,7 +162,7 @@ const kanonisch = new URL(Astro.url.pathname, Astro.site);
         }
 
         // Ton anhalten, wenn eine Hörprobe gestartet wird — sonst spielt beides.
-        for (const spieler of document.querySelectorAll('video')) {
+        for (const spieler of document.querySelectorAll('video, audio[data-hoerprobe]')) {
           spieler.addEventListener('play', () => { if (!klang.paused) stoppen(); });
         }
       }
