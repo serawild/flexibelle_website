@@ -1,0 +1,100 @@
+---
+/**
+ * Instagram-Karussell, ein Song pro Woche: vier Folien zu 1080 × 1350 (4:5),
+ * untereinander. Nur im Dev-Server erreichbar (localhost:4321/insta/02);
+ * beim Build entstehen keine Seiten, damit nichts davon online geht.
+ * Export der Folien als PNG: siehe scripts/insta-export.mjs.
+ */
+import '../../styles/global.css';
+import booklet from '../../data/booklet.json';
+import BookletSeite, { type Song } from '../../components/BookletSeite.astro';
+
+export function getStaticPaths() {
+  if (!import.meta.env.DEV) return [];
+  const songs = booklet as Song[];
+  return songs.map((song, index) => ({
+    params: { nr: song.nr },
+    props: { song, index, naechster: songs[index + 1] },
+  }));
+}
+
+interface Props {
+  song: Song;
+  index: number;
+  naechster?: Song;
+}
+const { song, index, naechster } = Astro.props;
+const kipp = index % 2 === 0 ? 1 : -1;
+// Lange Titel kleiner setzen, damit sie auf einer Zeile bleiben
+const titelGroesse = song.song.length <= 9 ? 17 : song.song.length <= 13 ? 13.5 : 10.5;
+const band = 'polygon(3.35% 0%,3.32% 25%,0.20% 50%,0.30% 75%,2.92% 100%,97.42% 100%,97.66% 75%,98.92% 50%,97.88% 25%,97.88% 0%)';
+---
+
+<!doctype html>
+<html lang="de-CH">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <title>Insta {song.nr} {song.song}</title>
+    <style is:global>astro-dev-toolbar { display: none !important; }</style>
+  </head>
+  <body class="m-0 w-[1080px] bg-braun">
+    <!-- Folie 1: Titel -->
+    <section data-folie class="h-[1350px] w-[1080px]">
+      <div class="b-rahmen">
+        <div class="relative flex h-full flex-col bg-kraft text-braun" style="padding:7cqw 8cqw 0">
+          <p class="b-kopf" style="font-size:2.2cqw">Song der Woche · Songbooklet Nr. {song.nr}</p>
+
+          <figure class="relative bg-polaroid" style={`margin-top:9cqw;padding:2cqw 2cqw 2cqw;transform:rotate(${-1.5 * kipp}deg)`}>
+            <span class="b-tape band-ocker" style={`left:22%;width:24cqw;height:6cqw;margin-left:-12cqw;top:-3cqw;transform:rotate(${-4 * kipp}deg);clip-path:${band}`}></span>
+            <img src={song.fotos.titel ?? song.fotos.klein} alt="" class="block w-full object-cover" style="aspect-ratio:16/11" />
+          </figure>
+
+          <h1 class="font-marke leading-none text-khaki-tief" style={`font-size:${titelGroesse}cqw;white-space:nowrap;margin-top:9cqw;transform:rotate(${-1.5 * kipp}deg)`}>{song.song}</h1>
+          <p class="font-typo uppercase text-taupe" style="font-size:2.2cqw;letter-spacing:0.2em;margin-top:3cqw">Text &amp; Musig · flexiBelle</p>
+
+          <p class="b-fuss" style="font-size:2.2cqw;padding-bottom:6cqw">
+            <span class="inline-flex shrink-0 items-center justify-center rounded-full border border-ocker font-marke normal-case tracking-normal text-braun"
+              style="width:7cqw;height:7cqw;font-size:3.5cqw">fB</span>
+            flexibelle.live
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Folien 2 und 3: die Doppelseite aus dem Songbooklet -->
+    <section data-folie class="h-[1350px] w-[1080px]">
+      <BookletSeite song={song} art="text" seite="rechts" index={index} />
+    </section>
+    <section data-folie class="h-[1350px] w-[1080px]">
+      <BookletSeite song={song} art="foto" seite="links" index={index} />
+    </section>
+
+    <!-- Folie 4: Schluss -->
+    <section data-folie class="h-[1350px] w-[1080px]">
+      <div class="b-rahmen">
+        <div class="flex h-full flex-col items-center bg-braun text-center text-beige" style="padding:14cqw 8cqw 0">
+          <span class="inline-flex items-center justify-center rounded-full border-2 border-ocker font-marke text-beige"
+            style="width:22cqw;height:22cqw;font-size:11cqw">fB</span>
+          <p class="font-marke leading-none" style="font-size:15cqw;margin-top:6cqw">flexiBelle</p>
+          <p class="uppercase text-taupe-hell" style="font-size:2.6cqw;letter-spacing:0.3em;margin-top:3cqw">Live Musik · Eigeni Songs</p>
+
+          <div class="bg-polaroid font-typo text-braun" style={`margin-top:12cqw;padding:5cqw 7cqw;transform:rotate(${1.2 * kipp}deg)`}>
+            <p class="uppercase text-taupe" style="font-size:2.2cqw;letter-spacing:0.2em">
+              {naechster ? 'Nächste Woche im Songbooklet' : 'Das ganze Songbooklet'}
+            </p>
+            {naechster ? (
+              <p class="font-marke text-khaki-tief" style="font-size:9cqw;line-height:1.1;margin-top:2cqw">{naechster.song}</p>
+            ) : (
+              <p class="font-marke text-khaki-tief" style="font-size:9cqw;line-height:1.1;margin-top:2cqw">alle Songs</p>
+            )}
+          </div>
+
+          <p class="mt-auto font-typo uppercase text-ocker-hell" style="font-size:3cqw;letter-spacing:0.24em;padding-bottom:10cqw">
+            Alle Songs auf flexibelle.live
+          </p>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
