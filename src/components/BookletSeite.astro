@@ -13,7 +13,8 @@ export interface Song {
   zitat: string[];
   notiz: string[];
   refrain: string[];
-  fotos: { gross: string; klein: string; notiz: string };
+  /** titel: optionales Foto für die Titelfolie auf Instagram, sonst klein */
+  fotos: { gross: string; klein: string; titel?: string; notiz: string };
 }
 
 interface Props {
@@ -27,9 +28,9 @@ const { song, art, seite, index } = Astro.props;
 
 // Klebeband aus der Vorlage, dieselben drei Töne wie im Abschnitt Band
 const baender = [
-  { ton: 'bg-tape-ocker', form: 'polygon(3.35% 0%,3.32% 25%,0.20% 50%,0.30% 75%,2.92% 100%,97.42% 100%,97.66% 75%,98.92% 50%,97.88% 25%,97.88% 0%)' },
-  { ton: 'bg-tape-hell', form: 'polygon(0.47% 0%,2.97% 25%,2.67% 50%,0.89% 75%,1.73% 100%,98.43% 100%,97.72% 75%,97.24% 50%,99.67% 25%,99.90% 0%)' },
-  { ton: 'bg-tape-khaki', form: 'polygon(0.83% 0%,1.90% 25%,1.29% 50%,2.11% 75%,2.19% 100%,99.77% 100%,99.95% 75%,97.07% 50%,99.09% 25%,99.18% 0%)' },
+  { ton: 'band-ocker', form: 'polygon(3.35% 0%,3.32% 25%,0.20% 50%,0.30% 75%,2.92% 100%,97.42% 100%,97.66% 75%,98.92% 50%,97.88% 25%,97.88% 0%)' },
+  { ton: 'band-hell', form: 'polygon(0.47% 0%,2.97% 25%,2.67% 50%,0.89% 75%,1.73% 100%,98.43% 100%,97.72% 75%,97.24% 50%,99.67% 25%,99.90% 0%)' },
+  { ton: 'band-khaki', form: 'polygon(0.83% 0%,1.90% 25%,1.29% 50%,2.11% 75%,2.19% 100%,99.77% 100%,99.95% 75%,97.07% 50%,99.09% 25%,99.18% 0%)' },
 ];
 const band = (n: number, drehung: number) => {
   const b = baender[(index + n) % baender.length];
@@ -70,7 +71,8 @@ const kopf = seite === 'links' ? `Songbooklet · Nr. ${song.nr}` : 'Text & Musig
           <span class:list={['b-tape', band(2, -3 * kipp).klasse]} style={`left:20%;${band(2, -3 * kipp).stil}`}></span>
           <div class="relative" style="aspect-ratio:16/10">
             <img src={song.fotos.gross} alt="" loading="lazy" decoding="async" />
-            {song.zitat.length > 0 && <p class="b-zitat">{song.zitat.map((z) => <span class="block">{z}</span>)}</p>}
+            {/* Der Streifen trägt höchstens zwei Zeilen */}
+            {song.zitat.length > 0 && <p class="b-zitat">{song.zitat.slice(0, 2).map((z) => <span class="block">{z}</span>)}</p>}
           </div>
         </figure>
 

@@ -34,6 +34,10 @@ Es gibt **kein Figma**. Die verbindliche Vorlage ist `STYLEGUIDE.md` plus
    Instrument und die Liedzeilen auf den Zetteln in Special Elite
    (`font-typo`). Ausserhalb des Scrapbooks gilt die Regel unverändert.
 
+   Das Scrapbook ist **flach**: keine Farbverläufe, keine halbtransparenten
+   Farben, keine weichen Schatten, keine Textur-Ebenen (Entscheid von
+   Seraina, 31.10.2026). Papier, Klebeband und Zettel sind einfarbig.
+
 3. **Ocker und Khaki sind Flächenfarben.** Als Textfarbe auf hellem Grund nur
    `ocker-text` bzw. `khaki-tief` verwenden — sonst reicht der Kontrast nicht.
 
@@ -69,6 +73,7 @@ Es gibt **kein Figma**. Die verbindliche Vorlage ist `STYLEGUIDE.md` plus
 | `src/data/besetzung.json` | Die drei Bandmitglieder |
 | `src/data/musik.json` | Hörproben: Titel, YouTube-ID **oder** Videodatei, Standbild, Notiz |
 | `src/data/kanaele.json` | Instagram und YouTube: Name, Handle, Adresse |
+| `src/data/hoerproben.json` | Hörproben: je Song Titel, Originalband bei Covers, 20-Sekunden-Datei in `public/audio/hoerproben/`, dazu das ZIP der eigenen Songs |
 | `src/data/booklet.json` | Songbooklet: je Song Nummer, Titel und die Ausschnitte (Strophe, Refrain, Handnotizen, Fotozitat) plus zwei Fotos aus `public/booklet/fotos/` |
 | `src/components/Wortmarke.astro` | «flexiBelle» als Text in Grape Nuts |
 | `src/components/Signet.astro` | fB im Kreis, SVG plus Text |

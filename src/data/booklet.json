@@ -33,6 +33,7 @@
     "fotos": {
       "gross": "/booklet/fotos/dsc-4834-quer.jpg",
       "klein": "/booklet/fotos/dsc-4840-quadrat.jpg",
+      "titel": "/booklet/fotos/dsc-4824-titel.jpg",
       "notiz": "gheim"
     }
   },
@@ -70,6 +71,7 @@
     "fotos": {
       "gross": "/booklet/fotos/dsc-4803-quer.jpg",
       "klein": "/booklet/fotos/dsc-4802-quadrat.jpg",
+      "titel": "/booklet/fotos/dsc-4831-titel.jpg",
       "notiz": "de enneri Kompass"
     }
   },
@@ -108,6 +110,7 @@
     "fotos": {
       "gross": "/booklet/fotos/dsc-4806-quer.jpg",
       "klein": "/booklet/fotos/dsc-4796-quadrat.jpg",
+      "titel": "/booklet/fotos/dsc-4817-titel.jpg",
       "notiz": "Do isch mis Dehei"
     }
   },
@@ -145,6 +148,7 @@
     "fotos": {
       "gross": "/booklet/fotos/dsc-4839-quer.jpg",
       "klein": "/booklet/fotos/dsc-4795-quadrat.jpg",
+      "titel": "/booklet/fotos/dsc-4798-titel.jpg",
       "notiz": "Kei Maske"
     }
   },
@@ -180,6 +184,7 @@
     "fotos": {
       "gross": "/booklet/fotos/dsc-4809-quer.jpg",
       "klein": "/booklet/fotos/dsc-4821-quadrat.jpg",
+      "titel": "/booklet/fotos/dsc-4811-titel.jpg",
       "notiz": "So confusing"
     }
   },
@@ -213,6 +218,7 @@
     "fotos": {
       "gross": "/booklet/fotos/dsc-4814-quer.jpg",
       "klein": "/booklet/fotos/dsc-4816-quadrat.jpg",
+      "titel": "/booklet/fotos/dsc-4815-titel.jpg",
       "notiz": "e Spiegu"
     }
   },
@@ -231,8 +237,7 @@
     ],
     "zitat": [
       "Du seisch s’isch Magie",
-      "Und egal was chunnt",
-      "Mir bliebe drbii"
+      "Und egal was chunnt"
     ],
     "notiz": [
       "Und i stuune",
@@ -281,6 +286,7 @@
     "fotos": {
       "gross": "/booklet/fotos/dsc-4791-quer.jpg",
       "klein": "/booklet/fotos/dsc-4823-quadrat.jpg",
+      "titel": "/booklet/fotos/dsc-4820-titel.jpg",
       "notiz": "juste l’instant"
     }
   },
@@ -314,6 +320,7 @@
     "fotos": {
       "gross": "/booklet/fotos/dsc-4827-quer.jpg",
       "klein": "/booklet/fotos/dsc-4829-quadrat.jpg",
+      "titel": "/booklet/fotos/dsc-4818-titel.jpg",
       "notiz": "Summernacht"
     }
   },
@@ -349,6 +356,7 @@
     "fotos": {
       "gross": "/booklet/fotos/dsc-4819-quer.jpg",
       "klein": "/booklet/fotos/dsc-4825-quadrat.jpg",
+      "titel": "/booklet/fotos/dsc-4836-titel.jpg",
       "notiz": "Gern doch"
     }
   },
@@ -381,6 +389,7 @@
     "fotos": {
       "gross": "/booklet/fotos/dsc-4797-quer.jpg",
       "klein": "/booklet/fotos/dsc-4804-quadrat.jpg",
+      "titel": "/booklet/fotos/dsc-4810-titel.jpg",
       "notiz": "gnue"
     }
   },
@@ -414,6 +423,7 @@
     "fotos": {
       "gross": "/booklet/fotos/dsc-4808-quer.jpg",
       "klein": "/booklet/fotos/dsc-4801-quadrat.jpg",
+      "titel": "/booklet/fotos/dsc-4813-titel.jpg",
       "notiz": "fristlos"
     }
   },
@@ -446,6 +456,7 @@
     "fotos": {
       "gross": "/booklet/fotos/dsc-4812-quer.jpg",
       "klein": "/booklet/fotos/dsc-4807-quadrat.jpg",
+      "titel": "/booklet/fotos/dsc-4837-titel.jpg",
       "notiz": "dorenand"
     }
   },
@@ -478,6 +489,7 @@
     "fotos": {
       "gross": "/booklet/fotos/dsc-4832-quer.jpg",
       "klein": "/booklet/fotos/dsc-4835-quadrat.jpg",
+      "titel": "/booklet/fotos/dsc-4833-titel.jpg",
       "notiz": "on the road again"
     }
   },

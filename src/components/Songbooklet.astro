@@ -18,11 +18,11 @@ const seiten = songs.flatMap((song, index) => {
 });
 
 const knopf =
-  'border border-ocker/50 px-[18px] py-2.5 font-typo text-xs uppercase tracking-[0.2em] text-ocker-hell ' +
-  'transition-colors enabled:hover:bg-ocker/[.14] enabled:hover:text-beige disabled:cursor-default disabled:opacity-35';
+  'border border-ocker px-[18px] py-2.5 font-typo text-xs uppercase tracking-[0.2em] text-ocker-hell ' +
+  'transition-colors enabled:hover:bg-braun-weich enabled:hover:text-beige disabled:cursor-default disabled:border-braun-weich disabled:text-taupe';
 ---
 
-<section id="songbooklet" class="riss-booklet bg-braun-tief bg-booklet-schein px-6 py-20 text-beige sm:px-10 lg:py-28">
+<section id="songbooklet" class="riss-booklet bg-braun-tief px-6 py-20 text-beige sm:px-10 lg:py-28">
   <div class="mx-auto max-w-inhalt">
     <p class="label text-ocker">Songbooklet</p>
     <h2 class="titel mt-3">Stöbere in unseren Songs</h2>
@@ -33,18 +33,18 @@ const knopf =
     <div data-booklet class="mt-11 flex flex-col items-center gap-[22px]">
       <!-- Breit: Doppelseite mit Umschlag -->
       <div class="relative aspect-[1600/1000] w-full max-w-[940px] [perspective-origin:50%_46%] [perspective:2400px] max-[700px]:hidden">
-        <div class="absolute -inset-x-[2.4%] -inset-y-[1.6%] bg-buchruecken shadow-buch"></div>
+        <div class="absolute -inset-x-[2.4%] -inset-y-[1.6%] bg-buchruecken"></div>
         <div data-links class="buchseite left-0"></div>
         <div data-rechts class="buchseite left-1/2"></div>
         <div data-blatt class="blatt" hidden>
           <div data-vorn class="blattseite"></div>
           <div data-hinten class="blattseite hinten"></div>
         </div>
-        <div class="pointer-events-none absolute left-[47.5%] top-0 z-[6] h-full w-[5%] bg-buch-bund"></div>
+        <div class="pointer-events-none absolute left-1/2 top-0 z-[6] -ml-px h-full w-0.5 bg-buchruecken"></div>
       </div>
 
       <!-- Schmal: eine Seite nach der anderen -->
-      <div data-einzel class="relative hidden aspect-[620/775] w-full max-w-[460px] bg-buchseite shadow-einzelseite max-[700px]:block"></div>
+      <div data-einzel class="relative hidden aspect-[620/775] w-full max-w-[460px] bg-buchseite max-[700px]:block"></div>
 
       <div class="flex items-center gap-[18px]">
         <button type="button" data-zurueck class={knopf} disabled>Zurück<span class="sr-only"> blättern</span></button>

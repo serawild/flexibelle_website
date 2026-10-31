@@ -50,25 +50,9 @@
 
   /* ── Scrapbook, Abschnitt Band ── Werte aus Songbooklet/vorschau/flexibelle-vorschau.html */
 
-  /* Kraftpapier mit zwei Textur-Ebenen; der Inhalt braucht z-10, um darüber zu liegen */
+  /* Kraftpapier, flach: keine Verläufe, keine Transparenzen (Entscheid 31.10.2026) */
   .papier {
-    @apply relative bg-kraft bg-papier-kraft;
-  }
-  .papier::before,
-  .papier::after {
-    content: '';
-    @apply pointer-events-none absolute inset-0;
-  }
-  .papier::before {
-    background-image: theme('backgroundImage.papier-rauschen');
-    mix-blend-mode: overlay;
-    opacity: 0.42;
-  }
-  .papier::after {
-    background-image: theme('backgroundImage.papier-flecken');
-    background-size: 900px 900px;
-    mix-blend-mode: multiply;
-    opacity: 0.42;
+    @apply relative bg-kraft;
   }
 
   /* Gerissene Oberkante; dahinter scheint die .bandhuelle durch */
@@ -77,12 +61,38 @@
   }
 
   .polaroid {
-    @apply relative bg-polaroid px-[13px] pb-[18px] pt-[13px] shadow-polaroid;
+    @apply relative bg-polaroid px-[13px] pb-[18px] pt-[13px];
+  }
+
+  /* Klebeband in drei Tönen, je mit feinem Muster: harte Kanten, nur volle Farben */
+  .band-ocker {
+    background-color: theme('colors.ocker');
+    background-image: repeating-linear-gradient(
+      115deg,
+      theme('colors.ocker') 0 5px,
+      theme('colors.ocker-hell') 5px 7px
+    );
+  }
+  .band-hell {
+    background-color: theme('colors.khaki-hell');
+    background-image: radial-gradient(
+      circle,
+      theme('colors.khaki') 0 1px,
+      theme('colors.khaki-hell') 1.4px
+    );
+    background-size: 6px 6px;
+  }
+  .band-khaki {
+    background-color: theme('colors.khaki');
+    background-image:
+      repeating-linear-gradient(0deg, theme('colors.khaki') 0 5px, theme('colors.khaki-tief') 5px 6px),
+      repeating-linear-gradient(90deg, theme('colors.khaki') 0 5px, theme('colors.khaki-tief') 5px 6px);
+    background-blend-mode: darken;
   }
 
   /* Klebeband: Lage, Drehung und ausgefranste Enden kommen je Karte als style */
   .tape {
-    @apply pointer-events-none absolute z-10 block shadow-tape;
+    @apply pointer-events-none absolute z-10 block;
     left: 50%;
     top: -16px;
     width: 116px;
@@ -134,21 +144,14 @@
     @apply h-full w-full;
   }
   .b-papier {
-    @apply relative flex h-full flex-col overflow-hidden bg-buchseite bg-papier-alt text-braun;
+    @apply relative flex h-full flex-col overflow-hidden bg-buchseite text-braun;
     padding: 6.5cqw 7cqw 0;
-  }
-  .b-papier::before {
-    content: '';
-    @apply pointer-events-none absolute inset-0;
-    background-image: theme('backgroundImage.papier-rauschen');
-    mix-blend-mode: overlay;
-    opacity: 0.35;
   }
   .b-papier > * {
     @apply relative;
   }
   .b-kopf {
-    @apply border-b border-taupe/30 font-typo uppercase text-taupe;
+    @apply border-b border-sand font-typo uppercase text-taupe;
     font-size: 1.8cqw;
     letter-spacing: 0.2em;
     padding-bottom: 1.6cqw;
@@ -159,7 +162,13 @@
     margin-top: 3.2cqw;
   }
   .b-zettel {
-    @apply bg-polaroid bg-zettel-linien font-typo shadow-zettel;
+    @apply bg-polaroid font-typo;
+    /* Linien mit harter Kante, einfarbig */
+    background-image: repeating-linear-gradient(
+      180deg,
+      theme('colors.polaroid') 0 calc(1.8em - 1px),
+      theme('colors.sand') calc(1.8em - 1px) 1.8em
+    );
     font-size: 2.75cqw;
     line-height: 1.8em;
     padding: 1.8em 4cqw 1em;
@@ -175,7 +184,7 @@
     line-height: 1.3;
   }
   .b-foto {
-    @apply bg-polaroid shadow-zettel;
+    @apply bg-polaroid;
     padding: 1.6cqw 1.6cqw 1.6cqw;
   }
   .b-foto img {
@@ -186,14 +195,15 @@
     font-size: 3cqw;
     padding-top: 0.8cqw;
   }
+  /* Zitat auf vollem braunem Streifen am unteren Fotorand */
   .b-zitat {
-    @apply absolute inset-x-0 bottom-0 bg-foto-verlauf font-typo text-beige;
+    @apply absolute inset-x-0 bottom-0 bg-braun-marke font-typo text-beige;
     font-size: 3.1cqw;
     line-height: 1.6;
-    padding: 10cqw 5cqw 3.5cqw;
+    padding: 2.2cqw 4cqw;
   }
   .b-tape {
-    @apply pointer-events-none absolute z-10 block shadow-tape;
+    @apply pointer-events-none absolute z-10 block;
     left: 50%;
     top: -2.3cqw;
     width: 19cqw;
