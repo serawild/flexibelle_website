@@ -19,7 +19,7 @@
     "datum": "2026-11-21",
     "anzeige": "SA 21.11.2026",
     "ort": "Weihnachtsmarkt Gretzenbach",
-    "zeit": "18:00",
+    "zeit": "ab 18:00",
     "gaeste": [
       {
         "name": "Tina",
@@ -33,7 +33,7 @@
     "datum": "2026-12-11",
     "anzeige": "FR 11.12.2026",
     "ort": "live i de Bar, AHA",
-    "zeit": "",
+    "zeit": "ab 20:30",
     "gaeste": [
       {
         "name": "Tina",
