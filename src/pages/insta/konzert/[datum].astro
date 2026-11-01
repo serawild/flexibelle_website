@@ -1,0 +1,90 @@
+---
+/**
+ * Instagram-Post für ein anstehendes Konzert: eine Folie zu 1080 × 1350 (4:5)
+ * im flachen Scrapbook-Look. Daten aus termine.json, Foto aus `postBild`,
+ * Gäste mit `bildGross` als kleine Polaroids. Nur im Dev-Server erreichbar
+ * (localhost:4321/insta/konzert/2026-11-21); beim Build entstehen keine Seiten.
+ * Export: node scripts/insta-export.mjs konzerte
+ */
+import '../../../styles/global.css';
+import termine from '../../../data/termine.json';
+
+interface Gast { name: string; bild: string; bildGross?: string; link: string }
+interface Termin { datum: string; anzeige: string; ort: string; zeit: string; gaeste: Gast[]; link: string; postBild?: string }
+
+export function getStaticPaths() {
+  if (!import.meta.env.DEV) return [];
+  return (termine as Termin[])
+    .filter((t) => t.postBild)
+    .map((termin, index) => ({ params: { datum: termin.datum }, props: { termin, index } }));
+}
+
+const { termin, index } = Astro.props as { termin: Termin; index: number };
+const kipp = index % 2 === 0 ? 1 : -1;
+
+// «SA 21.11.2026» → Wochentag und Datum getrennt, das Jahr fällt weg
+const [tag, datum] = termin.anzeige.split(' ');
+const kurzDatum = datum.slice(0, 6);
+// «Weihnachtliches Miteinander, Classic Center Schweiz, Safenwil» → Anlass und Ort
+const teile = termin.ort.split(', ');
+const anlass = teile[0];
+const ort = teile.slice(1).join(', ');
+
+const baender = ['band-ocker', 'band-hell', 'band-khaki'];
+const form = 'polygon(3.35% 0%,3.32% 25%,0.20% 50%,0.30% 75%,2.92% 100%,97.42% 100%,97.66% 75%,98.92% 50%,97.88% 25%,97.88% 0%)';
+const namen = termin.gaeste.map((g) => g.name);
+const mit = namen.length > 1 ? `${namen.slice(0, -1).join(', ')} und ${namen.at(-1)}` : namen[0];
+---
+
+<!doctype html>
+<html lang="de-CH">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <title>Konzert {termin.datum}</title>
+    <style is:global>astro-dev-toolbar { display: none !important; }</style>
+  </head>
+  <body class="m-0 w-[1080px] bg-braun">
+    <section data-folie class="h-[1350px] w-[1080px]">
+      <div class="b-rahmen">
+        <div class="relative flex h-full flex-col bg-kraft text-braun" style="padding:7cqw 8cqw 0">
+          <p class="b-kopf" style="font-size:2.2cqw">Live · flexiBelle</p>
+
+          <figure class="relative bg-polaroid" style={`margin-top:6cqw;padding:2cqw;transform:rotate(${-1.4 * kipp}deg)`}>
+            <span class={`b-tape ${baender[index % 3]}`} style={`left:78%;width:24cqw;height:6cqw;margin-left:-12cqw;top:-3cqw;transform:rotate(${5 * kipp}deg);clip-path:${form}`}></span>
+            <img src={termin.postBild} alt="" class="block w-full object-cover" style="aspect-ratio:2/1" />
+          </figure>
+
+          <div class="flex items-start justify-between" style="gap:4cqw;margin-top:5cqw">
+            <div class="min-w-0 flex-1">
+              <p class="font-typo uppercase text-ocker-text" style="font-size:3.4cqw;letter-spacing:0.18em">{tag} {kurzDatum}</p>
+              <p class="font-marke leading-none text-khaki-tief" style={`font-size:${termin.gaeste.length > 1 || anlass.length > 22 ? 7.5 : 9.5}cqw;margin-top:2.5cqw`}>{anlass}</p>
+              {ort && <p class="font-typo uppercase text-taupe" style="font-size:2.4cqw;letter-spacing:0.16em;margin-top:2.5cqw">{ort}</p>}
+              <p style="margin-top:3cqw">
+                {termin.zeit && <span class="font-typo text-braun" style="font-size:3.4cqw">{termin.zeit}</span>}
+                {mit && <span class="inline-block whitespace-nowrap font-zitat italic text-khaki-tief" style="font-size:3.6cqw;margin-left:2.5cqw">mit {mit}</span>}
+              </p>
+            </div>
+
+            {termin.gaeste.length > 0 && (
+              <div class="flex shrink-0" style="gap:2.5cqw">
+                {termin.gaeste.map((g, i) => (
+                  <figure class="relative bg-polaroid" style={`width:${termin.gaeste.length > 1 ? 17 : 22}cqw;padding:1.4cqw 1.4cqw 0;transform:rotate(${(i % 2 ? -3 : 3) * kipp}deg)`}>
+                    <img src={g.bildGross ?? g.bild} alt="" class="block w-full object-cover" style="aspect-ratio:1/1;object-position:50% 25%" />
+                    <figcaption class="text-center font-marke text-taupe" style="font-size:3.2cqw;padding:0.6cqw 0 1cqw">{g.name}</figcaption>
+                  </figure>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <p class="b-fuss" style="font-size:2.2cqw;padding-bottom:6cqw">
+            <span class="inline-flex shrink-0 items-center justify-center rounded-full border border-ocker font-marke normal-case tracking-normal text-braun"
+              style="width:7cqw;height:7cqw;font-size:3.5cqw">fB</span>
+            flexibelle.live
+          </p>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

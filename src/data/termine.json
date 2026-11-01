@@ -24,10 +24,12 @@
       {
         "name": "Tina",
         "bild": "/image/tina-gast.jpg",
-        "link": "https://www.youtube.com/@tinamariameier"
+        "link": "https://www.youtube.com/@tinamariameier",
+        "bildGross": "/image/tina-meier-thumbnail.jpeg"
       }
     ],
-    "link": ""
+    "link": "",
+    "postBild": "/booklet/fotos/dsc-4791-quer.jpg"
   },
   {
     "datum": "2026-12-11",
@@ -38,15 +40,18 @@
       {
         "name": "Tina",
         "bild": "/image/tina-gast.jpg",
-        "link": "https://www.youtube.com/@tinamariameier"
+        "link": "https://www.youtube.com/@tinamariameier",
+        "bildGross": "/image/tina-meier-thumbnail.jpeg"
       },
       {
         "name": "Yara",
         "bild": "/image/yara-gast.jpg",
-        "link": ""
+        "link": "",
+        "bildGross": "/image/yara-original.jpg"
       }
     ],
-    "link": "https://www.aha.ag/events/gGTzf2i4/liveidebar-11-12-26"
+    "link": "https://www.aha.ag/events/gGTzf2i4/liveidebar-11-12-26",
+    "postBild": "/presse/flexibelle-live-quer-web.jpg"
   },
   {
     "datum": "2026-12-18",
@@ -57,9 +62,11 @@
       {
         "name": "Tina",
         "bild": "/image/tina-gast.jpg",
-        "link": "https://www.youtube.com/@tinamariameier"
+        "link": "https://www.youtube.com/@tinamariameier",
+        "bildGross": "/image/tina-meier-thumbnail.jpeg"
       }
     ],
-    "link": "https://emilfreyclassics.eyevip.ch/events/WeihnachtlichesMiteinander2026/index.php?page=information"
+    "link": "https://emilfreyclassics.eyevip.ch/events/WeihnachtlichesMiteinander2026/index.php?page=information",
+    "postBild": "/booklet/fotos/dsc-4792-quer.jpg"
   }
 ]
