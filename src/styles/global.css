@@ -195,9 +195,9 @@
     font-size: 3cqw;
     padding-top: 0.8cqw;
   }
-  /* Zitat auf vollem braunem Streifen am unteren Fotorand */
+  /* Zitat auf leicht durchsichtigem braunem Streifen am unteren Fotorand */
   .b-zitat {
-    @apply absolute inset-x-0 bottom-0 bg-braun-marke font-typo text-beige;
+    @apply absolute inset-x-0 bottom-0 bg-braun-marke/75 font-typo text-beige;
     font-size: 3.1cqw;
     line-height: 1.6;
     padding: 2.2cqw 4cqw;

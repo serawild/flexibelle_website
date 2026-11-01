@@ -34,9 +34,11 @@ Es gibt **kein Figma**. Die verbindliche Vorlage ist `STYLEGUIDE.md` plus
    Instrument und die Liedzeilen auf den Zetteln in Special Elite
    (`font-typo`). Ausserhalb des Scrapbooks gilt die Regel unverändert.
 
-   Das Scrapbook ist **flach**: keine Farbverläufe, keine halbtransparenten
-   Farben, keine weichen Schatten, keine Textur-Ebenen (Entscheid von
-   Seraina, 31.10.2026). Papier, Klebeband und Zettel sind einfarbig.
+   Das Scrapbook im Abschnitt Band ist **flach**: keine Farbverläufe, keine
+   halbtransparenten Farben, keine weichen Schatten, keine Textur-Ebenen
+   (Entscheid von Seraina, 31.10.2026). Papier, Klebeband und Zettel sind
+   einfarbig. Im Songbooklet sind Verläufe und Transparenzen erlaubt
+   (01.11.2026); der Zitatstreifen auf den Fotos ist leicht durchsichtig.
 
 3. **Ocker und Khaki sind Flächenfarben.** Als Textfarbe auf hellem Grund nur
    `ocker-text` bzw. `khaki-tief` verwenden — sonst reicht der Kontrast nicht.
