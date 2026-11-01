@@ -29,6 +29,10 @@ export default {
         buchruecken: '#241A12',  // Songbooklet: Platte unter den Buchseiten
         buchseite: '#E3D3B4',    // Songbooklet: Papier, solange ein Bild lädt
       },
+      backgroundImage: {
+        // Songbooklet: weicher Schatten im Buchfalz, aus der Vorlage flexibelle-vorschau.html
+        'buch-bund': 'linear-gradient(90deg, rgba(0,0,0,0), rgba(0,0,0,.34) 46%, rgba(0,0,0,.42) 50%, rgba(0,0,0,.30) 54%, rgba(0,0,0,0))',
+      },
       fontFamily: {
         marke: ['Grape Nuts', 'cursive'],
         typo: ['Special Elite', 'Courier New', 'monospace'],
